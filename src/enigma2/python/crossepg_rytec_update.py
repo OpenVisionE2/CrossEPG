@@ -21,6 +21,7 @@ import os
 import random
 
 from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN
+from Components.Console import Console
 
 class CrossEPG_Rytec_Source(object):
 	def __init__(self):
@@ -167,7 +168,7 @@ class CrossEPG_Rytec_Update(Screen):
 							oldsource.channels_urls.append(source.channels_urls[0])
 
 	def save(self, destination):
-		os.system("rm -f " + destination + "/rytec_*.conf")
+		Console().ePopen("rm -f %s/rytec_*.conf" % destination)
 		for source in self.sources:
 			p = re.compile('[/:()<>|?*\s-]|(\\\)')
 			filename = p.sub('_', source.description).lower()

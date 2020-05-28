@@ -23,6 +23,7 @@ from crossepg_locale import _
 from time import *
 
 import os
+from Components.Console import Console
 
 class CrossEPG_Setup(ConfigListScreen, Screen):
 	def __init__(self, session):
@@ -322,7 +323,7 @@ class CrossEPG_Setup(ConfigListScreen, Screen):
 
 		if getEPGPatchType() == -1:
 			# exec crossepg_prepare_pre_start for unpatched images
-			os.system(self.config.home_directory + "/crossepg_prepare_pre_start.sh")
+			Console().ePopen("%s/crossepg_prepare_pre_start.sh" % self.config.home_directory)
 
 		if self.show_extension != self.config.show_extension or self.show_plugin != self.config.show_plugin:
 			for plugin in plugins.getPlugins(PluginDescriptor.WHERE_PLUGINMENU):
