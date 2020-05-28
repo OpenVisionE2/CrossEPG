@@ -22,10 +22,6 @@ import os
 import sys
 
 from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN
-try:
-	from Tools.Directories import SCOPE_CURRENT_SKIN
-except:
-	pass
 
 class CrossEPG_Downloader(Screen):
 	LOCK_TIMEOUT_FIXED = 100 	# 100ms for tick - 10 sec

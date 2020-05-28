@@ -18,10 +18,6 @@ import os
 import sys
 
 from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN
-try:
-	from Tools.Directories import SCOPE_CURRENT_SKIN
-except:
-	pass
 
 class CrossEPG_About(Screen):
 	def __init__(self, session):

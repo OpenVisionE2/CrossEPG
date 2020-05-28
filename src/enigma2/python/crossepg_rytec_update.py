@@ -21,10 +21,6 @@ import os
 import random
 
 from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN
-try:
-	from Tools.Directories import SCOPE_CURRENT_SKIN
-except:
-	pass
 
 class CrossEPG_Rytec_Source(object):
 	def __init__(self):

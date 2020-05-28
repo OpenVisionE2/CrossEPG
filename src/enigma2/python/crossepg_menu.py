@@ -30,10 +30,6 @@ from Components.PluginComponent import plugins
 from Components.ActionMap import ActionMap
 from Tools.LoadPixmap import LoadPixmap
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS, SCOPE_CURRENT_SKIN
-try:
-	from Tools.Directories import SCOPE_CURRENT_SKIN
-except:
-	pass
 from Plugins.Plugin import PluginDescriptor
 
 from time import *

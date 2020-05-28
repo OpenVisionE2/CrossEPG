@@ -20,10 +20,6 @@ import re
 import os
 
 from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN
-try:
-	from Tools.Directories import SCOPE_CURRENT_SKIN
-except:
-	pass
 
 SIFTEAM_HOST = "crossepg.sifteam.eu"
 
