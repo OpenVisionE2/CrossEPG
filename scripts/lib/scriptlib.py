@@ -1,4 +1,6 @@
 #!/usr/bin/python
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 # scriptlib.py  by Ambrosa http://www.ambrosa.net
 # derived from E2_LOADEPG
 # 22-Dec-2011
@@ -42,7 +44,7 @@ class logging_class:
 			else :
 				crossepg.log_open(dbroot)
 		else:
-			print "[scriptlib] WARNING: cannot open crossepg dbroot. Log not initialized !!"
+			print("[scriptlib] WARNING: cannot open crossepg dbroot. Log not initialized !!")
 			
 
 	def log(self,s):

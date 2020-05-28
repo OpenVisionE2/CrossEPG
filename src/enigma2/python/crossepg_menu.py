@@ -1,3 +1,5 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 from enigma import *
 from crossepglib import *
 from crossepg_info import CrossEPG_Info

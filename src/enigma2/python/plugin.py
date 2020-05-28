@@ -1,3 +1,5 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 from crossepg_auto import CrossEPGautostart
 from crossepglib import CrossEPG_Config
 from crossepg_main import crossepg_main

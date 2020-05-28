@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 from enigma import *
 from crossepg_locale import _
 from Tools.Directories import crawlDirectory, pathExists, createDir
@@ -71,13 +74,13 @@ class CrossEPG_Config:
 		elif pathExists("/var/crossepg"):
 			self.home_directory = "/var/crossepg"
 		else:
-			print "[CrossEPG_Config] ERROR!! CrossEPG binaries non found"
+			print("[CrossEPG_Config] ERROR!! CrossEPG binaries non found")
 
 	def load(self):
 		try:
 			f = open("%s/crossepg.config" % (self.home_directory), "r")
 		except Exception as e:
-			#print "[CrossEPG_Config] %s" % (e)
+			#print("[CrossEPG_Config] %s" % (e))
 			return
 
 		commentRe = re.compile(r"#(.*)")
@@ -140,7 +143,7 @@ class CrossEPG_Config:
 		try:
 			f = open("%s/crossepg.config" % (self.home_directory), "w")
 		except Exception as e:
-			print "[CrossEPG_Config] %s" % (e)
+			print("[CrossEPG_Config] %s" % (e))
 			return
 
 		tmp = []
@@ -174,7 +177,7 @@ class CrossEPG_Config:
 		try:
 			f = open("%s/providers/%s.conf" % (self.home_directory, provider), "r")
 		except Exception as e:
-			print "[CrossEPG_Config] %s" % (e)
+			print("[CrossEPG_Config] %s" % (e))
 			return
 
 		proto = re.compile(r"protocol=(.*)")
@@ -191,7 +194,7 @@ class CrossEPG_Config:
 		try:
 			f = open("%s/providers/%s.conf" % (self.home_directory, provider), "r")
 		except Exception as e:
-			print "[CrossEPG_Config] %s" % (e)
+			print("[CrossEPG_Config] %s" % (e))
 			return
 
 		regexp = re.compile(r"(.*)=(.*)")
@@ -269,7 +272,7 @@ class CrossEPG_Config:
 					providersproto.append(None)
 
 			except Exception as e:
-				print "[CrossEPG_Config] %s" % (e)
+				print("[CrossEPG_Config] %s" % (e))
 				providersdesc.append(provider)
 				providersproto.append(None)
 
@@ -300,7 +303,7 @@ class CrossEPG_Config:
 		try:
 			os.unlink(self.db_root + "/crossepg.log")
 		except Exception as e:
-			print e
+			print(e)
 
 class CrossEPG_Wrapper:
 	EVENT_READY			= 0
@@ -368,7 +371,7 @@ class CrossEPG_Wrapper:
 		elif pathExists("/var/crossepg"):
 			self.home_directory = "/var/crossepg"
 		else:
-			print "[CrossEPG_Config] ERROR!! CrossEPG binaries non found"
+			print("[CrossEPG_Config] ERROR!! CrossEPG binaries non found")
 
 	def init(self, cmd, dbdir):
 		if not pathExists(dbdir):
@@ -387,10 +390,10 @@ class CrossEPG_Wrapper:
 		elif cmd == self.CMD_DEFRAGMENTER:
 			x = "%s/crossepg_defragmenter -r -d %s" % (self.home_directory, dbdir)
 		else:
-			print "[CrossEPG_Wrapper] unknow command on init"
+			print("[CrossEPG_Wrapper] unknow command on init")
 			return
 
-		print "[CrossEPG_Wrapper] executing %s" % (x)
+		print("[CrossEPG_Wrapper] executing %s" % (x))
 		self.cmd.appClosed.append(self.__cmdFinished)
 		self.cmd.dataAvail.append(self.__cmdData)
 		if self.cmd.execute(x):
@@ -431,23 +434,23 @@ class CrossEPG_Wrapper:
 		elif data.find("DESCRIPTION ") == 0:
 			self.__callCallbacks(self.EVENT_DESCRIPTION, data[12:].replace("\\n", "\n"))
 		elif data == "READY":
-			print "[CrossEPG_Wrapper] <- READY"
+			print("[CrossEPG_Wrapper] <- READY")
 			self.__callCallbacks(self.EVENT_READY, None)
 		elif data == "START":
-			print "[CrossEPG_Wrapper] <- START"
+			print("[CrossEPG_Wrapper] <- START")
 			self.__callCallbacks(self.EVENT_START, None)
 		elif data == "END":
-			print "[CrossEPG_Wrapper] <- END"
+			print("[CrossEPG_Wrapper] <- END")
 			self.__callCallbacks(self.EVENT_END, None)
 		elif data == "OK":
-			print "[CrossEPG_Wrapper] <- OK"
+			print("[CrossEPG_Wrapper] <- OK")
 			self.__callCallbacks(self.EVENT_OK, None)
 		elif data.find("ERROR ") == 0:
 			ttype = data[5:]
 			self.__callCallbacks(self.EVENT_ERROR, data[6:])
 		elif data.find("TYPE ") == 0:
 			ttype = data[5:]
-			print "[CrossEPG_Wrapper] <- TYPE %s" % (ttype)
+			print("[CrossEPG_Wrapper] <- TYPE %s" % (ttype))
 			if ttype == "READ CHANNELS":
 				self.type = 0;
 				self.__callCallbacks(self.EVENT_ACTION, _("Reading channels"))
@@ -555,7 +558,7 @@ class CrossEPG_Wrapper:
 		return self.cmd.running()
 
 	def lamedb(self, value):
-		print "[CrossEPG_Wrapper] -> LAMEDB %s" % (value)
+		print("[CrossEPG_Wrapper] -> LAMEDB %s" % (value))
 		cmd = "LAMEDB %s\n" % (value)
 		if self.oldapi:
 			self.cmd.write(cmd, len(cmd))
@@ -563,7 +566,7 @@ class CrossEPG_Wrapper:
 			self.cmd.write(cmd)
 
 	def epgdat(self, value):
-		print "[CrossEPG_Wrapper] -> EPGDAT %s" % (value)
+		print("[CrossEPG_Wrapper] -> EPGDAT %s" % (value))
 		cmd = "EPGDAT %s\n" % (value)
 		if self.oldapi:
 			self.cmd.write(cmd, len(cmd))
@@ -571,7 +574,7 @@ class CrossEPG_Wrapper:
 			self.cmd.write(cmd)
 
 	def demuxer(self, value):
-		print "[CrossEPG_Wrapper] -> DEMUXER %s" % (value)
+		print("[CrossEPG_Wrapper] -> DEMUXER %s" % (value))
 		cmd = "DEMUXER %s\n" % (value)
 		if self.oldapi:
 			self.cmd.write(cmd, len(cmd))
@@ -579,7 +582,7 @@ class CrossEPG_Wrapper:
 			self.cmd.write(cmd)
 
 	def frontend(self, value):
-		print "[CrossEPG_Wrapper] -> FRONTEND %s" % (value)
+		print("[CrossEPG_Wrapper] -> FRONTEND %s" % (value))
 		cmd = "FRONTEND %d\n" % (value)
 		if self.oldapi:
 			self.cmd.write(cmd, len(cmd))
@@ -587,7 +590,7 @@ class CrossEPG_Wrapper:
 			self.cmd.write(cmd)
 
 	def defrag(self,):
-		print "[CrossEPG_Wrapper] -> DEFRAGMENT"
+		print("[CrossEPG_Wrapper] -> DEFRAGMENT")
 		cmd = "DEFRAGMENT\n"
 		if self.oldapi:
 			self.cmd.write(cmd, len(cmd))
@@ -595,7 +598,7 @@ class CrossEPG_Wrapper:
 			self.cmd.write(cmd)
 
 	def download(self, provider):
-		print "[CrossEPG_Wrapper] -> DOWNLOAD %s" % (provider)
+		print("[CrossEPG_Wrapper] -> DOWNLOAD %s" % (provider))
 		cmd = "DOWNLOAD %s\n" % (provider)
 		if self.oldapi:
 			self.cmd.write(cmd, len(cmd))
@@ -603,7 +606,7 @@ class CrossEPG_Wrapper:
 			self.cmd.write(cmd)
 
 	def convert(self):
-		print "[CrossEPG_Wrapper] -> CONVERT"
+		print("[CrossEPG_Wrapper] -> CONVERT")
 		self.__callCallbacks(self.EVENT_ACTION, _("Converting data"))
 		self.__callCallbacks(self.EVENT_STATUS, "")
 		if self.oldapi:
@@ -612,14 +615,14 @@ class CrossEPG_Wrapper:
 			self.cmd.write("CONVERT\n")
 
 	def importx(self):
-		print "[CrossEPG_Wrapper] -> IMPORT"
+		print("[CrossEPG_Wrapper] -> IMPORT")
 		if self.oldapi:
 			self.cmd.write("IMPORT\n", 7)
 		else:
 			self.cmd.write("IMPORT\n")
 
 	def text(self):
-		print "[CrossEPG_Wrapper] -> TEXT"
+		print("[CrossEPG_Wrapper] -> TEXT")
 		self.__callCallbacks(self.EVENT_ACTION, _("Loading data"))
 		self.__callCallbacks(self.EVENT_STATUS, "")
 		if self.oldapi:
@@ -628,14 +631,14 @@ class CrossEPG_Wrapper:
 			self.cmd.write("TEXT\n")
 
 	def stop(self):
-		print "[CrossEPG_Wrapper] -> STOP"
+		print("[CrossEPG_Wrapper] -> STOP")
 		if self.oldapi:
 			self.cmd.write("STOP\n", 5)
 		else:
 			self.cmd.write("STOP\n")
 
 	def save(self):
-		print "[CrossEPG_Wrapper] -> SAVE"
+		print("[CrossEPG_Wrapper] -> SAVE")
 		self.__callCallbacks(self.EVENT_ACTION, _("Saving data"))
 		self.__callCallbacks(self.EVENT_STATUS, "")
 		if self.oldapi:
@@ -644,28 +647,28 @@ class CrossEPG_Wrapper:
 			self.cmd.write("SAVE\n")
 
 	def wait(self):
-		print "[CrossEPG_Wrapper] -> WAIT"
+		print("[CrossEPG_Wrapper] -> WAIT")
 		if self.oldapi:
 			self.cmd.write("WAIT\n", 5)
 		else:
 			self.cmd.write("WAIT\n")
 
 	def quit(self):
-		print "[CrossEPG_Wrapper] -> QUIT"
+		print("[CrossEPG_Wrapper] -> QUIT")
 		if self.oldapi:
 			self.cmd.write("QUIT\n", 5)
 		else:
 			self.cmd.write("QUIT\n")
 
 	def open(self):
-		print "[CrossEPG_Wrapper] -> OPEN"
+		print("[CrossEPG_Wrapper] -> OPEN")
 		if self.oldapi:
 			self.cmd.write("OPEN\n", 5)
 		else:
 			self.cmd.write("OPEN\n")
 
 	def close(self):
-		print "[CrossEPG_Wrapper] -> CLOSE"
+		print("[CrossEPG_Wrapper] -> CLOSE")
 		if self.oldapi:
 			self.cmd.write("CLOSE\n", 6)
 		else:

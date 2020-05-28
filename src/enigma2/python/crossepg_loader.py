@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 from enigma import getDesktop, eTimer, eConsoleAppContainer
 
 from Components.config import config
@@ -62,30 +65,30 @@ class CrossEPG_Loader(Screen):
 		elif pathExists("/var/crossepg"):
 			self.home_directory = "/var/crossepg"
 		else:
-			print "[CrossEPG_Config] ERROR!! CrossEPG binaries non found"
+			print("[CrossEPG_Config] ERROR!! CrossEPG binaries non found")
 
 		# check for common patches
 		try:
 			self.xepgpatch = new.instancemethod(_enigma.eEPGCache_crossepgImportEPGv21,None,eEPGCache)
-			print "[CrossEPG_Loader] patch crossepg v2.1 found"
+			print("[CrossEPG_Loader] patch crossepg v2.1 found")
 		except Exception as e:
 			self.xepgpatch = None
 
 		try:
 			self.epgpatch = new.instancemethod(_enigma.eEPGCache_load,None,eEPGCache)
-			print "[CrossEPG_Loader] patch epgcache.load() found"
+			print("[CrossEPG_Loader] patch epgcache.load() found")
 		except Exception as e:
 			self.epgpatch = None
 
 		try:
 			self.edgpatch = new.instancemethod(_enigma.eEPGCache_reloadEpg,None,eEPGCache)
-			print "[CrossEPG_Loader] patch EDG NEMESIS found"
+			print("[CrossEPG_Loader] patch EDG NEMESIS found")
 		except Exception as e:
 			self.edgpatch = None
 
 		try:
 			self.oudeispatch = new.instancemethod(_enigma.eEPGCache_importEvent,None,eEPGCache)
-			print "[CrossEPG_Loader] patch Oudeis found"
+			print("[CrossEPG_Loader] patch Oudeis found")
 		except Exception as e:
 			self.oudeispatch = None
 
@@ -127,7 +130,7 @@ class CrossEPG_Loader(Screen):
 
 			self.wrapper.init(CrossEPG_Wrapper.CMD_CONVERTER, self.db_root)
 		else:
-			print "No patch found... please reboot enigma2 manually"
+			print("No patch found... please reboot enigma2 manually")
 			self.closeAndCallback(True)
 
 		if not noosd:
@@ -140,7 +143,7 @@ class CrossEPG_Loader(Screen):
 			self["background"].instance.setPixmapFromFile("%s/images/background.png" % (os.path.dirname(sys.modules[__name__].__file__)))
 
 	def loadEPG2(self):
-		print "[CrossEPG_Loader] loading data with crossepg patch v2"
+		print("[CrossEPG_Loader] loading data with crossepg patch v2")
 		self.xepgpatch(eEPGCache.getInstance(), self.db_root)
 		self.closeAndCallback(True)
 
@@ -149,45 +152,45 @@ class CrossEPG_Loader(Screen):
 			cmd = "%s/crossepg_epgcopy %s/ext.epg.dat %s" % (self.home_directory, self.db_root, config.misc.epgcache_filename.value)
 		except Exception as e:
 			cmd = "%s/crossepg_epgcopy %s/ext.epg.dat /hdd/epg.dat" % (self.home_directory, self.db_root)
-		print "[CrossEPG_Loader:loadEPG] %s" % (cmd)
+		print("[CrossEPG_Loader:loadEPG] %s" % (cmd))
 		try:
 			global container  # Need to keep a ref alive...
 			def appClosed(retval):
 				global container
-				print "[CrossEPG_Loader:loadEPG] loadEPG complete, result: ", retval
+				print("[CrossEPG_Loader:loadEPG] loadEPG complete, result: ", retval)
 				self.epgpatch(eEPGCache.getInstance())
 				self.closeAndCallback(True)
 				container = None
 			def dataAvail(data):
-				print "[CrossEPG_Loader:loadEPG]", data.rstrip()
+				print("[CrossEPG_Loader:loadEPG]", data.rstrip())
 			container = eConsoleAppContainer()
 			if container.execute(cmd):
-				raise Exception("Failed to execute: " + cmd
+				raise Exception("Failed to execute: " + cmd)
 			container.appClosed.append(appClosed)
 			container.dataAvail.append(dataAvail)
 		except Exception as e:
-			print "[CrossEPG_Loader:loadEPG] loadEPG FAILED: ", e
+			print("[CrossEPG_Loader:loadEPG] loadEPG FAILED: ", e)
 
 	def loadEDG(self):
-		print "[CrossEPG_Loader:loadEDG] %s" % (cmd)
+		print("[CrossEPG_Loader:loadEDG] %s" % (cmd))
 		cmd = "%s/crossepg_epgcopy %s/ext.epg.dat %s/epg.dat" % (self.home_directory, self.db_root, config.nemepg.path.value)
 		try:
 			global container  # Need to keep a ref alive...
 			def appClosed(retval):
 				global container
-				print "[CrossEPG_Loader:loadEDG] loadEDG complete, result: ", retval
+				print("[CrossEPG_Loader:loadEDG] loadEDG complete, result: ", retval)
 				self.edgpatch(eEPGCache.getInstance())
 				self.closeAndCallback(True)
 				container = None
 			def dataAvail(data):
-				print "[CrossEPG_Loader:loadEDG]", data.rstrip()
+				print("[CrossEPG_Loader:loadEDG]", data.rstrip())
 			container = eConsoleAppContainer()
 			if container.execute(cmd):
-				raise Exception("[CrossEPG_Loader:loadEDG] Failed to execute: " + cmd
+				raise Exception("[CrossEPG_Loader:loadEDG] Failed to execute: " + cmd)
 			container.appClosed.append(appClosed)
 			container.dataAvail.append(dataAvail)
 		except Exception as e:
-			print "[CrossEPG_Loader:loadEDG] loadEDG FAILED: ", e
+			print("[CrossEPG_Loader:loadEDG] loadEDG FAILED: ", e)
 
 	def wrapperCallback(self, event, param):
 		if event == CrossEPG_Wrapper.EVENT_READY:

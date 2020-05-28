@@ -1,4 +1,5 @@
 #!/usr/bin/python
+# -*- coding: utf-8 -*-
 
 # webif.py  by Ambrosa http://www.ambrosa.net
 # this module is used for manage Web Interface

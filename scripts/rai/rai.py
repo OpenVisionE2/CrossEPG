@@ -1,4 +1,5 @@
 #!/usr/bin/python
+# -*- coding: utf-8 -*-
 # rai.py  by Ambrosa http://www.ambrosa.net
 # this module is used for download EPG data from Rai website
 # derived from E2_LOADEPG

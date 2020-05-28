@@ -1,3 +1,5 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 from enigma import getDesktop, eTimer
 
 from Components.Label import Label

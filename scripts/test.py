@@ -1,4 +1,6 @@
 #!/usr/bin/python
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 # above is Python interpreter location
 
 # ambrosa 08-Jan-2011 http://www.ambrosa.net
@@ -15,7 +17,7 @@ import crossepg
 # and add it to sys.path()
 crossepg_instroot = crossepg.epgdb_get_installroot()
 if crossepg_instroot == False:
-	print "ERROR: cannot find CrossEPG installation directory"
+	print("ERROR: cannot find CrossEPG installation directory")
 	sys.exit(1)
 libdir = os.path.join(crossepg_instroot , 'scripts/lib')
 sys.path.append(libdir)
@@ -27,7 +29,7 @@ import scriptlib
 # this is the main function
 def main():
 
-	# log_add() print to stdout a text message
+	# log_add() print(to stdout a text message)
 	crossepg.log_add("---- START EXAMPLE TEST SCRIPT ----")
 
 	# get installation dir

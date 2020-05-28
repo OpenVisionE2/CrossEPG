@@ -1,4 +1,6 @@
 #!/usr/bin/python
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 # alias.py  by Ambrosa http://www.ambrosa.net
 # this module is used for copy epg from a channel to another
 # 11-apr-2012 
@@ -178,11 +180,11 @@ class main:
 					title = src_epgdb_channel.title_first;
 
 					while (title != None) :
-						#print str(title.start_time)
-						#print str(title.length)
-						#print str(crossepg.epgdb_read_description(title))
-						#print str(crossepg.epgdb_read_long_description(title))
-						#print "-----------------------------------"
+						#print(str(title.start_time))
+						#print(str(title.length))
+						#print(str(crossepg.epgdb_read_description(title)))
+						#print(str(crossepg.epgdb_read_long_description(title)))
+						#print("-----------------------------------")
 
 						e_starttime = int(title.start_time)
 						e_length = int(title.length)
