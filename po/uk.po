@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma2 - CrossEPG\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-29 00:39+0430\n"
+"POT-Creation-Date: 2020-05-29 02:49+0430\n"
 "PO-Revision-Date: \n"
 "Last-Translator: bodyan <bodyan_ua@hotmail.com>\n"
 "Language-Team: sat-ukraine.info <http://sat-ukraine.info>\n"
@@ -133,16 +133,19 @@ msgstr "Час створення: %s"
 #: ../src/enigma2/python/crossepg_menu.py:51
 #: ../src/enigma2/python/crossepg_menu.py:54
 #: ../src/enigma2/python/crossepg_xepgdb_update.py:47
+#, fuzzy
 msgid "CrossEPG"
-msgstr ""
+msgstr "Помилки CrossEPG: %s"
 
 #: ../src/enigma2/python/plugin.py:61
+#, fuzzy
 msgid "CrossEPG Force Reload"
-msgstr ""
+msgstr "Панель конфігурації CrossEPG"
 
 #: ../src/enigma2/python/crossepg_setup.py:38
+#, fuzzy
 msgid "CrossEPG Setup"
-msgstr ""
+msgstr "Панель конфігурації CrossEPG"
 
 #: ../src/enigma2/python/plugin.py:55
 msgid "CrossEPG automatic actions"
@@ -190,8 +193,9 @@ msgid "Descriptors db size: %s"
 msgstr "Опис розміру бд: %s"
 
 #: ../src/enigma2/python/crossepg_providers.py:92
+#, fuzzy
 msgid "Disabled"
-msgstr ""
+msgstr "Вимкнути"
 
 #: ../src/enigma2/python/crossepg_providers.py:65
 msgid "Download"
@@ -207,8 +211,9 @@ msgstr "Завантажити зараз"
 
 #: ../src/enigma2/python/plugin.py:28 ../src/enigma2/python/plugin.py:33
 #: ../src/enigma2/python/plugin.py:38
+#, fuzzy
 msgid "Downloader"
-msgstr ""
+msgstr "Завантажити"
 
 #: ../src/enigma2/python/crossepg_importer.py:121
 msgid "Downloading"
@@ -237,8 +242,9 @@ msgid "Enable csv import"
 msgstr "Увімкн. csv імпорт"
 
 #: ../src/enigma2/python/crossepg_providers.py:90
+#, fuzzy
 msgid "Enabled"
-msgstr ""
+msgstr "Увімкнути"
 
 #: ../src/enigma2/python/crossepg_auto.py:169
 msgid "Enough Retries, delaying till next schedule."
@@ -250,8 +256,9 @@ msgid "Events count: %s"
 msgstr "Кількість подій: %s"
 
 #: ../src/enigma2/python/plugin.py:60
+#, fuzzy
 msgid "Force Reload"
-msgstr ""
+msgstr "Примусове перезавантаження епг"
 
 #: ../src/enigma2/python/crossepg_info.py:83
 #, python-format
@@ -348,12 +355,17 @@ msgid "OpenTV providers"
 msgstr "Провайдери OpenTV"
 
 #: ../src/enigma2/python/crossepg_setup.py:142
+#, fuzzy
 msgid ""
 "PLEASE READ!\n"
 "A hard drive or an usb pen is STRONGLY SUGGESTED. If you still want use your internal flash pay attention to:\n"
 "(1) If you don't have enough free space your box may completely block and you need to flash it again\n"
 "(2) Many write operations on your internal flash may damage your flash memory"
 msgstr ""
+"БУДЬ-ЛАСКА ПРОЧИТАЙТЕ!\n"
+"Диск не знайдено. Жорсткий диск або usb носій не під'єднані. Якщо ви й досі бажаєте використовувати внутрішню флеш зверніть увагу:\n"
+"(1) Через недостатнью кількість вільного місця, ваш приймач може цілком заблокуватись, що вимагатиме повного перешитття\n"
+"(2) Багаторазовий запис у внутрішню флеш може пошкодити вашу флеш-пам'ять"
 
 #: ../src/enigma2/python/crossepg_importer.py:117
 msgid "Parsing"
@@ -465,8 +477,9 @@ msgid "Show as plugin"
 msgstr "Відображати як плагін"
 
 #: ../src/enigma2/python/crossepg_setup.py:301
+#, fuzzy
 msgid "Show crossepg force load in plugin menu"
-msgstr ""
+msgstr "Відображати crossepg в меню додатків"
 
 #: ../src/enigma2/python/crossepg_setup.py:298
 msgid "Show crossepg in extensions menu"
@@ -501,8 +514,9 @@ msgid "Total size: %s"
 msgstr "Загальний розмір: %s"
 
 #: ../src/enigma2/python/crossepg_menu.py:70
+#, fuzzy
 msgid "Update rytec providers"
-msgstr ""
+msgstr "Провайдери OpenTV"
 
 #: ../src/enigma2/python/crossepg_rytec_update.py:54
 #: ../src/enigma2/python/crossepg_rytec_update.py:55
@@ -528,8 +542,9 @@ msgstr ""
 "XMLTV провайдери будуть завжди завантажуватись один раз на день"
 
 #: ../src/enigma2/python/crossepg_providers.py:42
+#, fuzzy
 msgid "XEPGDB"
-msgstr ""
+msgstr "З'єднання XEPGDB"
 
 #: ../src/enigma2/python/crossepg_providers.py:36
 msgid "XMLTV"
@@ -573,8 +588,9 @@ msgid "once a day"
 msgstr "один раз на день"
 
 #: ../src/enigma2/python/crossepg_providers.py:47
+#, fuzzy
 msgid "providers"
-msgstr ""
+msgstr "Провайдери XMLTV"
 
 #: ../src/enigma2/python/crossepg_menu.py:54
 msgid "unknown version"

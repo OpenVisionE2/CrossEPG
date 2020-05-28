@@ -1,22 +1,16 @@
-# Dutch translations for enigma package.
-# Copyright (C) 2012 THE enigma'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the enigma package.
-# Automatically generated, 2012.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: enigma 2-plugin-systemplugins-crossepg-0.6.2+git0+5531246976cc69ec8d4a089a33c84a2b2c73d020-r9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-29 00:39+0430\n"
-"PO-Revision-Date: 2018-09-27 10:04+0200\n"
-"Last-Translator: Rob van der Does <RobvanderDoes@Gmail.com>\n"
+"POT-Creation-Date: 2020-05-29 02:49+0430\n"
+"PO-Revision-Date: 2012-03-07 10:50+0100\n"
+"Last-Translator: R.L. van der Does\n"
 "Language-Team: none\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.1.1\n"
 
 #: ../src/enigma2/python/crossepg_auto.py:314
 msgid "%a %e %b  %-H:%M"
@@ -98,7 +92,7 @@ msgstr "Kan de xepgdb bronnen niet bereiken"
 #: ../src/enigma2/python/crossepg_info.py:79
 #, python-format
 msgid "Channels count: %s"
-msgstr "Aantal kanalen: %s"
+msgstr "aantal kanalen: %s"
 
 #: ../src/enigma2/python/crossepg_about.py:53
 #: ../src/enigma2/python/crossepg_info.py:53
@@ -350,7 +344,6 @@ msgid "OpenTV providers"
 msgstr "OpenTV providers"
 
 #: ../src/enigma2/python/crossepg_setup.py:142
-#, fuzzy
 msgid ""
 "PLEASE READ!\n"
 "A hard drive or an usb pen is STRONGLY SUGGESTED. If you still want use your internal flash pay attention to:\n"
@@ -359,7 +352,7 @@ msgid ""
 msgstr ""
 "BELANGRIJK!\n"
 "Een harde schijf of een USB-stick wordt sterk aanbevolen. Als u toch het interne flash geheugen wilt gebruiken, let dan op:\n"
-"(1) Als u niet genoeg geheugen heeft, kan uw ontvanger vastlopen waarna u opnieuw moet flashen\n"
+"(1) Als u niet genoeg geheugen heeft, kan uw Dreambox vastlopen waarna u opnieuw moet flashen\n"
 "(2) Veel schrijfoperaties kunnen op den duur uw flash geheugen beschadigen"
 
 #: ../src/enigma2/python/crossepg_importer.py:117
@@ -394,7 +387,7 @@ msgstr "Providers start volgorde"
 #: ../src/enigma2/python/crossepglib.py:508
 #, python-format
 msgid "Read %s"
-msgstr "Lees %s"
+msgstr "lees %s"
 
 #: ../src/enigma2/python/crossepglib.py:456
 msgid "Reading channels"
