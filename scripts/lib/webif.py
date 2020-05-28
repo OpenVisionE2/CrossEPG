@@ -21,8 +21,8 @@ class webif_class:
     USE_WEBIF=1
     USE_WEBIF_AUTH=0
     WEBIF_AUTH_USER='root'
-    WEBIF_AUTH_PASSW='qboxhd'
-    WEBIF_AUTH_REALM='dm7025'
+    WEBIF_AUTH_PASSW='openvision'
+    WEBIF_AUTH_REALM='dm800'
     WEBIF_IP='127.0.0.1'
 
     def __init__(self,use,auth,auth_name,auth_passw,auth_realm,ip):

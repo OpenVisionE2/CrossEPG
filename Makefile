@@ -33,6 +33,7 @@ EXPORTER_OBJS += src/common/crossepg_exporter.o
 XMLTV_OBJS += src/common/crossepg_xmltv.o
 DEFRAGMENTER_OBJS += src/common/crossepg_defragmenter.o
 
+PO_FILES = po
 CONVERTER_BIN = bin/crossepg_dbconverter
 DBINFO_BIN = bin/crossepg_dbinfo
 DOWNLOADER_BIN = bin/crossepg_downloader
@@ -55,7 +56,7 @@ BIN_DIR = bin
 
 FTP_HOST = 172.16.1.130
 FTP_USER = root
-FTP_PASSWORD = sifteam
+FTP_PASSWORD = openvision
 
 TARGET_ARCH ?= mips
 
@@ -63,7 +64,7 @@ all:
 	$(MAKE) clean
 	$(MAKE) build
 
-build: $(CONVERTER_BIN) $(DBINFO_BIN) $(DOWNLOADER_BIN) $(EPGCOPY_BIN) $(IMPORTER_BIN) $(EXPORTER_BIN) $(XMLTV_BIN) $(DEFRAGMENTER_BIN) $(SWIGS_LIBS) $(SHARED_LIBS)
+build: $(PO_FILES) $(CONVERTER_BIN) $(DBINFO_BIN) $(DOWNLOADER_BIN) $(EPGCOPY_BIN) $(IMPORTER_BIN) $(EXPORTER_BIN) $(XMLTV_BIN) $(DEFRAGMENTER_BIN) $(SWIGS_LIBS) $(SHARED_LIBS)
 
 $(BIN_DIR):
 	mkdir -p $@
@@ -100,6 +101,9 @@ $(XMLTV_OBJS):
 $(DEFRAGMENTER_OBJS):
 	$(CC) $(CFLAGS) -c -o $@ $(@:.o=.c)
 
+$(COMPILE_PO_TO_MO):
+	msgfmt -o $@ $(@:.mo=.po)
+
 $(SWIGS_LIBS): $(OBJS) $(SWIGS_OBJS)
 	$(CC) $(LDFLAGS) -shared -o $@ $(OBJS) $(SWIGS_OBJS) -lxml2 -lz -lm -lpthread -lcurl
 	$(STRIP) $@
@@ -110,6 +114,9 @@ $(SHARED_LIBS): $(OBJS)
 
 $(DBINFO_OBJS):
 	$(CC) $(CFLAGS) -c -o $@ $(@:.o=.c)
+
+$(PO_FILES): $(COMPILE_PO_TO_MO)
+	$(STRIP) $@
 
 $(CONVERTER_BIN): $(OBJS) $(CONVERTER_OBJS)
 	$(CC) $(LDFLAGS) -o $@ $(OBJS) $(CONVERTER_OBJS) -lxml2 -lz -lm -lpthread -lcurl
@@ -225,6 +232,36 @@ install-standalone-var:
 install-plugin:
 	install -d $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/skins
 	install -d $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/images
+	install -d $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/po/ar/LC_MESSAGES
+	install -d $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/po/cs/LC_MESSAGES
+	install -d $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/po/de/LC_MESSAGES
+	install -d $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/po/es/LC_MESSAGES
+	install -d $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/po/fa/LC_MESSAGES
+	install -d $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/po/fi/LC_MESSAGES
+	install -d $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/po/fr/LC_MESSAGES
+	install -d $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/po/it/LC_MESSAGES
+	install -d $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/po/lt/LC_MESSAGES
+	install -d $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/po/nl/LC_MESSAGES
+	install -d $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/po/pl/LC_MESSAGES
+	install -d $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/po/pt/LC_MESSAGES
+	install -d $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/po/ru/LC_MESSAGES
+	install -d $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/po/sv/LC_MESSAGES
+	install -d $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/po/uk/LC_MESSAGES
+	install -m 644 po/ar.mo $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/po/ar/LC_MESSAGES/CrossEPG.mo
+	install -m 644 po/cs.mo $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/po/cs/LC_MESSAGES/CrossEPG.mo
+	install -m 644 po/de.mo $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/po/de/LC_MESSAGES/CrossEPG.mo
+	install -m 644 po/es.mo $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/po/es/LC_MESSAGES/CrossEPG.mo
+	install -m 644 po/fa.mo $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/po/fa/LC_MESSAGES/CrossEPG.mo
+	install -m 644 po/fi.mo $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/po/fi/LC_MESSAGES/CrossEPG.mo
+	install -m 644 po/fr.mo $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/po/fr/LC_MESSAGES/CrossEPG.mo
+	install -m 644 po/it.mo $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/po/it/LC_MESSAGES/CrossEPG.mo
+	install -m 644 po/lt.mo $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/po/lt/LC_MESSAGES/CrossEPG.mo
+	install -m 644 po/nl.mo $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/po/nl/LC_MESSAGES/CrossEPG.mo
+	install -m 644 po/pl.mo $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/po/pl/LC_MESSAGES/CrossEPG.mo
+	install -m 644 po/pt.mo $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/po/pt/LC_MESSAGES/CrossEPG.mo
+	install -m 644 po/ru.mo $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/po/ru/LC_MESSAGES/CrossEPG.mo
+	install -m 644 po/sv.mo $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/po/sv/LC_MESSAGES/CrossEPG.mo
+	install -m 644 po/uk.mo $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/po/uk/LC_MESSAGES/CrossEPG.mo
 	install -m 644 src/enigma2/python/*.pyo $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/
 	install -m 644 src/enigma2/python/skins/*.xml $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/skins/
 	install -m 644 src/enigma2/python/images/*.png $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/images/
