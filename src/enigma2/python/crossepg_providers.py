@@ -22,7 +22,7 @@ from crossepglib import *
 
 from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN
 try:
-	from Tools.Directories import SCOPE_ACTIVE_SKIN
+	from Tools.Directories import SCOPE_CURRENT_SKIN
 except:
 	pass
 
@@ -130,7 +130,7 @@ class CrossEPG_Providers(Screen):
 	def buildListEntry(self, name, description, enabled):
 		if enabled:
 			try:
-				png = resolveFilename(SCOPE_ACTIVE_SKIN, "crossepg/enabled.png")
+				png = resolveFilename(SCOPE_CURRENT_SKIN, "crossepg/enabled.png")
 			except:
 				png = resolveFilename(SCOPE_CURRENT_SKIN, "skin_default/crossepg/enabled.png")
 			if png == None or not os.path.exists(png):

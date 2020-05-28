@@ -31,7 +31,7 @@ from Components.ActionMap import ActionMap
 from Tools.LoadPixmap import LoadPixmap
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS, SCOPE_CURRENT_SKIN
 try:
-	from Tools.Directories import SCOPE_ACTIVE_SKIN
+	from Tools.Directories import SCOPE_CURRENT_SKIN
 except:
 	pass
 from Plugins.Plugin import PluginDescriptor
@@ -108,7 +108,7 @@ class CrossEPG_Menu(Screen):
 
 	def buildListEntry(self, description, image):
 		try:
-			png = resolveFilename(SCOPE_ACTIVE_SKIN, "crossepg/" + image)
+			png = resolveFilename(SCOPE_CURRENT_SKIN, "crossepg/" + image)
 		except:
 			png = resolveFilename(SCOPE_CURRENT_SKIN, "skin-default/crossepg/" + image)
 		if png == None or not os.path.exists(png):

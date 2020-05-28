@@ -21,7 +21,7 @@ import sys
 
 from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN
 try:
-	from Tools.Directories import SCOPE_ACTIVE_SKIN
+	from Tools.Directories import SCOPE_CURRENT_SKIN
 except:
 	pass
 
@@ -85,14 +85,14 @@ class CrossEPG_Importer(Screen):
 	def firstExec(self):
 		if self.isHD:
 			try:
-				png = resolveFilename(SCOPE_ACTIVE_SKIN, "crossepg/background_hd.png")
+				png = resolveFilename(SCOPE_CURRENT_SKIN, "crossepg/background_hd.png")
 			except:
 				png = resolveFilename(SCOPE_CURRENT_SKIN, "skin_default/crossepg/background_hd.png")
 			if png == None or not os.path.exists(png):
 				png = "%s/images/background_hd.png" % os.path.dirname(sys.modules[__name__].__file__)
 		else:
 			try:
-				png = resolveFilename(SCOPE_ACTIVE_SKIN, "crossepg/background.png")
+				png = resolveFilename(SCOPE_CURRENT_SKIN, "crossepg/background.png")
 			except:
 				png = resolveFilename(SCOPE_CURRENT_SKIN, "skin_default/crossepg/background.png")
 			if png == None or not os.path.exists(png):
