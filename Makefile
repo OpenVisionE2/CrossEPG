@@ -55,7 +55,7 @@ BIN_DIR = bin
 
 FTP_HOST = 172.16.1.130
 FTP_USER = root
-FTP_PASSWORD = sifteam
+FTP_PASSWORD = openvision
 
 TARGET_ARCH ?= mips
 
