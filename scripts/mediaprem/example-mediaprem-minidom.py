@@ -129,7 +129,7 @@ class main:
 		try:
 			sock = urllib2.urlopen(url)
 			data = sock.read()
-		except IOError, e:
+		except IOError as e:
 			serr = "unknown"
 			if hasattr(e, 'reason'):
 				serr = str(e.reason)
@@ -260,7 +260,7 @@ class main:
 			try:
 				sock = urllib2.urlopen(self.CONF_URL)
 				data = sock.read()
-			except IOError, e:
+			except IOError as e:
 				serr = "unknown"
 				if hasattr(e, 'reason'):
 					serr = str(e.reason)

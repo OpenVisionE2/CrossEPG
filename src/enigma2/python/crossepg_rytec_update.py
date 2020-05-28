@@ -108,7 +108,7 @@ class CrossEPG_Rytec_Update(Screen):
 			else:
 				print "[crossepg_rytec_update:loadSourceList] Fetched data is not Gzip format"
 				print "[crossepg_rytec_update:loadSourceList] content_raw:", content_raw
-		except Exception, e:
+		except Exception as e:
 			print "[crossepg_rytec_update:loadSourceList] error fetching:", e
 
 	def load(self):
@@ -132,7 +132,7 @@ class CrossEPG_Rytec_Update(Screen):
 					ret = True
 				else:
 					print "http error: %d (%s)" % (httpres.status, mirror)
-			except Exception, e:
+			except Exception as e:
 				print e
 		return ret
 

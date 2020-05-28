@@ -20,25 +20,25 @@ def getEPGPatchType():
 	try:
 		xepgpatch = new.instancemethod(_enigma.eEPGCache_crossepgImportEPGv21,None,eEPGCache)
 		return 3
-	except Exception, e:
+	except Exception as e:
 		pass
 
 	try:
 		epgpatch = new.instancemethod(_enigma.eEPGCache_load,None,eEPGCache)
 		return 0
-	except Exception, e:
+	except Exception as e:
 		pass
 
 	try:
 		edgpatch = new.instancemethod(_enigma.eEPGCache_reloadEpg,None,eEPGCache)
 		return 1
-	except Exception, e:
+	except Exception as e:
 		pass
 
 	try:
 		oudeispatch = new.instancemethod(_enigma.eEPGCache_importEvent,None,eEPGCache)
 		return 2
-	except Exception, e:
+	except Exception as e:
 		pass
 
 	return -1
@@ -76,7 +76,7 @@ class CrossEPG_Config:
 	def load(self):
 		try:
 			f = open("%s/crossepg.config" % (self.home_directory), "r")
-		except Exception, e:
+		except Exception as e:
 			#print "[CrossEPG_Config] %s" % (e)
 			return
 
@@ -139,7 +139,7 @@ class CrossEPG_Config:
 	def save(self):
 		try:
 			f = open("%s/crossepg.config" % (self.home_directory), "w")
-		except Exception, e:
+		except Exception as e:
 			print "[CrossEPG_Config] %s" % (e)
 			return
 
@@ -173,7 +173,7 @@ class CrossEPG_Config:
 	def getChannelProtocol(self, provider):
 		try:
 			f = open("%s/providers/%s.conf" % (self.home_directory, provider), "r")
-		except Exception, e:
+		except Exception as e:
 			print "[CrossEPG_Config] %s" % (e)
 			return
 
@@ -190,7 +190,7 @@ class CrossEPG_Config:
 	def getTransponder(self, provider):
 		try:
 			f = open("%s/providers/%s.conf" % (self.home_directory, provider), "r")
-		except Exception, e:
+		except Exception as e:
 			print "[CrossEPG_Config] %s" % (e)
 			return
 
@@ -216,7 +216,7 @@ class CrossEPG_Config:
 				key = res[0][0]
 				try:
 					value = int(res[0][1])
-				except Exception, e:
+				except Exception as e:
 					value = -1
 
 				if key in transponder_keys:
@@ -268,7 +268,7 @@ class CrossEPG_Config:
 				if not protoadded:
 					providersproto.append(None)
 
-			except Exception, e:
+			except Exception as e:
 				print "[CrossEPG_Config] %s" % (e)
 				providersdesc.append(provider)
 				providersproto.append(None)
@@ -293,13 +293,13 @@ class CrossEPG_Config:
 				ret = True
 			f.close()
 			return ret
-		except Exception, e:
+		except Exception as e:
 			return False
 
 	def deleteLog(self):
 		try:
 			os.unlink(self.db_root + "/crossepg.log")
-		except Exception, e:
+		except Exception as e:
 			print e
 
 class CrossEPG_Wrapper:
