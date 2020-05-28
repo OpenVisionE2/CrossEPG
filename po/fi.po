@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma2 - crossepg\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-04-30 11:18+0100\n"
+"POT-Creation-Date: 2020-05-29 00:39+0430\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Samzam <http://www.world-of-satellite.com/>\n"
 "Language-Team: www.linsat.net <spaeleus@croci.org>\n"
@@ -18,129 +18,347 @@ msgstr ""
 "X-Poedit-Country: FINLAND\n"
 "X-Poedit-SearchPath-0: /media/TREKSTOR/enigma2-svn/crossepg/trunk\n"
 
-#: .../crossepg/trunk/src/enigma2/python/crossepg_main.py:24
-msgid "Please configure crossepg before start downloader"
-msgstr "Muokkaa asetuksia ennen kuin aloitat latauksen!"
+#: ../src/enigma2/python/crossepg_auto.py:314
+msgid "%a %e %b  %-H:%M"
+msgstr ""
 
-#: .../crossepg/trunk/src/enigma2/python/plugin.py:18
-#: .../crossepg/trunk/src/enigma2/python/plugin.py:23
-#: .../crossepg/trunk/src/enigma2/python/plugin.py:28
-msgid "An EPG downloader"
-msgstr "EPG:n lataus"
-
-#: .../crossepg/trunk/src/enigma2/python/plugin.py:34
-#: .../crossepg/trunk/src/enigma2/python/plugin.py:39
-msgid "CrossEPG setup panel"
-msgstr "Asetukset"
-
-#: .../crossepg/trunk/src/enigma2/python/plugin.py:44
-msgid "CrossEPG automatic actions"
-msgstr "Automaattiset toiminnot"
-
-#: .../crossepg/trunk/src/enigma2/python/plugin.py:50
-msgid "CrossEPG Force Reload"
-msgstr "Uudelleen lataus"
-
-#: .../crossepg/trunk/src/enigma2/python/crossepg_info.py:48
-msgid "Back"
-msgstr "Takaisin"
-
-#: .../crossepg/trunk/src/enigma2/python/crossepg_info.py:63
+#: ../src/enigma2/python/crossepg_rytec_update.py:91
+#: ../src/enigma2/python/crossepg_xepgdb_update.py:89
 #, python-format
-msgid "Headers db size: %s"
-msgstr "Otsikoiden koko: %s"
+msgid "%d providers updated"
+msgstr "%d palvelua päivitetty"
 
-#: .../crossepg/trunk/src/enigma2/python/crossepg_info.py:65
+#: ../src/enigma2/python/crossepglib.py:504
 #, python-format
-msgid "Descriptors db size: %s"
-msgstr "Kuvauksien koko: %s"
+msgid "%s channels"
+msgstr "%s kanavia"
 
-#: .../crossepg/trunk/src/enigma2/python/crossepg_info.py:67
+#: ../src/enigma2/python/crossepglib.py:510
 #, python-format
-msgid "Indexes db size: %s"
-msgstr "Hakemistojen koko: %s"
+msgid "%s of %s"
+msgstr "%s %s:sta"
 
-#: .../crossepg/trunk/src/enigma2/python/crossepg_info.py:69
+#: ../src/enigma2/python/crossepg_about.py:35
+#: ../src/enigma2/python/crossepg_menu.py:75
+msgid "About"
+msgstr "Tietoja"
+
+#: ../src/enigma2/python/crossepg_info.py:75
 #, python-format
 msgid "Aliases db size: %s"
 msgstr "Aliaksien koko: %s"
 
-#: .../crossepg/trunk/src/enigma2/python/crossepg_info.py:71
-#, python-format
-msgid "Total size: %s"
-msgstr "Kokonais koko: %s"
+#: ../src/enigma2/python/plugin.py:29 ../src/enigma2/python/plugin.py:34
+#: ../src/enigma2/python/plugin.py:39
+msgid "An EPG downloader"
+msgstr "EPG:n lataus"
 
-#: .../crossepg/trunk/src/enigma2/python/crossepg_info.py:73
+#: ../src/enigma2/python/plugin.py:54
+msgid "Auto"
+msgstr ""
+
+#: ../src/enigma2/python/crossepg_setup.py:292
+msgid "Automatically reboot the decoder after a manual download"
+msgstr "Käynnistä laite uudelleen manuaalisen latauksen jälkeen"
+
+#: ../src/enigma2/python/crossepg_setup.py:289
+msgid "Automatically reboot the decoder after a scheduled download"
+msgstr "Käynnistä laite uudelleen ajastetun latauksen jälkeen"
+
+#: ../src/enigma2/python/crossepg_providers.py:63
+#: ../src/enigma2/python/crossepg_ordering.py:41
+#: ../src/enigma2/python/crossepg_setup.py:80
+msgid "Cancel"
+msgstr "Peruuta"
+
+#: ../src/enigma2/python/crossepg_downloader.py:295
+msgid "Cannot allocate the demuxer"
+msgstr ""
+
+#: ../src/enigma2/python/crossepg_downloader.py:270
+msgid "Cannot free NIM because a recording is in progress"
+msgstr ""
+
+#: ../src/enigma2/python/crossepg_downloader.py:289
+msgid "Cannot get frontend"
+msgstr ""
+
+#: ../src/enigma2/python/crossepg_downloader.py:273
+msgid "Cannot get the NIM"
+msgstr ""
+
+#: ../src/enigma2/python/crossepg_rytec_update.py:93
+msgid "Cannot retrieve rytec sources"
+msgstr "Ei saada yhteyttä rytec palveluihin"
+
+#: ../src/enigma2/python/crossepg_xepgdb_update.py:91
+msgid "Cannot retrieve xepgdb sources"
+msgstr "Ei saada yhteyttä xepgbd palveluihin"
+
+#: ../src/enigma2/python/crossepg_info.py:79
 #, python-format
 msgid "Channels count: %s"
 msgstr "Kanavien määrä: %s"
 
-#: .../crossepg/trunk/src/enigma2/python/crossepg_info.py:75
-#, python-format
-msgid "Events count: %s"
-msgstr "Tapahtumien määrä: %s"
+#: ../src/enigma2/python/crossepg_about.py:53
+#: ../src/enigma2/python/crossepg_info.py:53
+#: ../src/enigma2/python/crossepg_menu.py:85
+msgid "Close"
+msgstr "Sulje"
 
-#: .../crossepg/trunk/src/enigma2/python/crossepg_info.py:77
-#, python-format
-msgid "Hashes count: %s"
-msgstr "Ohjauksien määrä: %s"
+#: ../src/enigma2/python/crossepg_menu.py:63
+msgid "Configure"
+msgstr "Asetukset"
 
-#: .../crossepg/trunk/src/enigma2/python/crossepg_info.py:79
+#: ../src/enigma2/python/crossepglib.py:610
+msgid "Converting data"
+msgstr "Muunnetaan tietoja..."
+
+#: ../src/enigma2/python/crossepg_info.py:85
 #, python-format
 msgid "Creation time: %s"
 msgstr "Luontiaika: %s"
 
-#: .../crossepg/trunk/src/enigma2/python/crossepg_info.py:81
-#, python-format
-msgid "Last update time: %s"
-msgstr "Viimeisin päivitys: %s"
+#: ../src/enigma2/python/plugin.py:28 ../src/enigma2/python/plugin.py:33
+#: ../src/enigma2/python/plugin.py:38 ../src/enigma2/python/plugin.py:44
+#: ../src/enigma2/python/plugin.py:49 ../src/enigma2/python/plugin.py:54
+#: ../src/enigma2/python/plugin.py:60
+#: ../src/enigma2/python/crossepg_importer.py:39
+#: ../src/enigma2/python/crossepg_providers.py:47
+#: ../src/enigma2/python/crossepg_rytec_update.py:46
+#: ../src/enigma2/python/crossepg_ordering.py:29
+#: ../src/enigma2/python/crossepg_defragmenter.py:36
+#: ../src/enigma2/python/crossepg_loader.py:39
+#: ../src/enigma2/python/crossepg_converter.py:39
+#: ../src/enigma2/python/crossepg_about.py:35
+#: ../src/enigma2/python/crossepg_info.py:30
+#: ../src/enigma2/python/crossepg_menu.py:51
+#: ../src/enigma2/python/crossepg_menu.py:54
+#: ../src/enigma2/python/crossepg_xepgdb_update.py:47
+#, fuzzy
+msgid "CrossEPG"
+msgstr "Virhe: %s"
 
-#: .../crossepg/trunk/src/enigma2/python/crossepg_info.py:83
-#, python-format
-msgid "Version: %s"
-msgstr "Versio: %s"
+#: ../src/enigma2/python/plugin.py:61
+msgid "CrossEPG Force Reload"
+msgstr "Uudelleen lataus"
 
-#: .../crossepg/trunk/src/enigma2/python/crossepg_downloader.py:34
-msgid "Starting downloader"
-msgstr "Aloitetaan lataus..."
+#: ../src/enigma2/python/crossepg_setup.py:38
+#, fuzzy
+msgid "CrossEPG Setup"
+msgstr "Asetukset"
 
-#: .../crossepg/trunk/src/enigma2/python/crossepg_downloader.py:171
+#: ../src/enigma2/python/plugin.py:55
+msgid "CrossEPG automatic actions"
+msgstr "Automaattiset toiminnot"
+
+#: ../src/enigma2/python/crossepg_importer.py:149
+#: ../src/enigma2/python/crossepg_downloader.py:151
+#: ../src/enigma2/python/crossepg_downloader.py:415
+#: ../src/enigma2/python/crossepg_defragmenter.py:129
+#: ../src/enigma2/python/crossepg_loader.py:249
+#: ../src/enigma2/python/crossepg_converter.py:137
 #, python-format
 msgid "CrossEPG error: %s"
 msgstr "Virhe: %s"
 
-#: .../crossepg/trunk/src/enigma2/python/crossepg_setup.py:61
-msgid "Internal flash"
-msgstr "Sisäinen flash"
+#: ../src/enigma2/python/plugin.py:45 ../src/enigma2/python/plugin.py:50
+msgid "CrossEPG setup panel"
+msgstr "Asetukset"
 
-#: .../crossepg/trunk/src/enigma2/python/crossepg_setup.py:74
-msgid "Internal flash (unsuggested)"
-msgstr "Sisäinen flash (ei suositeltu)"
+#: ../src/enigma2/python/crossepglib.py:495
+msgid "Deflating XEPGDB"
+msgstr "Poistetaan XEPGDB"
 
-#: .../crossepg/trunk/src/enigma2/python/crossepg_setup.py:80
-#: .../crossepg/trunk/src/enigma2/python/crossepg_setup.py:170
-msgid "main lamedb"
-msgstr "Pää lamedb"
+#: ../src/enigma2/python/crossepglib.py:474
+msgid "Deflating channels list"
+msgstr "Tyhjennetään kanavalistaa"
 
-#: .../crossepg/trunk/src/enigma2/python/crossepg_setup.py:85
-#: .../crossepg/trunk/src/enigma2/python/crossepg_setup.py:180
-msgid "disabled"
-msgstr "pois"
+#: ../src/enigma2/python/crossepglib.py:483
+msgid "Deflating events"
+msgstr "Tyhjennetään tapahtumia"
 
-#: .../crossepg/trunk/src/enigma2/python/crossepg_setup.py:86
-#: .../crossepg/trunk/src/enigma2/python/crossepg_setup.py:178
-msgid "once a day"
-msgstr "kerran päivässä"
+#: ../src/enigma2/python/crossepg_menu.py:73
+msgid "Defragment database"
+msgstr "Eheytä tiedostot"
 
-#: .../crossepg/trunk/src/enigma2/python/crossepg_setup.py:87
-#: .../crossepg/trunk/src/enigma2/python/crossepg_setup.py:176
-msgid "every hour (only in standby)"
-msgstr "joka tunti (vain valmiustilassa)"
+#: ../src/enigma2/python/crossepg_defragmenter.py:39
+#: ../src/enigma2/python/crossepg_defragmenter.py:40
+msgid "Defragmentation..."
+msgstr "Eheyttää..."
 
-#: .../crossepg/trunk/src/enigma2/python/crossepg_setup.py:128
+#: ../src/enigma2/python/crossepg_info.py:71
+#, python-format
+msgid "Descriptors db size: %s"
+msgstr "Kuvauksien koko: %s"
+
+#: ../src/enigma2/python/crossepg_providers.py:92
+#, fuzzy
+msgid "Disabled"
+msgstr "Pois"
+
+#: ../src/enigma2/python/crossepg_providers.py:65
+msgid "Download"
+msgstr "Lataa"
+
+#: ../src/enigma2/python/crossepg_setup.py:275
+msgid "Download epg once a day"
+msgstr "Lataa EPG kerran päivässä"
+
+#: ../src/enigma2/python/crossepg_menu.py:72
+msgid "Download now"
+msgstr "Lataa nyt"
+
+#: ../src/enigma2/python/plugin.py:28 ../src/enigma2/python/plugin.py:33
+#: ../src/enigma2/python/plugin.py:38
+#, fuzzy
+msgid "Downloader"
+msgstr "Lataa"
+
+#: ../src/enigma2/python/crossepg_importer.py:121
+msgid "Downloading"
+msgstr "Lataa..."
+
+#: ../src/enigma2/python/crossepglib.py:489
+msgid "Downloading XEPGDB"
+msgstr "Ladataan XEPGDB"
+
+#: ../src/enigma2/python/crossepglib.py:471
+msgid "Downloading channels list"
+msgstr "Ladataan kanavalistaa"
+
+#: ../src/enigma2/python/crossepglib.py:480
+msgid "Downloading events"
+msgstr "Ladataan tapahtumia"
+
+#: ../src/enigma2/python/crossepg_setup.py:257
+msgid ""
+"Drive where you save data.\n"
+"The drive MUST be mounted in rw. If you can't see your device here probably is mounted as read only or autofs handle it only in read only mode. In case of mount it manually and try again"
+msgstr ""
+"Tallennuspaikka.\n"
+"Asema on oltava liitettynä! Jos et näe asemaa täällä se on luultavasti \"vain luku\" tilassa tai autofs käsittelee sitä sellaisena. Koita asentaa liitokset uudelleen."
+
+#: ../src/enigma2/python/crossepg_setup.py:191
+msgid "Enable csv import"
+msgstr "Salli csv lataus"
+
+#: ../src/enigma2/python/crossepg_providers.py:90
+#, fuzzy
+msgid "Enabled"
+msgstr "Salli"
+
+#: ../src/enigma2/python/crossepg_auto.py:169
+msgid "Enough Retries, delaying till next schedule."
+msgstr ""
+
+#: ../src/enigma2/python/crossepg_info.py:81
+#, python-format
+msgid "Events count: %s"
+msgstr "Tapahtumien määrä: %s"
+
+#: ../src/enigma2/python/plugin.py:60
+#, fuzzy
+msgid "Force Reload"
+msgstr "Lataa EPG"
+
+#: ../src/enigma2/python/crossepg_info.py:83
+#, python-format
+msgid "Hashes count: %s"
+msgstr "Ohjauksien määrä: %s"
+
+#: ../src/enigma2/python/crossepg_info.py:69
+#, python-format
+msgid "Headers db size: %s"
+msgstr "Otsikoiden koko: %s"
+
+#: ../src/enigma2/python/crossepg_setup.py:265
+#, python-format
+msgid ""
+"Import *.csv and *.bin from %s/import or %s/import\n"
+"(*.bin are binaries with a csv as stdout)"
+msgstr "Lataa *.csv ja *.bin %s/latauksista tai %s/latauksista"
+
+#: ../src/enigma2/python/crossepg_info.py:73
+#, python-format
+msgid "Indexes db size: %s"
+msgstr "Hakemistojen koko: %s"
+
+#: ../src/enigma2/python/crossepg_info.py:30
+msgid "Info"
+msgstr ""
+
+#: ../src/enigma2/python/crossepg_menu.py:74
+msgid "Info about database"
+msgstr "Tietokannan tiedot"
+
+#: ../src/enigma2/python/crossepg_setup.py:262
+msgid ""
+"Lamedb used for epg.dat conversion.\n"
+"This option doesn't work with crossepg patch v2"
+msgstr ""
+"Lamedb on käytössä epg.dat muunnokseen.\n"
+"Tämä asetus ei toimi crossepg v2:ssa."
+
+#: ../src/enigma2/python/crossepg_info.py:87
+#, python-format
+msgid "Last update time: %s"
+msgstr "Viimeisin päivitys: %s"
+
+#: ../src/enigma2/python/crossepglib.py:626
+#: ../src/enigma2/python/crossepg_loader.py:42
+#: ../src/enigma2/python/crossepg_loader.py:43
+msgid "Loading data"
+msgstr "Ladataan..."
+
+#: ../src/enigma2/python/crossepg_providers.py:46
+msgid "MHW2"
+msgstr ""
+
+#: ../src/enigma2/python/crossepglib.py:492
+msgid "Merging XEPGDB"
+msgstr "Muokataan XEPGDB"
+
+#: ../src/enigma2/python/crossepg_ordering.py:102
+#: ../src/enigma2/python/crossepg_ordering.py:108
+#: ../src/enigma2/python/crossepg_ordering.py:118
+#: ../src/enigma2/python/crossepg_ordering.py:124
+msgid "Move down"
+msgstr "Siirrä alas"
+
+#: ../src/enigma2/python/crossepg_ordering.py:104
+#: ../src/enigma2/python/crossepg_ordering.py:107
+#: ../src/enigma2/python/crossepg_ordering.py:120
+#: ../src/enigma2/python/crossepg_ordering.py:123
+msgid "Move up"
+msgstr "Siirrä ylös"
+
+#: ../src/enigma2/python/crossepg_downloader.py:176
+msgid "No DVB-S NIMs founds"
+msgstr ""
+
+#: ../src/enigma2/python/crossepg_downloader.py:248
+msgid "No valid NIM found"
+msgstr ""
+
+#: ../src/enigma2/python/crossepg_setup.py:81
+#: ../src/enigma2/python/crossepg_menu.py:86
+msgid "OK"
+msgstr ""
+
+#: ../src/enigma2/python/crossepg_providers.py:38
+msgid "OpenTV"
+msgstr ""
+
+#: ../src/enigma2/python/crossepg_menu.py:64
+msgid "OpenTV providers"
+msgstr "OpenTV palvelut"
+
+#: ../src/enigma2/python/crossepg_setup.py:142
+#, fuzzy
 msgid ""
 "PLEASE READ!\n"
-"No disk found. An hard drive or an usb pen is HARDLY SUGGESTED. If you still want use your internal flash pay attention to:\n"
+"A hard drive or an usb pen is STRONGLY SUGGESTED. If you still want use your internal flash pay attention to:\n"
 "(1) If you don't have enough free space your box may completely block and you need to flash it again\n"
 "(2) Many write operations on your internal flash may damage your flash memory"
 msgstr ""
@@ -149,78 +367,67 @@ msgstr ""
 "1)Jos laitteessa ei ole riittävästi muistia se saattaa jumittua kokonaan ja vaatia uudelleen flashauksen\n"
 "2) Toistuvat kirjoitusoperaatiot voivat vahingoittaa sisäistä muistia."
 
-#: .../crossepg/trunk/src/enigma2/python/crossepg_setup.py:182
-msgid "Storage device"
-msgstr "Tallenuspaikka"
+#: ../src/enigma2/python/crossepg_importer.py:117
+msgid "Parsing"
+msgstr "Järjestä"
 
-#: .../crossepg/trunk/src/enigma2/python/crossepg_setup.py:184
+#: ../src/enigma2/python/crossepglib.py:477
+msgid "Parsing channels list"
+msgstr "Järjestä kanavalista"
+
+#: ../src/enigma2/python/crossepglib.py:486
+msgid "Parsing events"
+msgstr "Järjestä tapahtumat"
+
+#: ../src/enigma2/python/crossepglib.py:468
+msgid "Parsing summaries"
+msgstr "Järjestä yhteenvedot"
+
+#: ../src/enigma2/python/crossepglib.py:462
+msgid "Parsing titles"
+msgstr "Järjestä nimet"
+
+#: ../src/enigma2/python/crossepg_setup.py:189
 msgid "Preferred lamedb"
 msgstr "Lamedb"
 
-#: .../crossepg/trunk/src/enigma2/python/crossepg_setup.py:186
-msgid "Enable csv import"
-msgstr "Salli csv lataus"
+#: ../src/enigma2/python/crossepg_ordering.py:29
+#: ../src/enigma2/python/crossepg_menu.py:69
+msgid "Providers start order"
+msgstr "Palveluiden käynnistysjärjestys"
 
-#: .../crossepg/trunk/src/enigma2/python/crossepg_setup.py:187
-msgid "Force epg reload on boot"
-msgstr "Pakota EPG:n uudelleenlataus käynnistyksessä"
+#: ../src/enigma2/python/crossepglib.py:508
+#, python-format
+msgid "Read %s"
+msgstr "Lue %s"
 
-#: .../crossepg/trunk/src/enigma2/python/crossepg_setup.py:188
-msgid "Download on tune"
-msgstr "Lataa kanavalle viritettäessä"
+#: ../src/enigma2/python/crossepglib.py:456
+msgid "Reading channels"
+msgstr "Luetaan kanavia..."
 
-#: .../crossepg/trunk/src/enigma2/python/crossepg_setup.py:189
-msgid "Scheduled download"
-msgstr "Ajastettu lataus"
+#: ../src/enigma2/python/crossepglib.py:465
+msgid "Reading summaries"
+msgstr "Luetaan yhteenvetoa..."
 
-#: .../crossepg/trunk/src/enigma2/python/crossepg_setup.py:194
-msgid "Scheduled download at"
-msgstr "Ajastettu lataus kello"
+#: ../src/enigma2/python/crossepglib.py:459
+msgid "Reading titles"
+msgstr "Luetaan otsikoita..."
 
-#: .../crossepg/trunk/src/enigma2/python/crossepg_setup.py:197
-msgid "Reboot after a scheduled download"
-msgstr "Käynnistä uudelleen ajastetun latauksen jälkeen"
+#: ../src/enigma2/python/crossepg_providers.py:190
+#: ../src/enigma2/python/crossepg_ordering.py:160
+#: ../src/enigma2/python/crossepg_setup.py:314
+msgid "Really close without saving settings?"
+msgstr ""
 
-#: .../crossepg/trunk/src/enigma2/python/crossepg_setup.py:198
+#: ../src/enigma2/python/crossepg_setup.py:201
 msgid "Reboot after a manual download"
 msgstr "Käynnistä uudelleen manuaalisen latauksen jälkeen"
 
-#: .../crossepg/trunk/src/enigma2/python/crossepg_setup.py:199
-msgid "Show as plugin"
-msgstr "Näytä lisäosavalikossa"
+#: ../src/enigma2/python/crossepg_setup.py:200
+msgid "Reboot after a scheduled download"
+msgstr "Käynnistä uudelleen ajastetun latauksen jälkeen"
 
-#: .../crossepg/trunk/src/enigma2/python/crossepg_setup.py:200
-msgid "Show as extension"
-msgstr "Näytä laajennusvalikossa"
-
-#: .../crossepg/trunk/src/enigma2/python/crossepg_setup.py:201
-msgid "Show 'Force reload' as plugin"
-msgstr "Näytä \"lataus\" lisäosavalikossa"
-
-#: .../crossepg/trunk/src/enigma2/python/crossepg_setup.py:262
-msgid ""
-"Drive where you save data.\n"
-"The drive MUST be mounted in rw. If you can't see your device here probably is mounted as read only or autofs handle it only in read only mode. In case of mount it manually and try again"
-msgstr ""
-"Tallennuspaikka.\n"
-"Asema on oltava liitettynä! Jos et näe asemaa täällä se on luultavasti \"vain luku\" tilassa tai autofs käsittelee sitä sellaisena. Koita asentaa liitokset uudelleen."
-
-#: .../crossepg/trunk/src/enigma2/python/crossepg_setup.py:264
-msgid ""
-"Lamedb used for epg.dat conversion.\n"
-"This option doesn't work with crossepg patch v2"
-msgstr ""
-"Lamedb on käytössä epg.dat muunnokseen.\n"
-"Tämä asetus ei toimi crossepg v2:ssa."
-
-#: .../crossepg/trunk/src/enigma2/python/crossepg_setup.py:266
-#, python-format
-msgid ""
-"Import *.csv and *.bin from %s/import or %s/import\n"
-"(*.bin are binaries with a csv as stdout)"
-msgstr "Lataa *.csv ja *.bin %s/latauksista tai %s/latauksista"
-
-#: .../crossepg/trunk/src/enigma2/python/crossepg_setup.py:268
+#: ../src/enigma2/python/crossepg_setup.py:268
 msgid ""
 "Reload epg at every boot.\n"
 "Normally it's not necessary but recover epg after an enigma2 crash"
@@ -228,15 +435,104 @@ msgstr ""
 "Lataa EPG joka käynnistyksessä.\n"
 "Normaalisti ei tarpeellista mutta palauttaa tiedot enigma2:n kaatumisen jälkeen"
 
-#: .../crossepg/trunk/src/enigma2/python/crossepg_setup.py:270
-msgid ""
-"Only for opentv providers.\n"
-"If you zap on channel used from a provider it download the epg in background"
-msgstr ""
-"Vain opentv palveluille.\n"
-"Kun menet kanavalle EPG ladataan taustalla"
+#: ../src/enigma2/python/crossepglib.py:498
+#: ../src/enigma2/python/crossepglib.py:501
+msgid "Running script"
+msgstr "Ajetaan scriptiä..."
 
-#: .../crossepg/trunk/src/enigma2/python/crossepg_setup.py:273
+#: ../src/enigma2/python/crossepg_providers.py:64
+msgid "Save"
+msgstr "Tallenna"
+
+#: ../src/enigma2/python/crossepglib.py:642
+msgid "Saving data"
+msgstr "Tallennetaan tietoja..."
+
+#: ../src/enigma2/python/crossepg_setup.py:192
+msgid "Scheduled download"
+msgstr "Ajastettu lataus"
+
+#: ../src/enigma2/python/crossepg_setup.py:197
+msgid "Scheduled download at"
+msgstr "Ajastettu lataus kello"
+
+#: ../src/enigma2/python/crossepg_setup.py:278
+msgid "Scheduled download disabled"
+msgstr "Ajastettu lataus on poissa käytöstä"
+
+#: ../src/enigma2/python/crossepg_providers.py:44
+msgid "Scripts"
+msgstr ""
+
+#: ../src/enigma2/python/crossepg_menu.py:67
+msgid "Scripts providers"
+msgstr "Script palvelut"
+
+#: ../src/enigma2/python/crossepg_setup.py:203
+msgid "Show as extension"
+msgstr "Näytä laajennusvalikossa"
+
+#: ../src/enigma2/python/crossepg_setup.py:202
+msgid "Show as plugin"
+msgstr "Näytä lisäosavalikossa"
+
+#: ../src/enigma2/python/crossepg_setup.py:301
+#, fuzzy
+msgid "Show crossepg force load in plugin menu"
+msgstr "Näytä lisäosavalikossa"
+
+#: ../src/enigma2/python/crossepg_setup.py:298
+msgid "Show crossepg in extensions menu"
+msgstr "Näytä laajennusvalikossa"
+
+#: ../src/enigma2/python/crossepg_setup.py:295
+msgid "Show crossepg in plugin menu"
+msgstr "Näytä lisäosavalikossa"
+
+#: ../src/enigma2/python/crossepg_converter.py:42
+#: ../src/enigma2/python/crossepg_converter.py:43
+msgid "Starting converter"
+msgstr "Käynnistetään muunnos..."
+
+#: ../src/enigma2/python/crossepg_downloader.py:48
+#: ../src/enigma2/python/crossepg_downloader.py:53
+msgid "Starting downloader"
+msgstr "Aloitetaan lataus..."
+
+#: ../src/enigma2/python/crossepg_importer.py:42
+#: ../src/enigma2/python/crossepg_importer.py:43
+msgid "Starting importer"
+msgstr "Lataus alkaa..."
+
+#: ../src/enigma2/python/crossepg_setup.py:284
+msgid "Time for scheduled daily download"
+msgstr "Ajastetun latauksen aika"
+
+#: ../src/enigma2/python/crossepg_info.py:77
+#, python-format
+msgid "Total size: %s"
+msgstr "Kokonais koko: %s"
+
+#: ../src/enigma2/python/crossepg_menu.py:70
+msgid "Update rytec providers"
+msgstr "Päivitä rytec palvelut"
+
+#: ../src/enigma2/python/crossepg_rytec_update.py:54
+#: ../src/enigma2/python/crossepg_rytec_update.py:55
+#: ../src/enigma2/python/crossepg_xepgdb_update.py:54
+msgid "Updating rytec providers..."
+msgstr "Päivitetään rytec..."
+
+#: ../src/enigma2/python/crossepg_xepgdb_update.py:53
+msgid "Updating xepgdb providers..."
+msgstr "Päivitetään xepgdb..."
+
+#: ../src/enigma2/python/crossepg_info.py:89
+#, python-format
+msgid "Version: %s"
+msgstr "Versio: %s"
+
+#: ../src/enigma2/python/crossepg_setup.py:272
 msgid ""
 "When the decoder is in standby opentv providers will be automatically downloaded every hour.\n"
 "XMLTV providers will be always downloaded only once a day"
@@ -244,260 +540,57 @@ msgstr ""
 "Kun laite on valmiustilassa opentv palvelut ladataan joka tunti\n"
 "XMLTV palvelut ladataan aina kerran päivässä"
 
-#: .../crossepg/trunk/src/enigma2/python/crossepg_setup.py:275
-msgid "Download epg once a day"
-msgstr "Lataa EPG kerran päivässä"
+#: ../src/enigma2/python/crossepg_providers.py:42
+#, fuzzy
+msgid "XEPGDB"
+msgstr "Muokataan XEPGDB"
 
-#: .../crossepg/trunk/src/enigma2/python/crossepg_setup.py:277
-msgid "Scheduled download disabled"
-msgstr "Ajastettu lataus on poissa käytöstä"
+#: ../src/enigma2/python/crossepg_providers.py:36
+msgid "XMLTV"
+msgstr ""
 
-#: .../crossepg/trunk/src/enigma2/python/crossepg_setup.py:279
-msgid "Time for scheduled daily download"
-msgstr "Ajastetun latauksen aika"
-
-#: .../crossepg/trunk/src/enigma2/python/crossepg_setup.py:281
-msgid "Automatically reboot the decoder after a scheduled download"
-msgstr "Käynnistä laite uudelleen ajastetun latauksen jälkeen"
-
-#: .../crossepg/trunk/src/enigma2/python/crossepg_setup.py:283
-msgid "Automatically reboot the decoder after a manual download"
-msgstr "Käynnistä laite uudelleen manuaalisen latauksen jälkeen"
-
-#: .../crossepg/trunk/src/enigma2/python/crossepg_setup.py:285
-msgid "Show crossepg in plugin menu"
-msgstr "Näytä lisäosavalikossa"
-
-#: .../crossepg/trunk/src/enigma2/python/crossepg_setup.py:287
-msgid "Show crossepg in extensions menu"
-msgstr "Näytä laajennusvalikossa"
-
-#: .../crossepg/trunk/src/enigma2/python/crossepg_importer.py:32
-msgid "Starting importer"
-msgstr "Lataus alkaa..."
-
-#: .../crossepg/trunk/src/enigma2/python/crossepg_importer.py:94
-msgid "Parsing"
-msgstr "Järjestä"
-
-#: .../crossepg/trunk/src/enigma2/python/crossepg_importer.py:98
-msgid "Downloading"
-msgstr "Lataa..."
-
-#: .../crossepg/trunk/src/enigma2/python/crossepg_menu.py:57
-msgid "Configure"
-msgstr "Asetukset"
-
-#: .../crossepg/trunk/src/enigma2/python/crossepg_menu.py:58
+#: ../src/enigma2/python/crossepg_menu.py:65
 msgid "XMLTV providers"
 msgstr "XMLTV palvelut"
 
-#: .../crossepg/trunk/src/enigma2/python/crossepg_menu.py:59
-msgid "OpenTV providers"
-msgstr "OpenTV palvelut"
+#: ../src/enigma2/python/crossepg_main.py:26
+#, fuzzy
+msgid ""
+"You need to configure crossepg before starting downloader.\n"
+"Would You like to do it now ?"
+msgstr "Muokkaa asetuksia ennen kuin aloitat latauksen!"
 
-#: .../crossepg/trunk/src/enigma2/python/crossepg_menu.py:60
-msgid "XEPGDB providers"
-msgstr "XEPGDB palvelut"
+#: ../src/enigma2/python/crossepg_auto.py:146
+msgid ""
+"Your epg about to update,\n"
+"Do you want to allow this?"
+msgstr ""
 
-#: .../crossepg/trunk/src/enigma2/python/crossepg_menu.py:61
-msgid "Scripts providers"
-msgstr "Script palvelut"
+#: ../src/enigma2/python/crossepg_setup.py:71
+#: ../src/enigma2/python/crossepg_setup.py:186
+msgid "disabled"
+msgstr "pois"
 
-#: .../crossepg/trunk/src/enigma2/python/crossepg_menu.py:62
-msgid "MHW2 providers"
+#: ../src/enigma2/python/crossepg_setup.py:73
+#: ../src/enigma2/python/crossepg_setup.py:182
+msgid "every hour (only in standby)"
+msgstr "joka tunti (vain valmiustilassa)"
+
+#: ../src/enigma2/python/crossepg_setup.py:66
+#: ../src/enigma2/python/crossepg_setup.py:176
+msgid "main lamedb"
+msgstr "Pää lamedb"
+
+#: ../src/enigma2/python/crossepg_setup.py:72
+#: ../src/enigma2/python/crossepg_setup.py:184
+msgid "once a day"
+msgstr "kerran päivässä"
+
+#: ../src/enigma2/python/crossepg_providers.py:47
+#, fuzzy
+msgid "providers"
 msgstr "MHW2 palvelut"
 
-#: .../crossepg/trunk/src/enigma2/python/crossepg_menu.py:63
-msgid "Providers start order"
-msgstr "Palveluiden käynnistysjärjestys"
-
-#: .../crossepg/trunk/src/enigma2/python/crossepg_menu.py:64
-msgid "Update rytec providers"
-msgstr "Päivitä rytec palvelut"
-
-#: .../crossepg/trunk/src/enigma2/python/crossepg_menu.py:65
-msgid "Update xepgdb providers"
-msgstr "Päivitä xepgdb palvelut"
-
-#: .../crossepg/trunk/src/enigma2/python/crossepg_menu.py:66
-msgid "Download now"
-msgstr "Lataa nyt"
-
-#: .../crossepg/trunk/src/enigma2/python/crossepg_menu.py:67
-msgid "Force csv import now"
-msgstr "Lataa csv tiedostot"
-
-#: .../crossepg/trunk/src/enigma2/python/crossepg_menu.py:68
-msgid "Force epg.dat conversion now"
-msgstr "Käynnistä epg.dat muunnos"
-
-#: .../crossepg/trunk/src/enigma2/python/crossepg_menu.py:69
-msgid "Force epg reload"
-msgstr "Lataa EPG"
-
-#: .../crossepg/trunk/src/enigma2/python/crossepg_menu.py:70
-msgid "Info about database"
-msgstr "Tietokannan tiedot"
-
-#: .../crossepg/trunk/src/enigma2/python/crossepg_menu.py:71
-msgid "About"
-msgstr "Tietoja"
-
-#: .../crossepg/trunk/src/enigma2/python/crossepg_loader.py:34
-#: .../crossepg/trunk/src/enigma2/python/crossepglib.py:598
-msgid "Loading data"
-msgstr "Ladataan..."
-
-#: .../crossepg/trunk/src/enigma2/python/crossepglib.py:444
-msgid "Reading channels"
-msgstr "Luetaan kanavia..."
-
-#: .../crossepg/trunk/src/enigma2/python/crossepglib.py:447
-msgid "Reading titles"
-msgstr "Luetaan otsikoita..."
-
-#: .../crossepg/trunk/src/enigma2/python/crossepglib.py:450
-msgid "Parsing titles"
-msgstr "Järjestä nimet"
-
-#: .../crossepg/trunk/src/enigma2/python/crossepglib.py:453
-msgid "Reading summaries"
-msgstr "Luetaan yhteenvetoa..."
-
-#: .../crossepg/trunk/src/enigma2/python/crossepglib.py:456
-msgid "Parsing summaries"
-msgstr "Järjestä yhteenvedot"
-
-#: .../crossepg/trunk/src/enigma2/python/crossepglib.py:459
-msgid "Downloading channels list"
-msgstr "Ladataan kanavalistaa"
-
-#: .../crossepg/trunk/src/enigma2/python/crossepglib.py:462
-msgid "Deflating channels list"
-msgstr "Tyhjennetään kanavalistaa"
-
-#: .../crossepg/trunk/src/enigma2/python/crossepglib.py:465
-msgid "Parsing channels list"
-msgstr "Järjestä kanavalista"
-
-#: .../crossepg/trunk/src/enigma2/python/crossepglib.py:468
-msgid "Downloading events"
-msgstr "Ladataan tapahtumia"
-
-#: .../crossepg/trunk/src/enigma2/python/crossepglib.py:471
-msgid "Deflating events"
-msgstr "Tyhjennetään tapahtumia"
-
-#: .../crossepg/trunk/src/enigma2/python/crossepglib.py:474
-msgid "Parsing events"
-msgstr "Järjestä tapahtumat"
-
-#: .../crossepg/trunk/src/enigma2/python/crossepglib.py:477
-msgid "Downloading XEPGDB"
-msgstr "Ladataan XEPGDB"
-
-#: .../crossepg/trunk/src/enigma2/python/crossepglib.py:480
-msgid "Merging XEPGDB"
-msgstr "Muokataan XEPGDB"
-
-#: .../crossepg/trunk/src/enigma2/python/crossepglib.py:483
-msgid "Deflating XEPGDB"
-msgstr "Poistetaan XEPGDB"
-
-#: .../crossepg/trunk/src/enigma2/python/crossepglib.py:486
-#: .../crossepg/trunk/src/enigma2/python/crossepglib.py:489
-msgid "Running script"
-msgstr "Ajetaan scriptiä..."
-
-#: .../crossepg/trunk/src/enigma2/python/crossepglib.py:492
-#, python-format
-msgid "%s channels"
-msgstr "%s kanavia"
-
-#: .../crossepg/trunk/src/enigma2/python/crossepglib.py:496
-#, python-format
-msgid "Read %s"
-msgstr "Lue %s"
-
-#: .../crossepg/trunk/src/enigma2/python/crossepglib.py:498
-#, python-format
-msgid "%s of %s"
-msgstr "%s %s:sta"
-
-#: .../crossepg/trunk/src/enigma2/python/crossepglib.py:582
-msgid "Converting data"
-msgstr "Muunnetaan tietoja..."
-
-#: .../crossepg/trunk/src/enigma2/python/crossepglib.py:614
-msgid "Saving data"
-msgstr "Tallennetaan tietoja..."
-
-#: .../crossepg/trunk/src/enigma2/python/crossepg_converter.py:32
-msgid "Starting converter"
-msgstr "Käynnistetään muunnos..."
-
-#: .../crossepg/trunk/src/enigma2/python/crossepg_providers.py:42
-#: .../crossepg/trunk/src/enigma2/python/crossepg_providers.py:109
-msgid "Enable"
-msgstr "Salli"
-
-#: .../crossepg/trunk/src/enigma2/python/crossepg_providers.py:43
-msgid "Download"
-msgstr "Lataa"
-
-#: .../crossepg/trunk/src/enigma2/python/crossepg_providers.py:107
-msgid "Disable"
-msgstr "Pois"
-
-#: .../crossepg/trunk/src/enigma2/python/crossepg_ordering.py:51
-msgid "CrossEPG - Providers start order"
-msgstr "CrossEPG - palveluiden käynnistysjärjestys"
-
-#: .../crossepg/trunk/src/enigma2/python/crossepg_ordering.py:79
-#: .../crossepg/trunk/src/enigma2/python/crossepg_ordering.py:85
-msgid "Move down"
-msgstr "Siirrä alas"
-
-#: .../crossepg/trunk/src/enigma2/python/crossepg_ordering.py:81
-#: .../crossepg/trunk/src/enigma2/python/crossepg_ordering.py:84
-msgid "Move up"
-msgstr "Siirrä ylös"
-
-#: .../crossepg/trunk/src/enigma2/python/crossepg_rytec_update.py:44
-msgid "Updating rytec providers..."
-msgstr "Päivitetään rytec..."
-
-#: .../crossepg/trunk/src/enigma2/python/crossepg_rytec_update.py:67
-#: .../crossepg/trunk/src/enigma2/python/crossepg_xepgdb_update.py:66
-#, python-format
-msgid "%d providers updated"
-msgstr "%d palvelua päivitetty"
-
-#: .../crossepg/trunk/src/enigma2/python/crossepg_rytec_update.py:69
-msgid "Cannot retrieve rytec sources"
-msgstr "Ei saada yhteyttä rytec palveluihin"
-
-#: .../crossepg/trunk/src/enigma2/python/crossepg_xepgdb_update.py:43
-msgid "Updating xepgdb providers..."
-msgstr "Päivitetään xepgdb..."
-
-#: .../crossepg/trunk/src/enigma2/python/crossepg_xepgdb_update.py:68
-msgid "Cannot retrieve xepgdb sources"
-msgstr "Ei saada yhteyttä xepgbd palveluihin"
-
-msgid "Defragment database"
-msgstr "Eheytä tiedostot"
-
-msgid "Cancel"
-msgstr "Peruuta"
-
-msgid "Save"
-msgstr "Tallenna"
-
-msgid "Close"
-msgstr "Sulje"
-
-msgid "Defragmentation..."
-msgstr "Eheyttää..."
-
+#: ../src/enigma2/python/crossepg_menu.py:54
+msgid "unknown version"
+msgstr ""

@@ -1,318 +1,234 @@
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-05-29 02:49+0430\n"
 "PO-Revision-Date: \n"
-"Last-Translator: jerry <jerry00@quick.cz>\n"
+"Last-Translator: Andy Blackburn <andyblac@o2.co.uk>\n"
 "Language-Team: PLi <ims21@users.sourceforge.net>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: Czech\n"
 "X-Poedit-Country: CZECH REPUBLIC\n"
 
-#
+#: ../src/enigma2/python/crossepg_auto.py:314
+msgid "%a %e %b  %-H:%M"
+msgstr ""
+
+#: ../src/enigma2/python/crossepg_rytec_update.py:91
+#: ../src/enigma2/python/crossepg_xepgdb_update.py:89
+#, python-format
+msgid "%d providers updated"
+msgstr ""
+
+#: ../src/enigma2/python/crossepglib.py:504
+#, python-format
+msgid "%s channels"
+msgstr "%s kanálů"
+
+#: ../src/enigma2/python/crossepglib.py:510
+#, python-format
+msgid "%s of %s"
+msgstr "%s z %s"
+
+#: ../src/enigma2/python/crossepg_about.py:35
+#: ../src/enigma2/python/crossepg_menu.py:75
+msgid "About"
+msgstr "Popis Aplikace"
+
+#: ../src/enigma2/python/crossepg_info.py:75
+#, python-format
+msgid "Aliases db size: %s"
+msgstr "Velikost zástupce db: %s"
+
+#: ../src/enigma2/python/plugin.py:29 ../src/enigma2/python/plugin.py:34
+#: ../src/enigma2/python/plugin.py:39
+msgid "An EPG downloader"
+msgstr "Stahovač EPG"
+
+#: ../src/enigma2/python/plugin.py:54
+msgid "Auto"
+msgstr ""
+
+#: ../src/enigma2/python/crossepg_setup.py:292
+msgid "Automatically reboot the decoder after a manual download"
+msgstr "Automaticky rebootovat dekodér po manuálním stažení"
+
+#: ../src/enigma2/python/crossepg_setup.py:289
+msgid "Automatically reboot the decoder after a scheduled download"
+msgstr "Automaticky rebootovat dekodér po plánovaném stažení"
+
+#: ../src/enigma2/python/crossepg_providers.py:63
+#: ../src/enigma2/python/crossepg_ordering.py:41
+#: ../src/enigma2/python/crossepg_setup.py:80
+msgid "Cancel"
+msgstr ""
+
+#: ../src/enigma2/python/crossepg_downloader.py:295
+msgid "Cannot allocate the demuxer"
+msgstr ""
+
+#: ../src/enigma2/python/crossepg_downloader.py:270
+msgid "Cannot free NIM because a recording is in progress"
+msgstr ""
+
+#: ../src/enigma2/python/crossepg_downloader.py:289
+msgid "Cannot get frontend"
+msgstr ""
+
+#: ../src/enigma2/python/crossepg_downloader.py:273
+msgid "Cannot get the NIM"
+msgstr ""
+
+#: ../src/enigma2/python/crossepg_rytec_update.py:93
+msgid "Cannot retrieve rytec sources"
+msgstr ""
+
+#: ../src/enigma2/python/crossepg_xepgdb_update.py:91
+msgid "Cannot retrieve xepgdb sources"
+msgstr ""
+
+#: ../src/enigma2/python/crossepg_info.py:79
+#, python-format
+msgid "Channels count: %s"
+msgstr "Počet kanálů: %s"
+
+#: ../src/enigma2/python/crossepg_about.py:53
+#: ../src/enigma2/python/crossepg_info.py:53
+#: ../src/enigma2/python/crossepg_menu.py:85
+msgid "Close"
+msgstr ""
+
+#: ../src/enigma2/python/crossepg_menu.py:63
 msgid "Configure"
 msgstr "Nastavit"
 
-#
-msgid "XMLTV providers"
-msgstr "XMLTV provideři"
+#: ../src/enigma2/python/crossepglib.py:610
+msgid "Converting data"
+msgstr "Převod dat..."
 
-#
-msgid "Scripts providers"
-msgstr "Provideři skriptů"
+#: ../src/enigma2/python/crossepg_info.py:85
+#, python-format
+msgid "Creation time: %s"
+msgstr "Vytvořeno v: %s"
 
-#
+#: ../src/enigma2/python/plugin.py:28 ../src/enigma2/python/plugin.py:33
+#: ../src/enigma2/python/plugin.py:38 ../src/enigma2/python/plugin.py:44
+#: ../src/enigma2/python/plugin.py:49 ../src/enigma2/python/plugin.py:54
+#: ../src/enigma2/python/plugin.py:60
+#: ../src/enigma2/python/crossepg_importer.py:39
+#: ../src/enigma2/python/crossepg_providers.py:47
+#: ../src/enigma2/python/crossepg_rytec_update.py:46
+#: ../src/enigma2/python/crossepg_ordering.py:29
+#: ../src/enigma2/python/crossepg_defragmenter.py:36
+#: ../src/enigma2/python/crossepg_loader.py:39
+#: ../src/enigma2/python/crossepg_converter.py:39
+#: ../src/enigma2/python/crossepg_about.py:35
+#: ../src/enigma2/python/crossepg_info.py:30
+#: ../src/enigma2/python/crossepg_menu.py:51
+#: ../src/enigma2/python/crossepg_menu.py:54
+#: ../src/enigma2/python/crossepg_xepgdb_update.py:47
+#, fuzzy
+msgid "CrossEPG"
+msgstr "CrossEPG - Popis"
+
+#: ../src/enigma2/python/plugin.py:61
+#, fuzzy
+msgid "CrossEPG Force Reload"
+msgstr "Panel nastavení CrossEPG"
+
+#: ../src/enigma2/python/crossepg_setup.py:38
+#, fuzzy
+msgid "CrossEPG Setup"
+msgstr "Panel nastavení CrossEPG"
+
+#: ../src/enigma2/python/plugin.py:55
+msgid "CrossEPG automatic actions"
+msgstr "Auto-akce CrossEPG"
+
+#: ../src/enigma2/python/crossepg_importer.py:149
+#: ../src/enigma2/python/crossepg_downloader.py:151
+#: ../src/enigma2/python/crossepg_downloader.py:415
+#: ../src/enigma2/python/crossepg_defragmenter.py:129
+#: ../src/enigma2/python/crossepg_loader.py:249
+#: ../src/enigma2/python/crossepg_converter.py:137
+#, python-format
+msgid "CrossEPG error: %s"
+msgstr "Chyba CrossEPG: %s"
+
+#: ../src/enigma2/python/plugin.py:45 ../src/enigma2/python/plugin.py:50
+msgid "CrossEPG setup panel"
+msgstr "Panel nastavení CrossEPG"
+
+#: ../src/enigma2/python/crossepglib.py:495
+msgid "Deflating XEPGDB"
+msgstr "Deflace XEPGDB"
+
+#: ../src/enigma2/python/crossepglib.py:474
+msgid "Deflating channels list"
+msgstr "Deflace seznamu kanálů"
+
+#: ../src/enigma2/python/crossepglib.py:483
+msgid "Deflating events"
+msgstr "Deflace událostí"
+
+#: ../src/enigma2/python/crossepg_menu.py:73
+#, fuzzy
+msgid "Defragment database"
+msgstr "O databázi"
+
+#: ../src/enigma2/python/crossepg_defragmenter.py:39
+#: ../src/enigma2/python/crossepg_defragmenter.py:40
+msgid "Defragmentation..."
+msgstr ""
+
+#: ../src/enigma2/python/crossepg_info.py:71
+#, python-format
+msgid "Descriptors db size: %s"
+msgstr "Velikost popisu db: %s"
+
+#: ../src/enigma2/python/crossepg_providers.py:92
+#, fuzzy
+msgid "Disabled"
+msgstr "Vypnout"
+
+#: ../src/enigma2/python/crossepg_providers.py:65
+msgid "Download"
+msgstr "Stáhnout"
+
+#: ../src/enigma2/python/crossepg_setup.py:275
+msgid "Download epg once a day"
+msgstr "Stáhnout epg jednou za den"
+
+#: ../src/enigma2/python/crossepg_menu.py:72
 msgid "Download now"
 msgstr "Stáhnout nyní"
 
-#
-msgid "Info about database"
-msgstr "O databázi"
+#: ../src/enigma2/python/plugin.py:28 ../src/enigma2/python/plugin.py:33
+#: ../src/enigma2/python/plugin.py:38
+#, fuzzy
+msgid "Downloader"
+msgstr "Stáhnout"
 
-#
-msgid "OpenTV providers"
-msgstr "OpenTV provideři"
-
-#
-msgid "XEPGDB providers"
-msgstr "XEPGDB provideři"
-
-#
-msgid "MHW2 providers"
-msgstr "MHW2 provideři"
-
-#
-msgid "Providers start order"
-msgstr "Pořadí spuštění providerů"
-
-#
-msgid "Update rytec providers"
-msgstr "Aktualizace rytec providerů"
-
-#
-msgid "Update xepgdb providers"
-msgstr "Aktualizace xepgdb providerů"
-
-#
-msgid "Force csv import now"
-msgstr "Načíst csv nyní"
-
-#
-msgid "Updating rytec providers..."
-msgstr "Aktualizuji rytec providery..."
-
-#
-msgid "Move down"
-msgstr "Níže"
-
-#
-msgid "Move up"
-msgstr "Výše"
-
-#
-msgid "Updating xepgdb providers..."
-msgstr "Aktualizuji xepgdb providery"
-
-#
-msgid "Version: %s"
-msgstr "Verze: %s"
-
-#
-msgid "Total size: %s"
-msgstr "Celková velikost: %s"
-
-#
-msgid "Time for scheduled daily download"
-msgstr "Čas plánovaného denního stahování"
-
-#
-msgid "Storage device"
-msgstr "Uložit na"
-
-#
-msgid "Starting importer"
-msgstr "Import..."
-
-#
-msgid "Starting downloader"
+#: ../src/enigma2/python/crossepg_importer.py:121
+msgid "Downloading"
 msgstr "Stahování..."
 
-#
-msgid "Starting converter"
-msgstr "Převod..."
+#: ../src/enigma2/python/crossepglib.py:489
+msgid "Downloading XEPGDB"
+msgstr "Stahování XEPGDB"
 
-#
-msgid "Show crossepg in plugin menu"
-msgstr "Zobrazit CrossEpg v menu"
+#: ../src/enigma2/python/crossepglib.py:471
+msgid "Downloading channels list"
+msgstr "Stahování seznamu kanálů"
 
-#
-msgid "Show crossepg in extensions menu"
-msgstr "Zobrazit CrossEpg v rozšířeních"
+#: ../src/enigma2/python/crossepglib.py:480
+msgid "Downloading events"
+msgstr "Stahování událostí"
 
-#
-msgid "Show as plugin"
-msgstr "Zobrazit jako plugin"
-
-#
-msgid "Show as extension"
-msgstr "Zobrazit jako rozšíření"
-
-#
-msgid "Scheduled download disabled"
-msgstr "Plánované stažení vypnuto"
-
-#
-msgid "once a day"
-msgstr "jednou denně"
-
-#
-msgid "main lamedb"
-msgstr "hlavní lamedb"
-
-#
-msgid "every hour (only in standby)"
-msgstr "každou hod. (pouze ve standby)"
-
-#
-msgid "disabled"
-msgstr "vypnuto"
-
-#
-msgid ""
-"When the decoder is in standby opentv providers will be automatically downloaded every hour.\n"
-"XMLTV providers will be always downloaded only once a day"
-msgstr ""
-"Pokud je dekodér v pohotovostním režimu, poskytovatelý opentv budou automaticky staženi každou hodinu.\n"
-"XMLTV poskytovatelé budou vždy stoženi jen jednou denně"
-
-#
-msgid "Scheduled download at"
-msgstr "Stáhnout v"
-
-#
-msgid "Scheduled download"
-msgstr "Plán stažení"
-
-#
-msgid "Saving data"
-msgstr "Uložit data"
-
-#
-msgid "Running script"
-msgstr "Spuštěný skrip"
-
-#
-msgid ""
-"Reload epg at every boot.\n"
-"Normally it's not necessary but recover epg after an enigma2 crash"
-msgstr ""
-"Načíst EPG při každém bootu.\n"
-"Normálně to není potřeba, protože se EPG po pádu enigmy2 obnoví"
-
-#
-msgid "Reboot after a scheduled download"
-msgstr "Restart po plánovaném stažení"
-
-#
-msgid "Reboot after a manual download"
-msgstr "Restart po manuálním stažení"
-
-#
-msgid "Reading titles"
-msgstr "Čtou se hlavičky..."
-
-#
-msgid "Reading summaries"
-msgstr "Čtou se souhrny..."
-
-#
-msgid "Reading channels"
-msgstr "Čtou se kanály..."
-
-#
-msgid "Read %s"
-msgstr "Čtou se %s"
-
-#
-msgid "Preferred lamedb"
-msgstr "Preferovaná lamedb"
-
-#
-msgid "Please configure crossepg before start downloader"
-msgstr "Před stažením nejdříve nakonfigurujte CrossEpg"
-
-#
-msgid "Parsing titles"
-msgstr "Porovnávám hlavičky..."
-
-#
-msgid "Parsing summaries"
-msgstr "Porovnávám souhrny..."
-
-#
-msgid "Parsing events"
-msgstr "Porovnání událostí"
-
-#
-msgid "Parsing channels list"
-msgstr "Porovnání seznamu kanálů"
-
-#
-msgid "Parsing"
-msgstr "Porovnávám..."
-
-#
-msgid ""
-"PLEASE READ!\n"
-"No disk found. An hard drive or an usb pen is HARDLY SUGGESTED. If you still want use your internal flash pay attention to:\n"
-"(1) If you don't have enough free space your box may completely block and you need to flash it again\n"
-"(2) Many write operations on your internal flash may damage your flash memory"
-msgstr ""
-"ČTĚTE, PROSÍM!\n"
-"Nenalezen disk. Pokud i přesto chcete používat interní fleš, věnujte pozornost tomuto:\n"
-"(1) Pokud nemáte dostatek volného místa, můžete stb totálně zablokovat a bude nutné nové flešnutí fw\n"
-"(2) Příliž mnoho zápisů na interní flash,může způsobit poškození flash paměti "
-
-#
-msgid ""
-"Only for opentv providers.\n"
-"If you zap on channel used from a provider it download the epg in background"
-msgstr ""
-"Pouze pro providery opentv.\n"
-"Pokud přepnete na kanál používaný providerem, stáhne se EPG na pozadí"
-
-#
-msgid "Merging XEPGDB"
-msgstr "Slučuji XEPGDB"
-
-#
-msgid "Loading data"
-msgstr "Načítám data..."
-
-#
-msgid "Last update time: %s"
-msgstr "Aktualizováno v: %s"
-
-#
-msgid ""
-"Lamedb used for epg.dat conversion.\n"
-"This option doesn't work with crossepg patch v2"
-msgstr ""
-"Lamedb je používána pro konverzi epg.dat.\n"
-"Tato volba nepracuje s patchem crossepg v2"
-
-#
-msgid "Internal flash (unsuggested)"
-msgstr "Interní flash (nedoporučováno)"
-
-#
-msgid "Internal flash"
-msgstr "Interní flash"
-
-#
-msgid "Indexes db size: %s"
-msgstr "Velikost db indexu: %s"
-
-#
-msgid ""
-"Import *.csv and *.bin from %s/import or %s/import\n"
-"(*.bin are binaries with a csv as stdout)"
-msgstr ""
-"Import *.csv a *.bin z %s/import nebo %s/import\n"
-"(*.bin jako bin. souboru s csv jako stdout)"
-
-#
-msgid "Headers db size: %s"
-msgstr "Velikost hlavičky db: %s"
-
-#
-msgid "Hashes count: %s"
-msgstr "Součet Hash: %s"
-
-#
-msgid "Force epg.dat conversion now"
-msgstr "Konverze epg.dat nyní"
-
-#
-msgid "Force epg reload on boot"
-msgstr "Načtení epg při bootu"
-
-#
-msgid "Force epg reload"
-msgstr "Vynutit načtení epg"
-
-#
-msgid "Events count: %s"
-msgstr "Počet událostí: %s"
-
-#
-msgid "Enable csv import"
-msgstr "Povolit import csv"
-
-#
+#: ../src/enigma2/python/crossepg_setup.py:257
 msgid ""
 "Drive where you save data.\n"
 "The drive MUST be mounted in rw. If you can't see your device here probably is mounted as read only or autofs handle it only in read only mode. In case of mount it manually and try again"
@@ -322,150 +238,360 @@ msgstr ""
 "nevidíte,tak je asi připojeno jen pro čtení nebo v autofs\n"
 "jen pro čtení.Pak ho připojte manuálně a zkuste to znovu."
 
-#
-msgid "%s channels"
-msgstr "%s kanálů"
+#: ../src/enigma2/python/crossepg_setup.py:191
+msgid "Enable csv import"
+msgstr "Povolit import csv"
 
-#
-msgid "%s of %s"
-msgstr "%s z %s"
-
-#
-msgid "About"
-msgstr "Popis Aplikace"
-
-#
-msgid "Aliases db size: %s"
-msgstr "Velikost zástupce db: %s"
-
-#
-msgid "An EPG downloader"
-msgstr "Stahovač EPG"
-
-#
-msgid "Channels count: %s"
-msgstr "Počet kanálů: %s"
-
-#
-msgid "Creation time: %s"
-msgstr "Vytvořeno v: %s"
-
-#
-msgid "CrossEPG automatic actions"
-msgstr "Auto-akce CrossEPG"
-
-#
-msgid "CrossEPG error: %s"
-msgstr "Chyba CrossEPG: %s"
-
-#
-msgid "CrossEPG setup panel"
-msgstr "Panel nastavení CrossEPG"
-
-#
-msgid "Deflating XEPGDB"
-msgstr "Deflace XEPGDB"
-
-#
-msgid "Deflating channels list"
-msgstr "Deflace seznamu kanálů"
-
-#
-msgid "Deflating events"
-msgstr "Deflace událostí"
-
-#
-msgid "Descriptors db size: %s"
-msgstr "Velikost popisu db: %s"
-
-#
-msgid "Converting data"
-msgstr "Převod dat..."
-
-#
-msgid "Downloading"
-msgstr "Stahování..."
-
-#
-msgid "Downloading XEPGDB"
-msgstr "Stahování XEPGDB"
-
-#
-msgid "Downloading channels list"
-msgstr "Stahování seznamu kanálů"
-
-#
-msgid "Downloading events"
-msgstr "Stahování událostí"
-
-#
-msgid "Download on tune"
-msgstr "Stáhnout po naladění"
-
-#
-msgid "Download epg once a day"
-msgstr "Stáhnout epg jednou za den"
-
-#
-msgid "Back"
-msgstr "Zpět"
-
-#
-msgid "Disable"
-msgstr "Vypnout"
-
-#
-msgid "Download"
-msgstr "Stáhnout"
-
-#
-msgid "Enable"
+#: ../src/enigma2/python/crossepg_providers.py:90
+#, fuzzy
+msgid "Enabled"
 msgstr "Povolit"
 
-#
-msgid "CrossEPG - Providers start order"
-msgstr "CrossEPG - Pořadí providerů"
+#: ../src/enigma2/python/crossepg_auto.py:169
+msgid "Enough Retries, delaying till next schedule."
+msgstr ""
 
-#
-msgid "Automatically reboot the decoder after a scheduled download"
-msgstr "Automaticky rebootovat dekodér po plánovaném stažení"
+#: ../src/enigma2/python/crossepg_info.py:81
+#, python-format
+msgid "Events count: %s"
+msgstr "Počet událostí: %s"
 
-#
-msgid "Automatically reboot the decoder after a manual download"
-msgstr "Automaticky rebootovat dekodér po manuálním stažení"
+#: ../src/enigma2/python/plugin.py:60
+#, fuzzy
+msgid "Force Reload"
+msgstr "Vynutit načtení epg"
 
-#
-msgid "CrossEPG - MHW2 providers"
-msgstr "CrossEPG - MHW2 provideři"
+#: ../src/enigma2/python/crossepg_info.py:83
+#, python-format
+msgid "Hashes count: %s"
+msgstr "Součet Hash: %s"
 
-#
-msgid "CrossEPG - XEPGDB providers"
-msgstr "CrossEPG - XEPGDB provideři"
+#: ../src/enigma2/python/crossepg_info.py:69
+#, python-format
+msgid "Headers db size: %s"
+msgstr "Velikost hlavičky db: %s"
 
-#
-msgid "CrossEPG - OpenTV providers"
-msgstr "CrossEPG - OpenTV provideři"
+#: ../src/enigma2/python/crossepg_setup.py:265
+#, python-format
+msgid ""
+"Import *.csv and *.bin from %s/import or %s/import\n"
+"(*.bin are binaries with a csv as stdout)"
+msgstr ""
+"Import *.csv a *.bin z %s/import nebo %s/import\n"
+"(*.bin jako bin. souboru s csv jako stdout)"
 
-#
-msgid "CrossEPG - XMLTV providers"
-msgstr "CrossEPG - XMLTV provideři"
+#: ../src/enigma2/python/crossepg_info.py:73
+#, python-format
+msgid "Indexes db size: %s"
+msgstr "Velikost db indexu: %s"
 
-#
-msgid "CrossEPG - DB Info"
-msgstr "CrossEPG - Info o DB"
+#: ../src/enigma2/python/crossepg_info.py:30
+msgid "Info"
+msgstr ""
 
-#
-msgid "CrossEPG - About"
-msgstr "CrossEPG - Popis"
+#: ../src/enigma2/python/crossepg_menu.py:74
+msgid "Info about database"
+msgstr "O databázi"
 
-#
-msgid "CrossEPG - Scripts providers"
-msgstr "CrossEPG - Provideři skriptů"
+#: ../src/enigma2/python/crossepg_setup.py:262
+msgid ""
+"Lamedb used for epg.dat conversion.\n"
+"This option doesn't work with crossepg patch v2"
+msgstr ""
+"Lamedb je používána pro konverzi epg.dat.\n"
+"Tato volba nepracuje s patchem crossepg v2"
 
-#
-msgid "CrossEPG - Configuration"
-msgstr "CrossEPG - Konfigurace"
+#: ../src/enigma2/python/crossepg_info.py:87
+#, python-format
+msgid "Last update time: %s"
+msgstr "Aktualizováno v: %s"
 
-#
-msgid "Show 'Force reload' as plugin"
-msgstr "Zobrazit 'Vynutit načtení' v pluginech"
+#: ../src/enigma2/python/crossepglib.py:626
+#: ../src/enigma2/python/crossepg_loader.py:42
+#: ../src/enigma2/python/crossepg_loader.py:43
+msgid "Loading data"
+msgstr "Načítám data..."
+
+#: ../src/enigma2/python/crossepg_providers.py:46
+msgid "MHW2"
+msgstr ""
+
+#: ../src/enigma2/python/crossepglib.py:492
+msgid "Merging XEPGDB"
+msgstr "Slučuji XEPGDB"
+
+#: ../src/enigma2/python/crossepg_ordering.py:102
+#: ../src/enigma2/python/crossepg_ordering.py:108
+#: ../src/enigma2/python/crossepg_ordering.py:118
+#: ../src/enigma2/python/crossepg_ordering.py:124
+msgid "Move down"
+msgstr "Níže"
+
+#: ../src/enigma2/python/crossepg_ordering.py:104
+#: ../src/enigma2/python/crossepg_ordering.py:107
+#: ../src/enigma2/python/crossepg_ordering.py:120
+#: ../src/enigma2/python/crossepg_ordering.py:123
+msgid "Move up"
+msgstr "Výše"
+
+#: ../src/enigma2/python/crossepg_downloader.py:176
+msgid "No DVB-S NIMs founds"
+msgstr ""
+
+#: ../src/enigma2/python/crossepg_downloader.py:248
+msgid "No valid NIM found"
+msgstr ""
+
+#: ../src/enigma2/python/crossepg_setup.py:81
+#: ../src/enigma2/python/crossepg_menu.py:86
+msgid "OK"
+msgstr ""
+
+#: ../src/enigma2/python/crossepg_providers.py:38
+msgid "OpenTV"
+msgstr ""
+
+#: ../src/enigma2/python/crossepg_menu.py:64
+msgid "OpenTV providers"
+msgstr "OpenTV provideři"
+
+#: ../src/enigma2/python/crossepg_setup.py:142
+#, fuzzy
+msgid ""
+"PLEASE READ!\n"
+"A hard drive or an usb pen is STRONGLY SUGGESTED. If you still want use your internal flash pay attention to:\n"
+"(1) If you don't have enough free space your box may completely block and you need to flash it again\n"
+"(2) Many write operations on your internal flash may damage your flash memory"
+msgstr ""
+"ČTĚTE, PROSÍM!\n"
+"Nenalezen disk. Pokud i přesto chcete používat interní fleš, věnujte pozornost tomuto:\n"
+"(1) Pokud nemáte dostatek volného místa, můžete stb totálně zablokovat a bude nutné nové flešnutí fw\n"
+"(2) Příliž mnoho zápisů na interní flash,může způsobit poškození flash paměti "
+
+#: ../src/enigma2/python/crossepg_importer.py:117
+msgid "Parsing"
+msgstr "Porovnávám..."
+
+#: ../src/enigma2/python/crossepglib.py:477
+msgid "Parsing channels list"
+msgstr "Porovnání seznamu kanálů"
+
+#: ../src/enigma2/python/crossepglib.py:486
+msgid "Parsing events"
+msgstr "Porovnání událostí"
+
+#: ../src/enigma2/python/crossepglib.py:468
+msgid "Parsing summaries"
+msgstr "Porovnávám souhrny..."
+
+#: ../src/enigma2/python/crossepglib.py:462
+msgid "Parsing titles"
+msgstr "Porovnávám hlavičky..."
+
+#: ../src/enigma2/python/crossepg_setup.py:189
+msgid "Preferred lamedb"
+msgstr "Preferovaná lamedb"
+
+#: ../src/enigma2/python/crossepg_ordering.py:29
+#: ../src/enigma2/python/crossepg_menu.py:69
+msgid "Providers start order"
+msgstr "Pořadí spuštění providerů"
+
+#: ../src/enigma2/python/crossepglib.py:508
+#, python-format
+msgid "Read %s"
+msgstr "Čtou se %s"
+
+#: ../src/enigma2/python/crossepglib.py:456
+msgid "Reading channels"
+msgstr "Čtou se kanály..."
+
+#: ../src/enigma2/python/crossepglib.py:465
+msgid "Reading summaries"
+msgstr "Čtou se souhrny..."
+
+#: ../src/enigma2/python/crossepglib.py:459
+msgid "Reading titles"
+msgstr "Čtou se hlavičky..."
+
+#: ../src/enigma2/python/crossepg_providers.py:190
+#: ../src/enigma2/python/crossepg_ordering.py:160
+#: ../src/enigma2/python/crossepg_setup.py:314
+msgid "Really close without saving settings?"
+msgstr ""
+
+#: ../src/enigma2/python/crossepg_setup.py:201
+msgid "Reboot after a manual download"
+msgstr "Restart po manuálním stažení"
+
+#: ../src/enigma2/python/crossepg_setup.py:200
+msgid "Reboot after a scheduled download"
+msgstr "Restart po plánovaném stažení"
+
+#: ../src/enigma2/python/crossepg_setup.py:268
+msgid ""
+"Reload epg at every boot.\n"
+"Normally it's not necessary but recover epg after an enigma2 crash"
+msgstr ""
+"Načíst EPG při každém bootu.\n"
+"Normálně to není potřeba, protože se EPG po pádu enigmy2 obnoví"
+
+#: ../src/enigma2/python/crossepglib.py:498
+#: ../src/enigma2/python/crossepglib.py:501
+msgid "Running script"
+msgstr "Spuštěný skrip"
+
+#: ../src/enigma2/python/crossepg_providers.py:64
+msgid "Save"
+msgstr ""
+
+#: ../src/enigma2/python/crossepglib.py:642
+msgid "Saving data"
+msgstr "Uložit data"
+
+#: ../src/enigma2/python/crossepg_setup.py:192
+msgid "Scheduled download"
+msgstr "Plán stažení"
+
+#: ../src/enigma2/python/crossepg_setup.py:197
+msgid "Scheduled download at"
+msgstr "Stáhnout v"
+
+#: ../src/enigma2/python/crossepg_setup.py:278
+msgid "Scheduled download disabled"
+msgstr "Plánované stažení vypnuto"
+
+#: ../src/enigma2/python/crossepg_providers.py:44
+msgid "Scripts"
+msgstr ""
+
+#: ../src/enigma2/python/crossepg_menu.py:67
+msgid "Scripts providers"
+msgstr "Provideři skriptů"
+
+#: ../src/enigma2/python/crossepg_setup.py:203
+msgid "Show as extension"
+msgstr "Zobrazit jako rozšíření"
+
+#: ../src/enigma2/python/crossepg_setup.py:202
+msgid "Show as plugin"
+msgstr "Zobrazit jako plugin"
+
+#: ../src/enigma2/python/crossepg_setup.py:301
+#, fuzzy
+msgid "Show crossepg force load in plugin menu"
+msgstr "Zobrazit CrossEpg v menu"
+
+#: ../src/enigma2/python/crossepg_setup.py:298
+msgid "Show crossepg in extensions menu"
+msgstr "Zobrazit CrossEpg v rozšířeních"
+
+#: ../src/enigma2/python/crossepg_setup.py:295
+msgid "Show crossepg in plugin menu"
+msgstr "Zobrazit CrossEpg v menu"
+
+#: ../src/enigma2/python/crossepg_converter.py:42
+#: ../src/enigma2/python/crossepg_converter.py:43
+msgid "Starting converter"
+msgstr "Převod..."
+
+#: ../src/enigma2/python/crossepg_downloader.py:48
+#: ../src/enigma2/python/crossepg_downloader.py:53
+msgid "Starting downloader"
+msgstr "Stahování..."
+
+#: ../src/enigma2/python/crossepg_importer.py:42
+#: ../src/enigma2/python/crossepg_importer.py:43
+msgid "Starting importer"
+msgstr "Import..."
+
+#: ../src/enigma2/python/crossepg_setup.py:284
+msgid "Time for scheduled daily download"
+msgstr "Čas plánovaného denního stahování"
+
+#: ../src/enigma2/python/crossepg_info.py:77
+#, python-format
+msgid "Total size: %s"
+msgstr "Celková velikost: %s"
+
+#: ../src/enigma2/python/crossepg_menu.py:70
+msgid "Update rytec providers"
+msgstr "Aktualizace rytec providerů"
+
+#: ../src/enigma2/python/crossepg_rytec_update.py:54
+#: ../src/enigma2/python/crossepg_rytec_update.py:55
+#: ../src/enigma2/python/crossepg_xepgdb_update.py:54
+msgid "Updating rytec providers..."
+msgstr "Aktualizuji rytec providery..."
+
+#: ../src/enigma2/python/crossepg_xepgdb_update.py:53
+msgid "Updating xepgdb providers..."
+msgstr "Aktualizuji xepgdb providery"
+
+#: ../src/enigma2/python/crossepg_info.py:89
+#, python-format
+msgid "Version: %s"
+msgstr "Verze: %s"
+
+#: ../src/enigma2/python/crossepg_setup.py:272
+msgid ""
+"When the decoder is in standby opentv providers will be automatically downloaded every hour.\n"
+"XMLTV providers will be always downloaded only once a day"
+msgstr ""
+"Pokud je dekodér v pohotovostním režimu, poskytovatelý opentv budou automaticky staženi každou hodinu.\n"
+"XMLTV poskytovatelé budou vždy stoženi jen jednou denně"
+
+#: ../src/enigma2/python/crossepg_providers.py:42
+#, fuzzy
+msgid "XEPGDB"
+msgstr "Slučuji XEPGDB"
+
+#: ../src/enigma2/python/crossepg_providers.py:36
+msgid "XMLTV"
+msgstr ""
+
+#: ../src/enigma2/python/crossepg_menu.py:65
+msgid "XMLTV providers"
+msgstr "XMLTV provideři"
+
+#: ../src/enigma2/python/crossepg_main.py:26
+#, fuzzy
+msgid ""
+"You need to configure crossepg before starting downloader.\n"
+"Would You like to do it now ?"
+msgstr "Před stažením nejdříve nakonfigurujte CrossEpg"
+
+#: ../src/enigma2/python/crossepg_auto.py:146
+msgid ""
+"Your epg about to update,\n"
+"Do you want to allow this?"
+msgstr ""
+
+#: ../src/enigma2/python/crossepg_setup.py:71
+#: ../src/enigma2/python/crossepg_setup.py:186
+msgid "disabled"
+msgstr "vypnuto"
+
+#: ../src/enigma2/python/crossepg_setup.py:73
+#: ../src/enigma2/python/crossepg_setup.py:182
+msgid "every hour (only in standby)"
+msgstr "každou hod. (pouze ve standby)"
+
+#: ../src/enigma2/python/crossepg_setup.py:66
+#: ../src/enigma2/python/crossepg_setup.py:176
+msgid "main lamedb"
+msgstr "hlavní lamedb"
+
+#: ../src/enigma2/python/crossepg_setup.py:72
+#: ../src/enigma2/python/crossepg_setup.py:184
+msgid "once a day"
+msgstr "jednou denně"
+
+#: ../src/enigma2/python/crossepg_providers.py:47
+#, fuzzy
+msgid "providers"
+msgstr "MHW2 provideři"
+
+#: ../src/enigma2/python/crossepg_menu.py:54
+msgid "unknown version"
+msgstr ""
