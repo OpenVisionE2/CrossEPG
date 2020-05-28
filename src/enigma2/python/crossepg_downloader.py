@@ -12,7 +12,6 @@ from Components.NimManager import nimmanager
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
 
-from boxbranding import getImageDistro
 from crossepglib import *
 from crossepg_locale import _
 
@@ -127,10 +126,7 @@ class CrossEPG_Downloader(Screen):
 		if len(self.providers) == 0:
 			self.closeAndCallback(True)
 		else:
-			if getImageDistro() != "openvix":
-				self.wrapper.init(CrossEPG_Wrapper.CMD_DOWNLOADER, self.config.db_root)
-			else:
-				self.wrapper.init(CrossEPG_Wrapper.CMD_DOWNLOADER, config.misc.epgcachepath.value + 'crossepg')
+			self.wrapper.init(CrossEPG_Wrapper.CMD_DOWNLOADER, config.misc.epgcachepath.value + 'crossepg')
 
 	def download(self):
 		if self.config.getChannelProtocol(self.providers[self.provider_index]) != "script":

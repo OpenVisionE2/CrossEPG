@@ -95,14 +95,10 @@ class CrossEPG_Rytec_Update(Screen):
 
 	def loadSourceList(self):
 		try:
-			from boxbranding import getImageDistro
 			import urllib2
 			import gzip
 			from StringIO import StringIO
 			url = "http://epgalfasite.dyndns.tv/crossepgsources.gz"
-			distro = getImageDistro()
-			if distro == "openvix":
-				url = "http://www.openvix.co.uk/crossepgsources.gz"
 			print "[crossepg_rytec_update:loadSourceList] downloading source list from %s" % url
 			response = urllib2.urlopen(url)
 			content_raw = response.read()

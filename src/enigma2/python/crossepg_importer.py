@@ -11,7 +11,6 @@ from Components.config import config
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
 
-from boxbranding import getImageDistro
 from crossepglib import *
 from crossepg_locale import _
 
@@ -56,10 +55,7 @@ class CrossEPG_Importer(Screen):
 		self.config = CrossEPG_Config()
 		self.config.load()
 		self.lamedb = self.config.lamedb
-		if getImageDistro() != "openvix":
-			self.db_root = self.config.db_root
-		else:
-			self.db_root = config.misc.epgcachepath.value + 'crossepg'
+		self.db_root = config.misc.epgcachepath.value + 'crossepg'
 		if not pathExists(self.db_root):
 			if not createDir(self.db_root):
 				self.db_root = "/hdd/crossepg"

@@ -9,7 +9,6 @@ import os
 import re
 import new
 import _enigma
-from boxbranding import getImageDistro
 
 # return value
 # -1 none

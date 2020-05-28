@@ -17,7 +17,6 @@ from crossepg_locale import _
 import os
 import sys
 
-from boxbranding import getImageDistro
 from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN
 try:
 	from Tools.Directories import SCOPE_ACTIVE_SKIN
@@ -56,10 +55,7 @@ class CrossEPG_Converter(Screen):
 		self.config = CrossEPG_Config()
 		self.config.load()
 		self.lamedb = self.config.lamedb
-		if getImageDistro() != "openvix":
-			self.db_root = self.config.db_root
-		else:
-			self.db_root = config.misc.epgcachepath.value + 'crossepg'
+		self.db_root = config.misc.epgcachepath.value + 'crossepg'
 		if not pathExists(self.db_root):
 			if not createDir(self.db_root):
 				self.db_root = "/hdd/crossepg"

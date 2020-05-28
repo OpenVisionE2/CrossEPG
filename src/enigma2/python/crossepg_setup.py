@@ -15,7 +15,6 @@ from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 
 from Plugins.Plugin import PluginDescriptor
 
-from boxbranding import getImageDistro
 from crossepglib import *
 from crossepg_locale import _
 
@@ -57,25 +56,6 @@ class CrossEPG_Setup(ConfigListScreen, Screen):
 		self.show_extension = self.config.show_extension
 		self.show_plugin = self.config.show_plugin
 		self.show_force_reload_as_plugin = self.config.show_force_reload_as_plugin
-
-		if getImageDistro() != "openvix":
-			## make devices entries
-			if self.config.isQBOXHD():
-				self.mountdescription.append(_("Internal flash"))
-				self.mountpoint.append("/var/crossepg/data")
-
-			for partition in harddiskmanager.getMountedPartitions():
-				if (partition.mountpoint != '/') and (partition.mountpoint != '') and self.isMountedInRW(partition.mountpoint):
-					self.mountpoint.append(partition.mountpoint + "/crossepg")
-
-					if partition.description != '':
-						self.mountdescription.append(partition.description)
-					else:
-						self.mountdescription.append(partition.mountpoint)
-
-			if not self.config.isQBOXHD():		# for other decoders we add internal flash as last entry (it's unsuggested)
-				self.mountdescription.append(_("Internal flash (unsuggested)"))
-				self.mountpoint.append(self.config.home_directory + "/data")
 
 		# make lamedb entries
 		for lamedb in self.lamedbs:
@@ -190,19 +170,6 @@ class CrossEPG_Setup(ConfigListScreen, Screen):
 	def makeList(self):
 		self.list = []
 
-		if getImageDistro() != "openvix":
-			device_default = None
-			i = 0
-			for mountpoint in self.mountpoint:
-				if mountpoint == self.config.db_root:
-					device_default = self.mountdescription[i]
-				i += 1
-
-			## default device is really important... if miss a default we force it on first entry and update now the main config
-			if device_default == None:
-				self.config.db_root = self.mountpoint[0]
-				device_default = self.mountdescription[0]
-
 		lamedb_default = _("main lamedb")
 		if self.config.lamedb != "lamedb":
 			lamedb_default = self.config.lamedb.replace("lamedb.", "").replace(".", " ")
@@ -215,14 +182,10 @@ class CrossEPG_Setup(ConfigListScreen, Screen):
 		else:
 			scheduled_default = _("disabled")
 
-		if getImageDistro() != "openvix":
-			self.list.append((_("Storage device"), ConfigSelection(self.mountdescription, device_default)))
 		if len(self.lamedbs_desc) > 1:
 			self.list.append((_("Preferred lamedb"), ConfigSelection(self.lamedbs_desc, lamedb_default)))
 
 		self.list.append((_("Enable csv import"), ConfigYesNo(self.config.csv_import_enabled > 0)))
-		if getImageDistro() != "openvix":
-			self.list.append((_("Force epg reload on boot"), ConfigYesNo(self.config.force_load_on_boot > 0)))
 		self.list.append((_("Scheduled download"), ConfigSelection(self.automatictype, scheduled_default)))
 
 		if self.config.download_daily_enabled:
@@ -235,8 +198,6 @@ class CrossEPG_Setup(ConfigListScreen, Screen):
 			self.list.append((_("Reboot after a manual download"), ConfigYesNo(self.config.download_manual_reboot > 0)))
 		self.list.append((_("Show as plugin"), ConfigYesNo(self.config.show_plugin > 0)))
 		self.list.append((_("Show as extension"), ConfigYesNo(self.config.show_extension > 0)))
-		if getImageDistro() != "openvix":
-			self.list.append((_("Show 'Force reload' as plugin"), ConfigYesNo(self.config.show_force_reload_as_plugin > 0)))
 
 		self["config"].list = self.list
 		self["config"].setList(self.list)
@@ -244,11 +205,7 @@ class CrossEPG_Setup(ConfigListScreen, Screen):
 
 	def update(self):
 		redraw = False
-		if getImageDistro() != "openvix":
-			self.config.db_root = self.mountpoint[self.list[0][1].getIndex()]
-			i = 1
-		else:
-			i = 0
+		i = 0
 
 		if len(self.lamedbs_desc) > 1:
 			self.config.lamedb = self.lamedbs[self.list[i][1].getIndex()]
@@ -256,33 +213,19 @@ class CrossEPG_Setup(ConfigListScreen, Screen):
 
 		self.config.csv_import_enabled = int(self.list[i][1].getValue())
 
-		if getImageDistro() != "openvix":
-			self.config.force_load_on_boot = int(self.list[i+1][1].getValue())
-		else:
-			i -= 1
+		i -= 1
 
 		dailycache = self.config.download_daily_enabled
 		standbycache = self.config.download_standby_enabled
-		if getImageDistro() != "openvix":
-			if self.list[i+2][1].getIndex() == 0:
-				self.config.download_daily_enabled = 0
-				self.config.download_standby_enabled = 0
-			elif self.list[i+2][1].getIndex() == 1:
-				self.config.download_daily_enabled = 1
-				self.config.download_standby_enabled = 0
-			else:
-				self.config.download_daily_enabled = 0
-				self.config.download_standby_enabled = 1
-		else:
-			if int(self.list[i+2][1].getIndex()) == 0:
-				self.config.download_daily_enabled = 0
-				self.config.download_standby_enabled = 0
-			elif int(self.list[i+2][1].getIndex()) == 1:
-				self.config.download_daily_enabled = 1
-				self.config.download_standby_enabled = 0
-			elif int(self.list[i+2][1].getIndex()) == 2:
-				self.config.download_daily_enabled = 0
-				self.config.download_standby_enabled = 1
+		if int(self.list[i+2][1].getIndex()) == 0:
+			self.config.download_daily_enabled = 0
+			self.config.download_standby_enabled = 0
+		elif int(self.list[i+2][1].getIndex()) == 1:
+			self.config.download_daily_enabled = 1
+			self.config.download_standby_enabled = 0
+		elif int(self.list[i+2][1].getIndex()) == 2:
+			self.config.download_daily_enabled = 0
+			self.config.download_standby_enabled = 1
 
 		if dailycache != self.config.download_daily_enabled or standbycache != self.config.download_standby_enabled:
 			redraw = True
@@ -300,18 +243,13 @@ class CrossEPG_Setup(ConfigListScreen, Screen):
 
 		self.config.show_plugin = int(self.list[i][1].getValue())
 		self.config.show_extension = int(self.list[i+1][1].getValue())
-		if getImageDistro() != "openvix":
-			self.config.show_force_reload_as_plugin = int(self.list[i+2][1].getValue())
-		else:
-			i += 1
+		i += 1
 
 		if redraw:
 			self.makeList()
 
 	def setInfo(self):
 		index = self["config"].getCurrentIndex()
-		if getImageDistro() == "openvix":
-			index += 1
 		if index == 0:
 			self["information"].setText(_("Drive where you save data.\nThe drive MUST be mounted in rw. If you can't see your device here probably is mounted as read only or autofs handle it only in read only mode. In case of mount it manually and try again"))
 			return
@@ -323,8 +261,6 @@ class CrossEPG_Setup(ConfigListScreen, Screen):
 		if index == 2:
 			self["information"].setText(_("Import *.csv and *.bin from %s/import or %s/import\n(*.bin are binaries with a csv as stdout)") % (self.config.db_root, self.config.home_directory))
 			return
-		if getImageDistro() == "openvix":
-			index += 1
 		if index == 3:
 			self["information"].setText(_("Reload epg at every boot.\nNormally it's not necessary but recover epg after an enigma2 crash"))
 			return
@@ -381,17 +317,6 @@ class CrossEPG_Setup(ConfigListScreen, Screen):
 		self.config.last_partial_download_timestamp = 0
 		self.config.configured = 1
 		self.config.save()
-		if getImageDistro() != "openvix":
-			try:
-				if self.config.db_root[-8:] == "crossepg":
-					config.misc.epgcache_filename.setValue(self.config.db_root[:-9] + "/epg.dat")
-				else:
-					config.misc.epgcache_filename.setValue(self.config.db_root + "/epg.dat")
-				config.misc.epgcache_filename.callNotifiersOnSaveAndCancel = True
-				config.misc.epgcache_filename.save()
-				configfile.save()
-			except Exception, e:
-				print "custom epgcache filename not supported by current enigma2 version"
 
 		if getEPGPatchType() == -1:
 			# exec crossepg_prepare_pre_start for unpatched images
@@ -408,12 +333,7 @@ class CrossEPG_Setup(ConfigListScreen, Screen):
 
 			plugins.readPluginList(resolveFilename(SCOPE_PLUGINS))
 
-		if getImageDistro() != "openvix":
-			if (self.config.db_root == self.config.home_directory + "/data" and not self.config.isQBOXHD()) or self.config.db_root.startswith('/etc/enigma2'):
-				self.showWarning()
-		else:
-			if config.misc.epgcache_filename.value.startswith('/etc/enigma2'):
-				self.showWarning()
+		if config.misc.epgcache_filename.value.startswith('/etc/enigma2'):
+			self.showWarning()
 
 		self.close()
-
