@@ -1,5 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+from __future__ import print_function
 from enigma import getDesktop, eTimer
 
 from Components.Label import Label
@@ -83,14 +84,14 @@ class CrossEPG_Importer(Screen):
 			try:
 				png = resolveFilename(SCOPE_CURRENT_SKIN, "crossepg/background_hd.png")
 			except:
-				png = resolveFilename(SCOPE_CURRENT_SKIN, "crossepg/background_hd.png")
+				print("[CrossEPG] Error: can't find the png file!")
 			if png == None or not os.path.exists(png):
 				png = "%s/images/background_hd.png" % os.path.dirname(sys.modules[__name__].__file__)
 		else:
 			try:
 				png = resolveFilename(SCOPE_CURRENT_SKIN, "crossepg/background.png")
 			except:
-				png = resolveFilename(SCOPE_CURRENT_SKIN, "crossepg/background.png")
+				print("[CrossEPG] Error: can't find the png file!")
 			if png == None or not os.path.exists(png):
 				png = "%s/images/background.png" % os.path.dirname(sys.modules[__name__].__file__)
 		self["background"].instance.setPixmapFromFile(png)

@@ -1,5 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+from __future__ import print_function
 from enigma import getDesktop
 
 from Screens.Screen import Screen
@@ -60,16 +61,13 @@ class CrossEPG_About(Screen):
 			version = "unknow version"
 
 		credit = "CrossEPG %s (c) 2009-2013 Sandro Cavazzoni\n" % version
-		credit += "https://github.com/oe-alliance/e2openplugin-CrossEPG\n\n"
+		credit += "https://github.com/OpenVisionE2/CrossEPG\n\n"
 		credit += "Application credits:\n"
 		credit += "- Sandro Cavazzoni aka skaman (main developer)\n"
 		credit += "- Andy Blackburn aka andyblac (co-developer)\n"
 		credit += "- Ambrosa (scripts developer)\n"
 		credit += "- u Killer Bestia (server side application maintainer)\n"
-		credit += "- Spaeleus (italian translations)\n"
-		credit += "- Bodyan (ukrainian translations)\n"
-		credit += "- Kosmacz (polish translations)\n"
-		credit += "- Ku4a (russian translations)\n\n"
+		credit += "- Persian Prince (contributor)\n"
 		credit += "Sources credits:\n"
 		credit += "- Rytec http://www.rytec.be (xmltv providers for many countries)\n"
 		credit += "- Krkadoni http://www.krkadoni.com/ (xmltv provider for Ex Yugoslavia)\n"
@@ -83,14 +81,14 @@ class CrossEPG_About(Screen):
 		try:
 			rytecpng = resolveFilename(SCOPE_CURRENT_SKIN, "crossepg/rytec.png")
 		except:
-			rytecpng = resolveFilename(SCOPE_CURRENT_SKIN, "crossepg/rytec.png")
+			print("[CrossEPG] Error: can't find the png file!")
 		if rytecpng == None or not os.path.exists(rytecpng):
 			rytecpng = "%s/images/rytec.png" % (os.path.dirname(sys.modules[__name__].__file__))
 		self["rytec_pix"].instance.setPixmapFromFile(rytecpng)
 		try:
 			krkadonipng = resolveFilename(SCOPE_CURRENT_SKIN, "crossepg/krkadoni.png")
 		except:
-			krkadonipng = resolveFilename(SCOPE_CURRENT_SKIN, "crossepg/krkadoni.png")
+			print("[CrossEPG] Error: can't find the png file!")
 		if krkadonipng == None or not os.path.exists(krkadonipng):
 			krkadonipng = "%s/images/krkadoni.png" % (os.path.dirname(sys.modules[__name__].__file__))
 		self["krkadoni_pix"].instance.setPixmapFromFile(krkadonipng)
