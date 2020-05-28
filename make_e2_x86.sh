@@ -4,7 +4,7 @@
 
 export CFLAGS+="-I/usr/include \
  -I/usr/include/libxml2 \
- -I/usr/include/python2.6"
+ -I/usr/include/python2.7"
 export CC=gcc
 export STRIP=strip
 export SWIG=swig

@@ -287,18 +287,6 @@ class CrossEPG_Config:
 
 		return lamedbs
 
-	def isQBOXHD(self):
-		try:
-			ret = False
-			f = open("/proc/stb/info/model", "r")
-			model = f.read().strip()
-			if model == "qboxhd" or model == "qboxhd-mini":
-				ret = True
-			f.close()
-			return ret
-		except Exception as e:
-			return False
-
 	def deleteLog(self):
 		try:
 			os.unlink(self.db_root + "/crossepg.log")
@@ -363,8 +351,6 @@ class CrossEPG_Wrapper:
 			pass
 
 		config = CrossEPG_Config()
-		if config.isQBOXHD():
-				self.oldapi = True
 
 		if pathExists("/usr/crossepg"):
 			self.home_directory = "/usr/crossepg"

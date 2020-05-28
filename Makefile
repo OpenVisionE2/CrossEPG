@@ -151,27 +151,8 @@ clean:
 
 install-python:
 	install -d $(D)$(libdir)/python2.7/lib-dynload
-	install -m 644 src/common/crossepg.py $(D)$(libdir)/python2.7
 	install -m 644 src/common/crossepg.pyo $(D)$(libdir)/python2.7
 	install -m 644 bin/_crossepg.so $(D)$(libdir)/python2.7/lib-dynload
-
-install-python-qboxhd:
-	install -d $(D)/usr/local/lib/python2.6/lib-dynload
-	install -m 644 src/common/crossepg.py $(D)/usr/local/lib/python2.6
-	install -m 644 src/common/crossepg.pyo $(D)/usr/local/lib/python2.6
-	install -m 644 bin/_crossepg.so $(D)/usr/local/lib/python2.6/lib-dynload
-
-install-python-2.5:
-	install -d $(D)$(libdir)/python2.5/lib-dynload
-	install -m 644 src/common/crossepg.py $(D)$(libdir)/python2.5
-	install -m 644 src/common/crossepg.pyo $(D)$(libdir)/python2.5
-	install -m 644 bin/_crossepg.so $(D)$(libdir)/python2.5/lib-dynload
-
-install-python-2.6:
-	install -d $(D)$(libdir)/python2.6/lib-dynload
-	install -m 644 src/common/crossepg.py $(D)$(libdir)/python2.6
-	install -m 644 src/common/crossepg.pyo $(D)$(libdir)/python2.6
-	install -m 644 bin/_crossepg.so $(D)$(libdir)/python2.6/lib-dynload
 
 install-standalone:
 	install -d $(D)/usr/crossepg/aliases
@@ -196,7 +177,6 @@ install-standalone:
 	install -m 755 contrib/crossepg_epgmove.sh $(D)/usr/crossepg/
 	install -m 755 contrib/crossepg_prepare_pre_start.sh $(D)/usr/crossepg/
 	install -m 644 providers/* $(D)/usr/crossepg/providers/
-	install -m 755 scripts/*.py $(D)/usr/crossepg/scripts/
 	install -m 755 scripts/*.pyo $(D)/usr/crossepg/scripts/
 	install -m 755 scripts/lib/* $(D)/usr/crossepg/scripts/lib/
 	install -m 755 scripts/rai/* $(D)/usr/crossepg/scripts/rai/
@@ -231,7 +211,6 @@ install-standalone-var:
 	install -m 755 contrib/crossepg_epgmove.sh $(D)/var/crossepg/
 	install -m 755 contrib/crossepg_prepare_pre_start.sh $(D)/var/crossepg/
 	install -m 644 providers/* $(D)/var/crossepg/providers/
-	install -m 755 scripts/*.py $(D)/var/crossepg/scripts/
 	install -m 755 scripts/*.pyo $(D)/var/crossepg/scripts/
 	install -m 755 scripts/lib/* $(D)/var/crossepg/scripts/lib/
 	install -m 755 scripts/rai/* $(D)/var/crossepg/scripts/rai/
@@ -246,50 +225,16 @@ install-standalone-var:
 install-plugin:
 	install -d $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/skins
 	install -d $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/images
-	install -d $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/po/cs/LC_MESSAGES
-	install -d $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/po/de/LC_MESSAGES
-	install -d $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/po/es/LC_MESSAGES
-	install -d $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/po/fa/LC_MESSAGES
-	install -d $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/po/it/LC_MESSAGES
-	install -d $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/po/nl/LC_MESSAGES
-	install -d $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/po/pl/LC_MESSAGES
-	install -d $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/po/pt/LC_MESSAGES
-	install -d $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/po/ru/LC_MESSAGES
-	install -d $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/po/sv/LC_MESSAGES
-	install -d $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/po/uk/LC_MESSAGES
-	install -m 644 src/enigma2/python/*.py $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/
 	install -m 644 src/enigma2/python/*.pyo $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/
 	install -m 644 src/enigma2/python/skins/*.xml $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/skins/
 	install -m 644 src/enigma2/python/images/*.png $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/images/
 
-install-plugin-qboxhd:
-	install -d $(D)/usr/local/lib/enigma2/python/Plugins/SystemPlugins/CrossEPG/skins
-	install -d $(D)/usr/local/lib/enigma2/python/Plugins/SystemPlugins/CrossEPG/images
-	install -d $(D)/usr/local/lib/enigma2/python/Plugins/SystemPlugins/CrossEPG/po/cs/LC_MESSAGES
-	install -d $(D)/usr/local/lib/enigma2/python/Plugins/SystemPlugins/CrossEPG/po/de/LC_MESSAGES
-	install -d $(D)/usr/local/lib/enigma2/python/Plugins/SystemPlugins/CrossEPG/po/es/LC_MESSAGES
-	install -d $(D)/usr/local/lib/enigma2/python/Plugins/SystemPlugins/CrossEPG/po/fa/LC_MESSAGES
-	install -d $(D)/usr/local/lib/enigma2/python/Plugins/SystemPlugins/CrossEPG/po/it/LC_MESSAGES
-	install -d $(D)/usr/local/lib/enigma2/python/Plugins/SystemPlugins/CrossEPG/po/nl/LC_MESSAGES
-	install -d $(D)/usr/local/lib/enigma2/python/Plugins/SystemPlugins/CrossEPG/po/pl/LC_MESSAGES
-	install -d $(D)/usr/local/lib/enigma2/python/Plugins/SystemPlugins/CrossEPG/po/pt/LC_MESSAGES
-	install -d $(D)/usr/local/lib/enigma2/python/Plugins/SystemPlugins/CrossEPG/po/ru/LC_MESSAGES
-	install -d $(D)/usr/local/lib/enigma2/python/Plugins/SystemPlugins/CrossEPG/po/sv/LC_MESSAGES
-	install -d $(D)/usr/local/lib/enigma2/python/Plugins/SystemPlugins/CrossEPG/po/uk/LC_MESSAGES
-	install -m 644 src/enigma2/python/*.py $(D)/usr/local/lib/enigma2/python/Plugins/SystemPlugins/CrossEPG/
-	install -m 644 src/enigma2/python/*.pyo $(D)/usr/local/lib/enigma2/python/Plugins/SystemPlugins/CrossEPG/
-	install -m 644 src/enigma2/python/skins/*.xml $(D)/usr/local/lib/enigma2/python/Plugins/SystemPlugins/CrossEPG/skins/
-	install -m 644 src/enigma2/python/images/*.png $(D)/usr/local/lib/enigma2/python/Plugins/SystemPlugins/CrossEPG/images/
-
 install: install-python install-standalone install-plugin
 install-var: install-python install-standalone-var install-plugin
 install-var-flash: install-standalone-var install-plugin
-install-var-qboxhd: install-python-qboxhd install-standalone-var install-plugin-qboxhd
-install-py25: install-python-2.5 install-standalone install-plugin
-install-py26: install-python-2.6 install-standalone install-plugin
 
 remote-install:
-	ncftpput -m -u $(FTP_USER) -p $(FTP_PASSWORD) $(FTP_HOST) ${libdir}/python2.7 src/common/crossepg.py
+	ncftpput -m -u $(FTP_USER) -p $(FTP_PASSWORD) $(FTP_HOST) ${libdir}/python2.7 src/common/crossepg.pyo
 	ncftpput -m -u $(FTP_USER) -p $(FTP_PASSWORD) $(FTP_HOST) ${libdir}/python2.7/lib-dynload bin/_crossepg.so
 
 	ncftpput -m -u $(FTP_USER) -p $(FTP_PASSWORD) $(FTP_HOST) /usr/crossepg bin/crossepg_dbconverter
@@ -304,7 +249,7 @@ remote-install:
 
 	#ncftpput -m -u $(FTP_USER) -p $(FTP_PASSWORD) $(FTP_HOST) /usr/crossepg/providers providers/*
 	#ncftpput -m -u $(FTP_USER) -p $(FTP_PASSWORD) $(FTP_HOST) /usr/crossepg/scripts scripts/*
-	#ncftpput -m -u $(FTP_USER) -p $(FTP_PASSWORD) $(FTP_HOST) ${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG src/enigma2/python/*.py
+	#ncftpput -m -u $(FTP_USER) -p $(FTP_PASSWORD) $(FTP_HOST) ${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG src/enigma2/python/*.pyo
 	#ncftpput -m -u $(FTP_USER) -p $(FTP_PASSWORD) $(FTP_HOST) ${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/skins src/enigma2/python/skins/*.xml
 	#ncftpput -m -u $(FTP_USER) -p $(FTP_PASSWORD) $(FTP_HOST) ${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/images src/enigma2/python/images/*.png
 	

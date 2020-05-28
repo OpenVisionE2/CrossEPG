@@ -5,7 +5,7 @@ CROSS=${DEVKIT_ROOT}/cross/mipsel/bin/mipsel-oe-linux-
 
 export CFLAGS+="-I${DEVKIT_ROOT}/staging/mipsel-oe-linux/usr/include \
  -I${DEVKIT_ROOT}/staging/mipsel-oe-linux/usr/include/libxml2 \
- -I${DEVKIT_ROOT}/staging/mipsel-oe-linux/usr/include/python2.6"
+ -I${DEVKIT_ROOT}/staging/mipsel-oe-linux/usr/include/python2.7"
 export CC=${CROSS}gcc
 export STRIP=${CROSS}strip
 

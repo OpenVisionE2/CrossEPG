@@ -7,7 +7,7 @@ CROSS=${DEVKIT_ROOT}/bin/sh4-linux-
 
 export CFLAGS+="-I${DEVKIT_ROOT}/target/usr/include \
  -I${DEVKIT_ROOT}/target/usr/include/libxml2 \
- -I${DEVKIT_ROOT}/target/usr/include/python2.6"
+ -I${DEVKIT_ROOT}/target/usr/include/python2.7"
 export CC=${CROSS}gcc
 export STRIP=${CROSS}strip
 export SWIG=swig
