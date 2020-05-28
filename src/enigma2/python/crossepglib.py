@@ -339,17 +339,6 @@ class CrossEPG_Wrapper:
 		self.type = 0
 		self.maxSize = "0 byte"
 
-		versionlist = getEnigmaVersionString().split("-");
-
-		self.oldapi = False
-		try:
-			if len(versionlist) >= 3:
-				self.version = int(versionlist[0]+versionlist[1]+versionlist[2])
-				if self.version < 20100716:
-					self.oldapi = True
-		except Exception:
-			pass
-
 		config = CrossEPG_Config()
 
 		if pathExists("/usr/crossepg"):
@@ -546,116 +535,71 @@ class CrossEPG_Wrapper:
 	def lamedb(self, value):
 		print("[CrossEPG_Wrapper] -> LAMEDB %s" % (value))
 		cmd = "LAMEDB %s\n" % (value)
-		if self.oldapi:
-			self.cmd.write(cmd, len(cmd))
-		else:
-			self.cmd.write(cmd)
+		self.cmd.write(cmd)
 
 	def epgdat(self, value):
 		print("[CrossEPG_Wrapper] -> EPGDAT %s" % (value))
 		cmd = "EPGDAT %s\n" % (value)
-		if self.oldapi:
-			self.cmd.write(cmd, len(cmd))
-		else:
-			self.cmd.write(cmd)
+		self.cmd.write(cmd)
 
 	def demuxer(self, value):
 		print("[CrossEPG_Wrapper] -> DEMUXER %s" % (value))
 		cmd = "DEMUXER %s\n" % (value)
-		if self.oldapi:
-			self.cmd.write(cmd, len(cmd))
-		else:
-			self.cmd.write(cmd)
+		self.cmd.write(cmd)
 
 	def frontend(self, value):
 		print("[CrossEPG_Wrapper] -> FRONTEND %s" % (value))
 		cmd = "FRONTEND %d\n" % (value)
-		if self.oldapi:
-			self.cmd.write(cmd, len(cmd))
-		else:
-			self.cmd.write(cmd)
+		self.cmd.write(cmd)
 
 	def defrag(self,):
 		print("[CrossEPG_Wrapper] -> DEFRAGMENT")
 		cmd = "DEFRAGMENT\n"
-		if self.oldapi:
-			self.cmd.write(cmd, len(cmd))
-		else:
-			self.cmd.write(cmd)
+		self.cmd.write(cmd)
 
 	def download(self, provider):
 		print("[CrossEPG_Wrapper] -> DOWNLOAD %s" % (provider))
 		cmd = "DOWNLOAD %s\n" % (provider)
-		if self.oldapi:
-			self.cmd.write(cmd, len(cmd))
-		else:
-			self.cmd.write(cmd)
+		self.cmd.write(cmd)
 
 	def convert(self):
 		print("[CrossEPG_Wrapper] -> CONVERT")
 		self.__callCallbacks(self.EVENT_ACTION, _("Converting data"))
 		self.__callCallbacks(self.EVENT_STATUS, "")
-		if self.oldapi:
-			self.cmd.write("CONVERT\n", 8)
-		else:
-			self.cmd.write("CONVERT\n")
+		self.cmd.write("CONVERT\n")
 
 	def importx(self):
 		print("[CrossEPG_Wrapper] -> IMPORT")
-		if self.oldapi:
-			self.cmd.write("IMPORT\n", 7)
-		else:
-			self.cmd.write("IMPORT\n")
+		self.cmd.write("IMPORT\n")
 
 	def text(self):
 		print("[CrossEPG_Wrapper] -> TEXT")
 		self.__callCallbacks(self.EVENT_ACTION, _("Loading data"))
 		self.__callCallbacks(self.EVENT_STATUS, "")
-		if self.oldapi:
-			self.cmd.write("TEXT\n", 5)
-		else:
-			self.cmd.write("TEXT\n")
+		self.cmd.write("TEXT\n")
 
 	def stop(self):
 		print("[CrossEPG_Wrapper] -> STOP")
-		if self.oldapi:
-			self.cmd.write("STOP\n", 5)
-		else:
-			self.cmd.write("STOP\n")
+		self.cmd.write("STOP\n")
 
 	def save(self):
 		print("[CrossEPG_Wrapper] -> SAVE")
 		self.__callCallbacks(self.EVENT_ACTION, _("Saving data"))
 		self.__callCallbacks(self.EVENT_STATUS, "")
-		if self.oldapi:
-			self.cmd.write("SAVE\n", 5)
-		else:
-			self.cmd.write("SAVE\n")
+		self.cmd.write("SAVE\n")
 
 	def wait(self):
 		print("[CrossEPG_Wrapper] -> WAIT")
-		if self.oldapi:
-			self.cmd.write("WAIT\n", 5)
-		else:
-			self.cmd.write("WAIT\n")
+		self.cmd.write("WAIT\n")
 
 	def quit(self):
 		print("[CrossEPG_Wrapper] -> QUIT")
-		if self.oldapi:
-			self.cmd.write("QUIT\n", 5)
-		else:
-			self.cmd.write("QUIT\n")
+		self.cmd.write("QUIT\n")
 
 	def open(self):
 		print("[CrossEPG_Wrapper] -> OPEN")
-		if self.oldapi:
-			self.cmd.write("OPEN\n", 5)
-		else:
-			self.cmd.write("OPEN\n")
+		self.cmd.write("OPEN\n")
 
 	def close(self):
 		print("[CrossEPG_Wrapper] -> CLOSE")
-		if self.oldapi:
-			self.cmd.write("CLOSE\n", 6)
-		else:
-			self.cmd.write("CLOSE\n")
+		self.cmd.write("CLOSE\n")
