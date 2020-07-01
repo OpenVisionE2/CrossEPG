@@ -133,7 +133,7 @@ class CrossEPG_Rytec_Update(Screen):
 				else:
 					print("http error: %d (%s)" % (httpres.status, mirror))
 			except Exception as e:
-				print(e)
+				print(str(e))
 		return ret
 
 	def getServer(self, description):

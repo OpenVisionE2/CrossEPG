@@ -291,7 +291,7 @@ class CrossEPG_Config:
 		try:
 			os.unlink(self.db_root + "/crossepg.log")
 		except Exception as e:
-			print(e)
+			print(str(e))
 
 class CrossEPG_Wrapper:
 	EVENT_READY			= 0

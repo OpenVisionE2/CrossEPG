@@ -104,7 +104,7 @@ class CrossEPG_Xepgdb_Update(Screen):
 				os.unlink("/tmp/crossepg_xepgdb_tmp")
 				return True
 		except Exception as e:
-			print(e)
+			print(str(e))
 		return False
 
 	def loadFromFile(self, filename):
