@@ -1,5 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+from __future__ import division, print_function
 # alias.py  by Ambrosa http://www.ambrosa.net
 # this module is used for copy epg from a channel to another
 # 11-apr-2012 
@@ -85,7 +86,7 @@ class main:
 
 		total_events = 0
 
-		pbar_maxvalue = 100.0 / (len(self.CHANNELLIST) + 1.0)
+		pbar_maxvalue = 100.0 // (len(self.CHANNELLIST) + 1.0)
 		pbar_index = 1
 		self.log.log2video_pbar_on()
 		self.log.log2video_pbar(0)
