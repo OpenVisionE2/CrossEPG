@@ -1,6 +1,5 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import division
 # rai.py  by Ambrosa http://www.ambrosa.net
 # this module is used for download EPG data from Rai website
 # derived from E2_LOADEPG
@@ -239,7 +238,7 @@ class main:
 				pbar_max += 1
 				
 		pbar_max *= self.CONF_MAX_DAY_EPG
-		pbar_max = 100.0 // pbar_max
+		pbar_max = 100.0 / pbar_max
 			
 		self.log.log2video_pbar_on()
 		self.log.log2video_pbar(0)

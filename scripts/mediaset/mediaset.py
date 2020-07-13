@@ -1,6 +1,5 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import division
 # mediaset.py  by Ambrosa http://www.ambrosa.net
 # this module is used for download EPG data from Mediaset website
 # derived from E2_LOADEPG
@@ -92,7 +91,7 @@ class main(sgmllib.SGMLParser):
 
 	def start_palinsesto(self, attr):
 		self.SGML_PALINSESTO_INSIDE = True
-		self.SGML_PBAR_MAXVALUE = 100.0 // self.SGML_PBAR_MAXVALUE
+		self.SGML_PBAR_MAXVALUE = 100.0 / self.SGML_PBAR_MAXVALUE
 
 	def end_palinsesto(self):
 		self.SGML_PALINSESTO_INSIDE = False
@@ -212,7 +211,7 @@ class main(sgmllib.SGMLParser):
 		
 		
 
-					#pbar_value = int(self.SGML_PBAR_INDEX * 100 // self.SGML_PBAR_MAXVALUE)
+					#pbar_value = int(self.SGML_PBAR_INDEX * 100 / self.SGML_PBAR_MAXVALUE)
 					#if pbar_value > 100:
 					#	pbar_value = 100
 					#self.log.log2video_pbar(pbar_value)
@@ -404,7 +403,7 @@ class main(sgmllib.SGMLParser):
 
 		self.log.log2video_pbar_on()
 		self.log.log2video_pbar(0)
-		pbar_maxvalue = 100.0 // len(filelist)
+		pbar_maxvalue = 100.0 / len(filelist)
 		pbar_index = 0
 
 		for f in filelist :

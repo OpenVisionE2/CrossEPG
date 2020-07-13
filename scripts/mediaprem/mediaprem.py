@@ -1,6 +1,5 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import division
 # mediaprem.py  by Ambrosa http://www.ambrosa.net
 # this module is used for download EPG data from Mediaset website
 # derived from E2_LOADEPG
@@ -164,7 +163,7 @@ class main(sgmllib.SGMLParser):
 			
 			for name,value in attr:
 				if name == "id":
-					pbar_value = int(self.SGML_PBAR_INDEX * 100 // self.SGML_PBAR_MAXVALUE)
+					pbar_value = int(self.SGML_PBAR_INDEX * 100 / self.SGML_PBAR_MAXVALUE)
 					if pbar_value > 100:
 						pbar_value = 100
 					self.log.log2video_pbar(pbar_value)
@@ -396,7 +395,7 @@ class main(sgmllib.SGMLParser):
 
 		self.CONF_DL_DESC = config.getint("global","DL_DESC")
 		self.CONF_MAX_DAY_EPG = config.getint("global","MAX_DAY_EPG")
-		self.SGML_PBAR_MAXVALUE = 100.0 // (self.CONF_MAX_DAY_EPG + 1.0)
+		self.SGML_PBAR_MAXVALUE = 100.0 / (self.CONF_MAX_DAY_EPG + 1.0)
 
 		self.CONF_URL = config.get("global","URL")
 
@@ -531,7 +530,7 @@ class main(sgmllib.SGMLParser):
 
 		self.log.log2video_pbar_on()
 		self.log.log2video_pbar(0)
-		pbar_maxvalue = 100.0 // len(filelist)
+		pbar_maxvalue = 100.0 / len(filelist)
 		pbar_index = 0
 
 		for f in filelist :
