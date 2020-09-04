@@ -8,7 +8,7 @@ typedef struct struct_huffman_node
 	struct struct_huffman_node	*p1;
 } type_huffman_node;
 
-type_huffman_node	huffman_root;
+extern type_huffman_node	huffman_root;
 
 bool huffman_read_dictionary (char *file);
 void huffman_free_dictionary ();
