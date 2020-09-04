@@ -10,6 +10,8 @@
 
 #define HUFFMAN_MAX_SIZE	4096
 
+type_huffman_node        huffman_root;
+
 bool huffman_read_dictionary (char *file)
 {
 	FILE *fd;
