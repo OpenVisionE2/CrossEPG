@@ -21,25 +21,25 @@ import _enigma
 # 3 crossepg v2.1 patch
 def getEPGPatchType():
 	try:
-		xepgpatch = new.instancemethod(_enigma.eEPGCache_crossepgImportEPGv21,None,eEPGCache)
+		xepgpatch = new.instancemethod(_enigma.eEPGCache_crossepgImportEPGv21, None, eEPGCache)
 		return 3
 	except Exception as e:
 		pass
 
 	try:
-		epgpatch = new.instancemethod(_enigma.eEPGCache_load,None,eEPGCache)
+		epgpatch = new.instancemethod(_enigma.eEPGCache_load, None, eEPGCache)
 		return 0
 	except Exception as e:
 		pass
 
 	try:
-		edgpatch = new.instancemethod(_enigma.eEPGCache_reloadEpg,None,eEPGCache)
+		edgpatch = new.instancemethod(_enigma.eEPGCache_reloadEpg, None, eEPGCache)
 		return 1
 	except Exception as e:
 		pass
 
 	try:
-		oudeispatch = new.instancemethod(_enigma.eEPGCache_importEvent,None,eEPGCache)
+		oudeispatch = new.instancemethod(_enigma.eEPGCache_importEvent, None, eEPGCache)
 		return 2
 	except Exception as e:
 		pass

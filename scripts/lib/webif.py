@@ -25,7 +25,7 @@ class webif_class:
     WEBIF_AUTH_REALM='dm800'
     WEBIF_IP='127.0.0.1'
 
-    def __init__(self,use,auth,auth_name,auth_passw,auth_realm,ip):
+    def __init__(self, use, auth, auth_name, auth_passw, auth_realm, ip):
         self.USE_WEBIF=use
         self.USE_WEBIF_AUTH=auth
         self.WEBIF_AUTH_USER=auth_name
@@ -40,7 +40,7 @@ class webif_class:
 
     # WebInterface routines
     # see http://dream.reichholf.net/wiki/Enigma2:WebInterface
-    def WI(self,command):
+    def WI(self, command):
 
         if self.USE_WEBIF_AUTH == 1 :
             auth_handler = urllib2.HTTPBasicAuthHandler()
@@ -86,7 +86,7 @@ class webif_class:
         return(current_sid)
 
 
-    def zap(self,channelsid):
+    def zap(self, channelsid):
         self.WI('zap?sRef='+channelsid)
 
     def reloadepgdat(self):

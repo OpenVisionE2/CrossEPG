@@ -69,25 +69,25 @@ class CrossEPG_Loader(Screen):
 
 		# check for common patches
 		try:
-			self.xepgpatch = new.instancemethod(_enigma.eEPGCache_crossepgImportEPGv21,None,eEPGCache)
+			self.xepgpatch = new.instancemethod(_enigma.eEPGCache_crossepgImportEPGv21, None, eEPGCache)
 			print("[CrossEPG_Loader] patch crossepg v2.1 found")
 		except Exception as e:
 			self.xepgpatch = None
 
 		try:
-			self.epgpatch = new.instancemethod(_enigma.eEPGCache_load,None,eEPGCache)
+			self.epgpatch = new.instancemethod(_enigma.eEPGCache_load, None, eEPGCache)
 			print("[CrossEPG_Loader] patch epgcache.load() found")
 		except Exception as e:
 			self.epgpatch = None
 
 		try:
-			self.edgpatch = new.instancemethod(_enigma.eEPGCache_reloadEpg,None,eEPGCache)
+			self.edgpatch = new.instancemethod(_enigma.eEPGCache_reloadEpg, None, eEPGCache)
 			print("[CrossEPG_Loader] patch EDG NEMESIS found")
 		except Exception as e:
 			self.edgpatch = None
 
 		try:
-			self.oudeispatch = new.instancemethod(_enigma.eEPGCache_importEvent,None,eEPGCache)
+			self.oudeispatch = new.instancemethod(_enigma.eEPGCache_importEvent, None, eEPGCache)
 			print("[CrossEPG_Loader] patch Oudeis found")
 		except Exception as e:
 			self.oudeispatch = None

@@ -27,7 +27,7 @@ import crossepg
 crossepg_instroot = crossepg.epgdb_get_installroot()
 if crossepg_instroot == False:
 	sys.exit(1)
-libdir = os.path.join(crossepg_instroot , 'scripts/lib')
+libdir = os.path.join(crossepg_instroot, 'scripts/lib')
 sys.path.append(libdir)
 
 # import local modules
@@ -46,7 +46,7 @@ class Titolo_parser(sgmllib.SGMLParser):
 	def __init__(self, day_get, verbose=0):
 		sgmllib.SGMLParser.__init__(self, verbose)
 		self.daynow = day_get
-		self.daynext = time.strftime("%Y%m%d",time.localtime(time.mktime(time.strptime(day_get,"%Y%m%d"))+86400))
+		self.daynext = time.strftime("%Y%m%d", time.localtime(time.mktime(time.strptime(day_get, "%Y%m%d"))+86400))
 		self.day = self.daynow
 		self.guidatoday = []
 		self.guidatomorrow = []
@@ -58,8 +58,8 @@ class Titolo_parser(sgmllib.SGMLParser):
 		self.inside_palinsesto = False
 
 
-	def start_div(self,attributes):
-		for name,value in attributes:
+	def start_div(self, attributes):
+		for name, value in attributes:
 			if name == "class":
 				if value == "intG":
 					self.inside_palinsesto = True
@@ -73,7 +73,7 @@ class Titolo_parser(sgmllib.SGMLParser):
 					if value == "info":
 						self.start_titolo = True
 
-	def start_a(self,attributes):
+	def start_a(self, attributes):
 		if self.inside_palinsesto == True:
 			if self.start_titolo == True:
 				self.inside_a_titolo = True
@@ -84,7 +84,7 @@ class Titolo_parser(sgmllib.SGMLParser):
 			if self.start_orario == True:
 
 				# if time < 06:00 is a next day event
-				if int(time.strftime("%H",time.strptime(data,"%H:%M"))) < 6 :
+				if int(time.strftime("%H", time.strptime(data, "%H:%M"))) < 6 :
 					self.day = self.daynext
 					self.tomorrow = True
 				else:
@@ -94,14 +94,14 @@ class Titolo_parser(sgmllib.SGMLParser):
 						self.inside_palinsesto = False
 						return
 
-				self.dataoraevento = time.strftime("%Y-%m-%d %H:%M",time.strptime(self.day+'-'+data,"%Y%m%d-%H:%M"))
+				self.dataoraevento = time.strftime("%Y-%m-%d %H:%M", time.strptime(self.day+'-'+data, "%Y%m%d-%H:%M"))
 				self.start_orario = False
 
 			if self.inside_a_titolo == True:
 				if self.tomorrow == False:
-					self.guidatoday.append((self.dataoraevento,data.strip()))
+					self.guidatoday.append((self.dataoraevento, data.strip()))
 				else:
-					self.guidatomorrow.append((self.dataoraevento,data.strip()))
+					self.guidatomorrow.append((self.dataoraevento, data.strip()))
 
 				self.inside_a_titolo = False
 				self.start_titolo = False
@@ -109,7 +109,7 @@ class Titolo_parser(sgmllib.SGMLParser):
 
 
 	def get_guida(self):
-		return ((self.guidatoday,self.guidatomorrow))
+		return ((self.guidatoday, self.guidatomorrow))
 
 
 # =================================================================
@@ -144,7 +144,7 @@ class main:
 	CHANNELLIST = {}
 
 
-	def __init__(self,confdir,dbroot):
+	def __init__(self, confdir, dbroot):
 
 		# initialize logging
 		self.log = scriptlib.logging_class()
@@ -153,7 +153,7 @@ class main:
 		
 		self.log.log("=== RUNNING SCRIPT %s ===" % self.CONF_LOG_SCRIPT_NAME)
 
-		CONF_FILE = os.path.join(confdir,self.CONF_CONFIGFILENAME)
+		CONF_FILE = os.path.join(confdir, self.CONF_CONFIGFILENAME)
 		if not os.path.exists(CONF_FILE) :
 			self.log.log("ERROR: %s not present" % CONF_FILE)
 			sys.exit(1)
@@ -163,14 +163,14 @@ class main:
 		config.read(CONF_FILE)
 
 		# reading [global] section options
-		self.CONF_DEFAULT_PROVIDER = config.get("global","DEFAULT_PROVIDER")
+		self.CONF_DEFAULT_PROVIDER = config.get("global", "DEFAULT_PROVIDER")
 		# save cache under dbroot
-		self.CONF_CACHEDIR = os.path.join(dbroot,config.get("global","CACHE_DIRNAME"))
+		self.CONF_CACHEDIR = os.path.join(dbroot, config.get("global", "CACHE_DIRNAME"))
 
-		self.CONF_MAX_DAY_EPG = config.getint("global","MAX_DAY_EPG")
-		self.CONF_URL = config.get("global","URL")
+		self.CONF_MAX_DAY_EPG = config.getint("global", "MAX_DAY_EPG")
+		self.CONF_URL = config.get("global", "URL")
 
-		self.CONF_GMT_ZONE = config.get("global","GMT_ZONE")
+		self.CONF_GMT_ZONE = config.get("global", "GMT_ZONE")
 		if self.CONF_GMT_ZONE.strip(' ').lower() == 'equal':
 			#self.DELTA_UTC = -scriptlib.delta_utc() # return negative if timezone is east of GMT (like Italy), invert sign
 			self.DELTA_UTC = 0
@@ -193,7 +193,7 @@ class main:
 
 		# create a dictionary (Python array) with index = channel ID
 		for i in temp:
-			self.CHANNELLIST[i[0]] = unicode(i[1],'utf-8')
+			self.CHANNELLIST[i[0]] = unicode(i[1], 'utf-8')
 
 		if len(self.CHANNELLIST) == 0 :
 			self.log.log("ERROR: [channels] section empty ?")
@@ -210,8 +210,8 @@ class main:
 
 		# create a list filled with dates (format AAAAMMDD) from today to today+MAX_DAY_EPG
 		self.DAYCACHE=[self.TODAY]
-		for day in range(1,self.CONF_MAX_DAY_EPG):
-			self.DAYCACHE.append(time.strftime("%Y%m%d",time.localtime(time.time()+86400*day)))
+		for day in range(1, self.CONF_MAX_DAY_EPG):
+			self.DAYCACHE.append(time.strftime("%Y%m%d", time.localtime(time.time()+86400*day)))
 
 
 # ----------------------------------------------------------------------
@@ -233,7 +233,7 @@ class main:
 		#   i.e. ("101" , "1,SkyCinema1")
 		pbar_max = 0
 		for c in chlist.keys():
-			cacheopt = int(string.split(chlist[c],",")[0])
+			cacheopt = int(string.split(chlist[c], ",")[0])
 			if cacheopt == 1:
 				pbar_max += 1
 				
@@ -254,7 +254,7 @@ class main:
 			#  2 : always download overwriting existing files (optional 2,new_name )
 			#  3 : always download overwriting existing files only for TODAY (optional 3,new_name )
 
-			cacheopt = int(string.split(chlist[c],",")[0])
+			cacheopt = int(string.split(chlist[c], ",")[0])
 
 			# if cacheopt == 0, do nothing
 			if cacheopt == 0:
@@ -286,8 +286,8 @@ class main:
 				self.log.log2video_pbar(pbar_value * pbar_max)
 
 
-				day_get = time.strftime("%Y_%m_%d",time.strptime(day,"%Y%m%d"))
-				xmlfile = "%s_%s" % (c,day_get)
+				day_get = time.strftime("%Y_%m_%d", time.strptime(day, "%Y%m%d"))
+				xmlfile = "%s_%s" % (c, day_get)
 
 				# download only if file doesn't exist or cacheopt == 2 (always download),
 				# using open(...,"w") files will be overwritten (saving a delete + create)
@@ -303,7 +303,7 @@ class main:
 					exit_for_loop = True
 					continue
 
-				self.log.log("Download HTML data from \'%s?%s\'" % (self.CONF_URL,xmlfile))
+				self.log.log("Download HTML data from \'%s?%s\'" % (self.CONF_URL, xmlfile))
 				self.log.log2video_status("downloading %s" % xmlfile)
 
 				i = self.HTTP_ERROR_RETRY
@@ -324,7 +324,7 @@ class main:
 							if hasattr(e, 'msg'):
 								serr+=" , "+str(e.msg)
 
-						self.log.log("\'%s?%s\' connection error. Reason: %s. Waiting %d sec. and retry [%d] ..." % (self.CONF_URL,xmlfile, serr, self.HTTP_ERROR_WAIT_RETRY, i))
+						self.log.log("\'%s?%s\' connection error. Reason: %s. Waiting %d sec. and retry [%d] ..." % (self.CONF_URL, xmlfile, serr, self.HTTP_ERROR_WAIT_RETRY, i))
 						time.sleep(self.HTTP_ERROR_WAIT_RETRY) # add sleep
 						i -= 1
 
@@ -352,18 +352,18 @@ class main:
 
 						# extract all events and put in eventfile
 						for event in self.guida:
-							(dataora,titolo) = event
+							(dataora, titolo) = event
 							event_starttime = dataora
 							# time.mktime return Unix time inside GMT timezone
-							event_startime_unix_gmt = str(int(time.mktime(time.strptime(event_starttime,"%Y-%m-%d %H:%M"))) - self.DELTA_UTC )
+							event_startime_unix_gmt = str(int(time.mktime(time.strptime(event_starttime, "%Y-%m-%d %H:%M"))) - self.DELTA_UTC )
 							#event_startime_unix_gmt = str(int(time.mktime(time.strptime(event_starttime,"%Y-%m-%d %H:%M")))  )
 							#self.log(event_starttime + " , " + str(self.DELTA_UTC) + " , " + str(int(time.mktime(time.strptime(event_starttime,"%Y-%m-%d %H:%M")))) + " , " + event_startime_unix_gmt )
 
 							# convert remote data (RAI website use UTF-8) in Python Unicode (UCS2)
-							event_title = unicode(titolo,self.REMOTE_EPG_CHARSET)
+							event_title = unicode(titolo, self.REMOTE_EPG_CHARSET)
 
-							event_title = event_title.replace('\r','')
-							event_title = event_title.replace('\n',u' ')
+							event_title = event_title.replace('\r', '')
+							event_title = event_title.replace('\n', u' ')
 							event_title = event_title.strip(u' ')
 
 							event_description = u''
@@ -410,7 +410,7 @@ class main:
 
 			if id != previous_id :
 				total_events += len(events)
-				self.log.log("  ...processing \'%s\' , nr. events %d" % (previous_id,len(events)))
+				self.log.log("  ...processing \'%s\' , nr. events %d" % (previous_id, len(events)))
 				self.log.log2video_status("processed %d events ..." % total_events )
 
 				for c in channels_name:
@@ -467,7 +467,7 @@ class main:
 			if id == previous_id:
 				self.log.log("Reading  \'%s\'" % f)
 				# read events from cache file using UTF-8 and insert them in events list
-				fd = codecs.open(os.path.join(self.CONF_CACHEDIR, f),"r","utf-8")
+				fd = codecs.open(os.path.join(self.CONF_CACHEDIR, f), "r", "utf-8")
 				lines = fd.readlines()
 				fd.close()
 				if channels_name == '':
@@ -496,7 +496,7 @@ SCRIPT_DIR = 'scripts/rai/'
 crossepg_instroot = crossepg.epgdb_get_installroot()
 if crossepg_instroot == False:
 	sys.exit(1)
-scriptlocation = os.path.join(crossepg_instroot , SCRIPT_DIR)
+scriptlocation = os.path.join(crossepg_instroot, SCRIPT_DIR)
 
 # get where CrossEPG save data (dbroot) and use it as script cache repository
 crossepg_dbroot = crossepg.epgdb_get_dbroot()
@@ -504,7 +504,7 @@ if crossepg_dbroot == False:
 	sys.exit(1)
 
 # initialize script class
-script_class = main(scriptlocation , crossepg_dbroot)
+script_class = main(scriptlocation, crossepg_dbroot)
 
 # download data and cache them
 script_class.download_and_cache()
