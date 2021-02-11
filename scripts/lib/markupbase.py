@@ -264,7 +264,7 @@ class ParserBase:
             return -1
         if c == ">":
             return j + 1
-        while 1:
+        while True:
             # scan a series of attribute descriptions; simplified:
             #   name type [value] [#constraint]
             name, j = self._scan_name(j, declstartpos)
@@ -318,7 +318,7 @@ class ParserBase:
         if j < 0:
             return j
         rawdata = self.rawdata
-        while 1:
+        while True:
             c = rawdata[j:j+1]
             if not c:
                 # end of buffer; incomplete
@@ -340,7 +340,7 @@ class ParserBase:
         rawdata = self.rawdata
         if rawdata[i:i+1] == "%":
             j = i + 1
-            while 1:
+            while True:
                 c = rawdata[j:j+1]
                 if not c:
                     return -1
@@ -353,7 +353,7 @@ class ParserBase:
         name, j = self._scan_name(j, declstartpos)
         if j < 0:
             return j
-        while 1:
+        while True:
             c = self.rawdata[j:j+1]
             if not c:
                 return -1
