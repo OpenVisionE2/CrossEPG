@@ -49,7 +49,6 @@ class Description_parser(sgmllib.SGMLParser):
 		self.start_div_boxtxt = False
 		self.description = ''
 
-
 	def start_div(self, attributes):
 		for name, value in attributes:
 			if name == "class":
@@ -62,7 +61,6 @@ class Description_parser(sgmllib.SGMLParser):
 		if self.start_div_boxtxt == True:
 			self.start_div_box = False
 			self.start_div_boxtxt = False
-
 
 	def handle_data(self, data):
 		if self.start_div_boxtxt == True:
@@ -102,7 +100,6 @@ class main:
 	FIELD_SEPARATOR = '###'
 	CHANNELLIST = {}
 
-
 	def log(self, s, video=0):
 		self.logging.log(self.CONF_LOG_PREFIX + str(s))
 		if video == 1:
@@ -114,7 +111,6 @@ class main:
 	def convert_daymp(self, dmp):
 		daystandard = time.strftime("%Y%m%d", time.strptime(dmp, "%Y/%m/%d"))
 		return daystandard
-
 
 	def get_description(self, url):
 
@@ -150,15 +146,12 @@ class main:
 
 		return('')
 
-
-
 	def __init__(self, confdir, dbroot):
 
 		# initialize logging
 		self.logging = scriptlib.logging_class()
 		# write to video OSD the script name
 		self.logging.log2video_scriptname(self.CONF_LOG_SCRIPT_NAME)
-
 
 		# check swap memory available
 		osp = os.popen('free | awk \'/Swap/ { print $2 }\'', 'r')
@@ -181,7 +174,6 @@ class main:
 			sys.exit(1)
 
 		osp.close()
-
 
 		CONF_FILE = os.path.join(confdir, self.CONF_CONFIGFILENAME)
 		if not os.path.exists(CONF_FILE):
@@ -240,7 +232,6 @@ class main:
 			self.DAYCACHEMP.append(time.strftime("%Y/%m/%d", time.localtime(time.time() + 86400 * day)))
 
 
-
 # ----------------------------------------------------------------------
 
 
@@ -293,7 +284,6 @@ class main:
 			self.log2video("Error: no valid XML data, abort")
 			time.sleep(5)
 			sys.exit(1)
-
 
 		self.log("End process XML data")
 		self.log2video("end process XML data")
@@ -393,7 +383,6 @@ class main:
 							# normal channel, not "+1"
 							event_startime_unix_gmt = str(int(time.mktime(time.strptime(event_starttime, "%Y/%m/%d %H:%M"))) - self.DELTA_UTC + nextdayevent)
 
-
 						event_title = unicode(xml_ee.getElementsByTagName('titolo')[0].firstChild.data)
 						event_title = event_title.replace('\r', '')
 						event_title = event_title.replace('\n', '')
@@ -411,13 +400,11 @@ class main:
 						num_events += 1
 						self.log2video(" extracting \"%s\" [%d] (%s)" % (channel_name, num_events, day))
 
-
 					fd.close()
 
 		del xmldoc
 
 # ----------------------------------------------------------------------
-
 
 	def process_cache(self):
 		self.log("--- START PROCESSING CACHE ---")
@@ -522,11 +509,9 @@ class main:
 		self.log2video("END , events processed: %d" % total_events)
 
 
-
 # ****************************************************************************************************************************
 
 # MAIN CODE: SCRIPT START HERE
-
 # increase this process niceness (other processes have higher priority)
 os.nice(10)
 

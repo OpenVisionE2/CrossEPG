@@ -5,6 +5,7 @@
 
 from crossepg import *
 
+
 def dump_title(title):
 	log_add("----------EVENT----------")
 	log_add("ID: %d" % title.event_id)
@@ -23,6 +24,7 @@ def dump_title(title):
 	log_add("LONG DESCRIPTION SEEK: %d" % title.long_description_seek)
 	log_add("LONG DESCRIPTION LENTH: %d" % title.long_description_length)
 	log_add("LONG DESCRIPTION: %s" % epgdb_read_long_description(title))
+
 
 def main():
 	# get dbroot path
@@ -125,5 +127,6 @@ def main():
 	epgdb_close()
 	epgdb_clean()
 	log_add("EPGDB closed")
+
 
 main()

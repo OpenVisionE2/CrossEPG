@@ -37,6 +37,7 @@ import scriptlib
 
 # =================================================================
 
+
 class main(sgmllib.SGMLParser):
 
 	# main config file
@@ -155,13 +156,10 @@ class main(sgmllib.SGMLParser):
 							self.SGML_FD[c].write(c + self.FIELD_SEPARATOR + channel_name + self.FIELD_SEPARATOR + channel_provider + self.FIELD_SEPARATOR + day + '\n')
 							self.SGML_FD[c].write("Local Time (human readeable)###Unix GMT Time###Event Title###Event Description\n")
 
-						
-
 	def end_guidatv(self):
 		self.SGML_GIORNOMP = None
 		for c in self.SGML_FD.keys():
 			self.SGML_FD[c].close()
-
 
 	def start_programmi(self, attr):
 		if self.SGML_GIORNOMP != None:
@@ -170,7 +168,6 @@ class main(sgmllib.SGMLParser):
 	def end_programmi(self):
 		self.SGML_PROGRAMMI_INSIDE = False
 
-		
 	def start_programma(self, attr):
 		self.SGML_PBAR_INDEX += 1
 		self.SGML_TOTAL_EVENTS += 1
@@ -186,7 +183,6 @@ class main(sgmllib.SGMLParser):
 					self.SGML_EVENT_TITLE = str(value).strip(' \n\r')
 					self.SGML_EVENT_TITLE = self.SGML_EVENT_TITLE.encode('utf-8')
 					
-
 	def end_programma(self):
 		if self.SGML_EVENT_IDREF in self.SGML_FD:
 				
@@ -209,16 +205,12 @@ class main(sgmllib.SGMLParser):
 			self.SGML_EVENT_TIMESTAMP = None
 			self.SGML_EVENT_TITLE = None
 		
-		
-
 					#pbar_value = int(self.SGML_PBAR_INDEX * 100 / self.SGML_PBAR_MAXVALUE)
 					#if pbar_value > 100:
 					#	pbar_value = 100
 					#self.log.log2video_pbar(pbar_value)
 					#self.SGML_PBAR_INDEX += 1
 
-		
-		
 		
 #	def handle_data(self, data):
 #		pass
@@ -238,7 +230,6 @@ class main(sgmllib.SGMLParser):
 	def convert_daymp(self, dmp):
 		daystandard = time.strftime("%Y%m%d", time.strptime(dmp, "%d/%m/%Y"))
 		return daystandard
-
 
 	def __init__(self, confdir, dbroot):
 
@@ -311,7 +302,6 @@ class main(sgmllib.SGMLParser):
 			self.DAYCACHEMP.append(time.strftime("%d/%m/%Y", time.localtime(time.time() + 86400 * day)))
 
 
-
 # ----------------------------------------------------------------------
 
 
@@ -321,7 +311,6 @@ class main(sgmllib.SGMLParser):
 
 		self.log.log("Removing old cached files")
 		scriptlib.cleanup_oldcachedfiles(self.CONF_CACHEDIR, self.FIELD_SEPARATOR)
-
 
 		self.log.log("Start download XML data from \'%s\'" % self.CONF_URL)
 		self.log.log2video_status("downloading XML data ...")
@@ -373,7 +362,6 @@ class main(sgmllib.SGMLParser):
 		self.log.log("end process XML data")
 
 # ----------------------------------------------------------------------
-
 
 	def process_cache(self):
 		self.log.log("--- START PROCESSING CACHE ---")
@@ -495,11 +483,9 @@ class main(sgmllib.SGMLParser):
 		time.sleep(3)
 
 
-
 # ****************************************************************************************************************************
 
 # MAIN CODE: SCRIPT START HERE
-
 # increase this process niceness (other processes have higher priority)
 os.nice(10)
 

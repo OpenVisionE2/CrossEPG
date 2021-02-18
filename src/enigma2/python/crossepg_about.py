@@ -20,6 +20,7 @@ import sys
 
 from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN
 
+
 class CrossEPG_About(Screen):
 	def __init__(self, session):
 		self.session = session

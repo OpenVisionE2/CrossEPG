@@ -22,6 +22,7 @@ from crossepglib import *
 
 from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN
 
+
 class CrossEPG_Providers(Screen):
 	def __init__(self, session, protocol):
 		if (getDesktop(0).size().width() < 800):

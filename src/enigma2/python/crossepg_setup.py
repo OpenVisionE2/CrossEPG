@@ -25,6 +25,7 @@ from time import *
 import os
 from Components.Console import Console
 
+
 class CrossEPG_Setup(ConfigListScreen, Screen):
 	def __init__(self, session):
 		if (getDesktop(0).size().width() < 800):

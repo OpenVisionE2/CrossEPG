@@ -23,6 +23,7 @@ import sys
 
 from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN
 
+
 class CrossEPG_Downloader(Screen):
 	LOCK_TIMEOUT_FIXED = 100 	# 100ms for tick - 10 sec
 	LOCK_TIMEOUT_ROTOR = 1200 	# 100ms for tick - 120 sec
@@ -189,7 +190,6 @@ class CrossEPG_Downloader(Screen):
 			del self.session.pip
 			print("[CrossEPG_Downloader] Stopping PIP.")
 
-		
 		# stop currently playing service if it is using a tuner in ("loopthrough", "satposdepends")
 		currentlyPlayingNIM = None
 		currentService = self.session and self.session.nav.getCurrentService()
