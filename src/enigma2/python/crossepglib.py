@@ -7,7 +7,8 @@ from Tools.Directories import crawlDirectory, pathExists, createDir
 from types import *
 from time import *
 
-import sys, traceback
+import sys
+import traceback
 import os
 import re
 import new
