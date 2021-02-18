@@ -69,7 +69,7 @@ class Description_parser(sgmllib.SGMLParser):
 			self.description += data.decode('iso-8859-1')
 
 	def get_descr(self):
-		return (self.description.strip(' \n\r') )
+		return (self.description.strip(' \n\r'))
 
 # =================================================================
 
@@ -121,7 +121,7 @@ class main:
 		if url[:7] != 'http://':
 			return('')
 
-		if (url[-5:] != '.html') and (url[-4:] != '.htm') :
+		if (url[-5:] != '.html') and (url[-4:] != '.htm'):
 			return('')
 
 		self.log("   downloading description \'" + url + "\'")
@@ -184,7 +184,7 @@ class main:
 
 
 		CONF_FILE = os.path.join(confdir, self.CONF_CONFIGFILENAME)
-		if not os.path.exists(CONF_FILE) :
+		if not os.path.exists(CONF_FILE):
 			self.log("ERROR: %s not present" % CONF_FILE, 1)
 			sys.exit(1)
 
@@ -226,7 +226,7 @@ class main:
 		for i in temp:
 			self.CHANNELLIST[i[0].strip(' \n\r').lower()] = unicode(i[1].strip(' \n\r').lower(), 'utf-8')
 
-		if len(self.CHANNELLIST) == 0 :
+		if len(self.CHANNELLIST) == 0:
 			self.log("ERROR: [channels] section empty ?", 1)
 			sys.exit(1)
 
@@ -302,13 +302,13 @@ class main:
 		xmlref_giorno = xmldoc.getElementsByTagName('giorno')
 		for xml_gg in xmlref_giorno:
 			gg = xml_gg.attributes["data"].value
-			if gg not in self.DAYCACHEMP :
+			if gg not in self.DAYCACHEMP:
 				continue
 
 			xmlref_canale = xml_gg.getElementsByTagName('canale')
 			for xml_ch in xmlref_canale:
 				chid = xml_ch.attributes["id"].value.strip(' \n\r').lower()
-				if chid not in chlist :
+				if chid not in chlist:
 						self.log("Warning: new channel \"id=%s name=%s\" found in XML data" % (xml_ch.attributes["id"].value, xml_ch.attributes["description"]))
 						continue
 
@@ -331,8 +331,8 @@ class main:
 						continue
 
 					channel_name = ''
-					if len(chlist[c].split(",")) > 1 :
-						if chlist[c].split(",")[1] != '' :
+					if len(chlist[c].split(",")) > 1:
+						if chlist[c].split(",")[1] != '':
 							# channel renamed, new name provided by user
 							channel_name = chlist[c].split(",")[1].strip(' \n\r').lower()
 
@@ -342,8 +342,8 @@ class main:
 						sys.exit(1)
 
 					channel_provider = self.CONF_DEFAULT_PROVIDER
-					if len(chlist[c].split(",")) > 2 :
-						if chlist[c].split(",")[2] != '' :
+					if len(chlist[c].split(",")) > 2:
+						if chlist[c].split(",")[2] != '':
 							channel_provider = chlist[c].split(",")[2].strip(' \n\r').lower()
 
 					# if channel name is not present as option in channel_list.conf , quit with error
@@ -379,7 +379,7 @@ class main:
 					for xml_ee in xmlref_events:
 						orainiz = xml_ee.attributes["orainizio"].value
 
-						if (orainiz >='00:00') and (orainiz <= '05:59') :
+						if (orainiz >='00:00') and (orainiz <= '05:59'):
 							nextdayevent = 86400
 						else:
 							nextdayevent = 0
@@ -400,7 +400,7 @@ class main:
 						event_title = event_title.strip(u' ')
 
 						event_description = ''
-						if self.CONF_DL_DESC == 1 :
+						if self.CONF_DL_DESC == 1:
 							url_desc = xml_ee.getElementsByTagName('linkScheda')[0].firstChild.data
 							event_description = unicode(self.get_description(url_desc.strip(' \n\r'))[:self.CONF_DLDESCMAXCHAR])
 							event_description = event_description.replace('\r', '')
@@ -442,15 +442,15 @@ class main:
 		filelist = sorted(os.listdir(self.CONF_CACHEDIR))
 		filelist.append('***END***')
 
-		for f in filelist :
+		for f in filelist:
 			id = f.split(self.FIELD_SEPARATOR)[0]
 			if previous_id == '':
 				previous_id = id
 
-			if id != previous_id :
+			if id != previous_id:
 				total_events += len(events)
 				self.log("  ...processing \'%s\' , nr. events %d" % (previous_id, len(events)))
-				self.log2video("processed %d events ..." % total_events )
+				self.log2video("processed %d events ..." % total_events)
 
 				for c in channels_name:
 					# a channel can have zero or more SID (different channel with same name)
@@ -479,7 +479,7 @@ class main:
 							items = e.split(self.FIELD_SEPARATOR)
 							e_starttime = int(items[1])
 
-							if i < L :
+							if i < L:
 								e_length = int(events[i+1].split(self.FIELD_SEPARATOR)[1]) - e_starttime
 							else:
 								# last event, dummy length 90 min.
@@ -493,7 +493,7 @@ class main:
 							e_summarie = items[3].encode('utf-8')
 
 							# add_event(start_time , duration , title , summarie , ISO639_language_code , strings_encoded_with_UTF-8)
-							crossdb.add_event(e_starttime, e_length, e_title, e_summarie, 'ita', True )
+							crossdb.add_event(e_starttime, e_length, e_title, e_summarie, 'ita', True)
 
 				if f == '***END***':
 					break
