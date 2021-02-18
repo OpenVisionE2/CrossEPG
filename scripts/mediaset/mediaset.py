@@ -138,7 +138,7 @@ class main(sgmllib.SGMLParser):
 								continue
 
 							day = str(self.convert_daymp(self.SGML_GIORNOMP))
-							eventfilename = scriptlib.fn_escape(c  + self.FIELD_SEPARATOR + channel_name + self.FIELD_SEPARATOR + day)
+							eventfilename = scriptlib.fn_escape(c + self.FIELD_SEPARATOR + channel_name + self.FIELD_SEPARATOR + day)
 							eventfilepath = os.path.join(self.CONF_CACHEDIR, eventfilename)
 							
 							if (cacheopt == 1) and os.path.exists(eventfilepath):
@@ -277,7 +277,7 @@ class main(sgmllib.SGMLParser):
 			#self.DELTA_UTC = -scriptlib.delta_utc() # return negative if timezone is east of GMT (like Italy), invert sign
 			self.DELTA_UTC = 0
 		else:
-			self.DELTA_UTC = float(self.CONF_GMT_ZONE)*3600.0
+			self.DELTA_UTC = float(self.CONF_GMT_ZONE) * 3600.0
 			if self.DELTA_UTC >= 0:
 				self.DELTA_UTC = self.DELTA_UTC + scriptlib.delta_dst()
 			else:
@@ -306,9 +306,9 @@ class main(sgmllib.SGMLParser):
 
 		self.TODAYMP = time.strftime("%d/%m/%Y")
 		# create a list filled with dates (format DD/MM/AAAA) from today to today+ MAX_DAY_EPG
-		self.DAYCACHEMP=[]
+		self.DAYCACHEMP = []
 		for day in range(0, self.CONF_MAX_DAY_EPG):
-			self.DAYCACHEMP.append(time.strftime("%d/%m/%Y", time.localtime(time.time()+86400*day)))
+			self.DAYCACHEMP.append(time.strftime("%d/%m/%Y", time.localtime(time.time() + 86400 * day)))
 
 
 
@@ -340,7 +340,7 @@ class main(sgmllib.SGMLParser):
 				if hasattr(e, 'msg'):
 					serr += " , " + str(e.msg)
 
-				self.log.log("\'" + self.CONF_URL + "\' connection error. Reason: "+serr+". Waiting "+str(self.HTTP_ERROR_WAIT_RETRY)+" sec. and retry ["+str(i)+"] ...")
+				self.log.log("\'" + self.CONF_URL + "\' connection error. Reason: " + serr + ". Waiting " + str(self.HTTP_ERROR_WAIT_RETRY) + " sec. and retry [" + str(i) + "] ...")
 				time.sleep(self.HTTP_ERROR_WAIT_RETRY) # add sleep
 				i -= 1
 
@@ -447,7 +447,7 @@ class main(sgmllib.SGMLParser):
 							e_starttime = int(items[1])
 
 							if i < L:
-								e_length = int(events[i+1].split(self.FIELD_SEPARATOR)[1]) - e_starttime
+								e_length = int(events[i + 1].split(self.FIELD_SEPARATOR)[1]) - e_starttime
 							else:
 								# last event, dummy length 90 min.
 								e_length = 5400

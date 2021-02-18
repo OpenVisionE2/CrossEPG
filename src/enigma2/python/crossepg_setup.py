@@ -220,13 +220,13 @@ class CrossEPG_Setup(ConfigListScreen, Screen):
 
 		dailycache = self.config.download_daily_enabled
 		standbycache = self.config.download_standby_enabled
-		if int(self.list[i+2][1].getIndex()) == 0:
+		if int(self.list[i + 2][1].getIndex()) == 0:
 			self.config.download_daily_enabled = 0
 			self.config.download_standby_enabled = 0
-		elif int(self.list[i+2][1].getIndex()) == 1:
+		elif int(self.list[i + 2][1].getIndex()) == 1:
 			self.config.download_daily_enabled = 1
 			self.config.download_standby_enabled = 0
-		elif int(self.list[i+2][1].getIndex()) == 2:
+		elif int(self.list[i + 2][1].getIndex()) == 2:
 			self.config.download_daily_enabled = 0
 			self.config.download_standby_enabled = 1
 
@@ -241,11 +241,11 @@ class CrossEPG_Setup(ConfigListScreen, Screen):
 
 		if not self.fastpatch:
 			self.config.download_daily_reboot = int(self.list[i][1].getValue())
-			self.config.download_manual_reboot = int(self.list[i+1][1].getValue())
+			self.config.download_manual_reboot = int(self.list[i + 1][1].getValue())
 			i += 2
 
 		self.config.show_plugin = int(self.list[i][1].getValue())
-		self.config.show_extension = int(self.list[i+1][1].getValue())
+		self.config.show_extension = int(self.list[i + 1][1].getValue())
 		i += 1
 
 		if redraw:
