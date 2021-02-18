@@ -272,4 +272,3 @@ class CrossEPG_Loader(Screen):
 	def doCallback(self):
 		if self.pcallback:
 			self.pcallback(self.retValue)
-

@@ -154,4 +154,3 @@ class CrossEPG_Converter(Screen):
 	def doCallback(self):
 		if self.pcallback:
 			self.pcallback(self.retValue)
-

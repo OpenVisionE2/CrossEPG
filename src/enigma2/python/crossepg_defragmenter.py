@@ -99,7 +99,7 @@ class CrossEPG_Defragmenter(Screen):
 				self.wrapper.delCallback(self.wrapperCallback)
 				self.wrapper.quit()
 				self.closeAndCallback(self.retValue)
-				
+
 			self.status += 1
 
 		elif event == CrossEPG_Wrapper.EVENT_ACTION:
@@ -146,4 +146,3 @@ class CrossEPG_Defragmenter(Screen):
 	def doCallback(self):
 		if self.pcallback:
 			self.pcallback(self.retValue)
-

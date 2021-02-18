@@ -139,4 +139,3 @@ class CrossEPG_Xepgdb_Update(Screen):
 			f.write("headers_url =" + source.headers + "\n")
 			f.write("descriptors_url =" + source.descriptors + "\n")
 			f.close()
-
