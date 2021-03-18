@@ -1,7 +1,7 @@
 language: python
 
 sudo: required
-dist: bionic
+dist: focal
 
 addons:
   apt:
@@ -18,10 +18,17 @@ python:
   - "2.7"
 
 git:
-  depth: 1
+  depth: 10
+
+before_install:
+    - pip install --upgrade pip autopep8
+    - pip3 install --upgrade pip autopep8
 
 script:
 - echo compiling CrossEPG plugin
 - python -m compileall .
 - find . -type f -name "*.po" -exec msgfmt {} -o {}.mo \;
 - echo done!
+
+after_success:
+- ./build.sh
