@@ -100,7 +100,7 @@ class CrossEPG_Rytec_Update(Screen):
 			import urllib2
 			import gzip
 			from StringIO import StringIO
-			url = "http://epgalfasite.dyndns.tv/crossepgsources.gz"
+			url = "http://rytecepg.dyndns.tv/epg_data/crossepgsources.gz"
 			print("[crossepg_rytec_update:loadSourceList] downloading source list from %s" % url)
 			response = urllib2.urlopen(url)
 			content_raw = response.read()
