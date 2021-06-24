@@ -13,7 +13,7 @@ echo "dos2unix files"
 find . -type f \( -iname \*.bb -o -iname \*.conf -o -iname \*.c -o -iname \*.h -o -iname \*.po -o -iname \*.am -o -iname \*.inc -o -iname \*.py -o -iname \*.xml -o -iname \*.sh -o -iname \*.bbappend -o -iname \*.md \) -exec dos2unix {} +
 git add -u
 git add *
-git commit -m "dos2unix files (build $TRAVIS_BUILD_NUMBER)"
+git commit -m "dos2unix files"
 
 echo ""
 finish=$(date +"%s")
