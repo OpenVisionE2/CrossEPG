@@ -18,7 +18,7 @@ from crossepg_locale import _
 import os
 import sys
 
-from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN
+from Tools.Directories import resolveFilename, SCOPE_GUISKIN
 
 
 class CrossEPG_About(Screen):
@@ -80,14 +80,14 @@ class CrossEPG_About(Screen):
 
 	def setImages(self):
 		try:
-			rytecpng = resolveFilename(SCOPE_CURRENT_SKIN, "crossepg/rytec.png")
+			rytecpng = resolveFilename(SCOPE_GUISKIN, "crossepg/rytec.png")
 		except:
 			print("[CrossEPG] Error: can't find the png file!")
 		if rytecpng == None or not os.path.exists(rytecpng):
 			rytecpng = "%s/images/rytec.png" % (os.path.dirname(sys.modules[__name__].__file__))
 		self["rytec_pix"].instance.setPixmapFromFile(rytecpng)
 		try:
-			krkadonipng = resolveFilename(SCOPE_CURRENT_SKIN, "crossepg/krkadoni.png")
+			krkadonipng = resolveFilename(SCOPE_GUISKIN, "crossepg/krkadoni.png")
 		except:
 			print("[CrossEPG] Error: can't find the png file!")
 		if krkadonipng == None or not os.path.exists(krkadonipng):

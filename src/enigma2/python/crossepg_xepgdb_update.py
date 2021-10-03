@@ -19,7 +19,7 @@ import xml.etree.cElementTree
 import re
 import os
 
-from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN
+from Tools.Directories import resolveFilename, SCOPE_GUISKIN
 
 SIFTEAM_HOST = "crossepg.sifteam.eu"
 
@@ -70,14 +70,14 @@ class CrossEPG_Xepgdb_Update(Screen):
 	def firstExec(self):
 		if self.isHD:
 			try:
-				png = resolveFilename(SCOPE_CURRENT_SKIN, "crossepg/background_hd.png")
+				png = resolveFilename(SCOPE_GUISKIN, "crossepg/background_hd.png")
 			except:
 				print("[CrossEPG] Error: can't find the png file!")
 			if png == None or not os.path.exists(png):
 				png = "%s/images/background_hd.png" % os.path.dirname(sys.modules[__name__].__file__)
 		else:
 			try:
-				png = resolveFilename(SCOPE_CURRENT_SKIN, "crossepg/background.png")
+				png = resolveFilename(SCOPE_GUISKIN, "crossepg/background.png")
 			except:
 				print("[CrossEPG] Error: can't find the png file!")
 			if png == None or not os.path.exists(png):

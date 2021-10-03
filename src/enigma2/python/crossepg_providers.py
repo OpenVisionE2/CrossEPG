@@ -20,7 +20,7 @@ from crossepg_loader import CrossEPG_Loader
 from crossepg_locale import _
 from crossepglib import *
 
-from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN
+from Tools.Directories import resolveFilename, SCOPE_GUISKIN
 
 
 class CrossEPG_Providers(Screen):
@@ -127,7 +127,7 @@ class CrossEPG_Providers(Screen):
 	def buildListEntry(self, name, description, enabled):
 		if enabled:
 			try:
-				png = resolveFilename(SCOPE_CURRENT_SKIN, "crossepg/enabled.png")
+				png = resolveFilename(SCOPE_GUISKIN, "crossepg/enabled.png")
 			except:
 				print("[CrossEPG] Error: can't find the png file!")
 			if png == None or not os.path.exists(png):

@@ -29,7 +29,7 @@ from Components.Harddisk import harddiskmanager
 from Components.PluginComponent import plugins
 from Components.ActionMap import ActionMap
 from Tools.LoadPixmap import LoadPixmap
-from Tools.Directories import resolveFilename, SCOPE_PLUGINS, SCOPE_CURRENT_SKIN
+from Tools.Directories import resolveFilename, SCOPE_PLUGINS, SCOPE_GUISKIN
 from Plugins.Plugin import PluginDescriptor
 
 from time import *
@@ -105,9 +105,9 @@ class CrossEPG_Menu(Screen):
 
 	def buildListEntry(self, description, image):
 		try:
-			png = resolveFilename(SCOPE_CURRENT_SKIN, "crossepg/" + image)
+			png = resolveFilename(SCOPE_GUISKIN, "crossepg/" + image)
 		except:
-			png = resolveFilename(SCOPE_CURRENT_SKIN, "skin-default/crossepg/" + image)
+			png = resolveFilename(SCOPE_GUISKIN, "skin-default/crossepg/" + image)
 		if png == None or not os.path.exists(png):
 			png = "%s/images/%s" % (os.path.dirname(sys.modules[__name__].__file__), image)
 		pixmap = LoadPixmap(cached=True, path=png)
