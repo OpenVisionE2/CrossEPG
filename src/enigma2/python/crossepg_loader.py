@@ -94,11 +94,14 @@ class CrossEPG_Loader(Screen):
 			self.oudeispatch = None
 
 		if self.xepgpatch:
-			self.timer = eTimer()
-			self.timer.callback.append(self.loadEPG2)
-			self.timer.start(200, 1)
+			try:
+				self.timer = eTimer()
+				self.timer.callback.append(self.loadEPG2)
+				self.timer.start(200, 1)
+			except:
+				pass
 
-		elif self.epgpatch:
+		if self.epgpatch:
 			self.timer = eTimer()
 			self.timer.callback.append(self.loadEPG)
 			self.timer.start(200, 1)
