@@ -1,20 +1,20 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 from enigma import *
-from crossepglib import *
-from crossepg_info import CrossEPG_Info
-from crossepg_about import CrossEPG_About
-from crossepg_providers import CrossEPG_Providers
-from crossepg_setup import CrossEPG_Setup
-from crossepg_downloader import CrossEPG_Downloader
-from crossepg_importer import CrossEPG_Importer
-from crossepg_converter import CrossEPG_Converter
-from crossepg_loader import CrossEPG_Loader
-from crossepg_ordering import CrossEPG_Ordering
-from crossepg_rytec_update import CrossEPG_Rytec_Update
-from crossepg_xepgdb_update import CrossEPG_Xepgdb_Update
-from crossepg_defragmenter import CrossEPG_Defragmenter
-from crossepg_locale import _
+from .crossepglib import *
+from .crossepg_info import CrossEPG_Info
+from .crossepg_about import CrossEPG_About
+from .crossepg_providers import CrossEPG_Providers
+from .crossepg_setup import CrossEPG_Setup
+from .crossepg_downloader import CrossEPG_Downloader
+from .crossepg_importer import CrossEPG_Importer
+from .crossepg_converter import CrossEPG_Converter
+from .crossepg_loader import CrossEPG_Loader
+from .crossepg_ordering import CrossEPG_Ordering
+from .crossepg_rytec_update import CrossEPG_Rytec_Update
+from .crossepg_xepgdb_update import CrossEPG_Xepgdb_Update
+from .crossepg_defragmenter import CrossEPG_Defragmenter
+from .crossepg_locale import _
 
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
@@ -48,7 +48,7 @@ class CrossEPG_Menu(Screen):
 		f.close()
 		Screen.__init__(self, session)
 		try:
-			from version import version
+			from .version import version
 			self.setup_title = _("CrossEPG") + " - " + version[:5]
 			Screen.setTitle(self, self.setup_title)
 		except Exception as e:

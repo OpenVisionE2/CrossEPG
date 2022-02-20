@@ -14,11 +14,11 @@ from Components.Sources.List import List
 
 from Tools.LoadPixmap import LoadPixmap
 
-from crossepg_downloader import CrossEPG_Downloader
-from crossepg_converter import CrossEPG_Converter
-from crossepg_loader import CrossEPG_Loader
-from crossepg_locale import _
-from crossepglib import *
+from .crossepg_downloader import CrossEPG_Downloader
+from .crossepg_converter import CrossEPG_Converter
+from .crossepg_loader import CrossEPG_Loader
+from .crossepg_locale import _
+from .crossepglib import *
 
 from Tools.Directories import resolveFilename, SCOPE_GUISKIN
 
@@ -95,7 +95,7 @@ class CrossEPG_Providers(Screen):
 			return ""
 
 	def createSummary(self):
-		from crossepg_menu import CrossEPG_MenuSummary
+		from .crossepg_menu import CrossEPG_MenuSummary
 		return CrossEPG_MenuSummary
 
 	def buildList(self):

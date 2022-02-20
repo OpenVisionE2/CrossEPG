@@ -12,9 +12,9 @@ from Components.Sources.List import List
 
 from Tools.LoadPixmap import LoadPixmap
 
-from crossepg_locale import _
+from .crossepg_locale import _
 
-from crossepglib import *
+from .crossepglib import *
 
 
 class CrossEPG_Ordering(Screen):
@@ -71,7 +71,7 @@ class CrossEPG_Ordering(Screen):
 		return ""
 
 	def createSummary(self):
-		from crossepg_menu import CrossEPG_MenuSummary
+		from .crossepg_menu import CrossEPG_MenuSummary
 		return CrossEPG_MenuSummary
 
 	def getProviderDescription(self, provider):

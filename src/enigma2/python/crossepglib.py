@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import print_function
 from enigma import *
-from crossepg_locale import _
+from .crossepg_locale import _
 from Tools.Directories import crawlDirectory, pathExists, createDir
 from types import *
 from time import *

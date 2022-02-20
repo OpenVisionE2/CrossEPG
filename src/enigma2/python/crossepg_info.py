@@ -9,8 +9,8 @@ from Components.Button import Button
 from Components.ActionMap import ActionMap
 from Components.config import config
 
-from crossepglib import *
-from crossepg_locale import _
+from .crossepglib import *
+from .crossepg_locale import _
 
 import os
 import sys

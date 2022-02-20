@@ -12,8 +12,8 @@ from Components.ActionMap import ActionMap
 
 from Tools.LoadPixmap import LoadPixmap
 
-from crossepglib import *
-from crossepg_locale import _
+from .crossepglib import *
+from .crossepg_locale import _
 
 import os
 import sys
@@ -57,7 +57,7 @@ class CrossEPG_About(Screen):
 		self["key_blue"] = Button("")
 
 		try:
-			from version import version
+			from .version import version
 		except Exception as e:
 			version = "unknow version"
 

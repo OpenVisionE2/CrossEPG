@@ -12,7 +12,7 @@ from __future__ import print_function
 # not supported at all.
 
 
-import markupbase
+from . import markupbase
 import re
 
 __all__ = ["SGMLParser", "SGMLParseError"]

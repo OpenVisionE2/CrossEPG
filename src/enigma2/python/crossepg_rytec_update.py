@@ -11,8 +11,8 @@ from Components.Sources.Progress import Progress
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
 
-from crossepglib import *
-from crossepg_locale import _
+from .crossepglib import *
+from .crossepg_locale import _
 
 import httplib
 import xml.etree.cElementTree

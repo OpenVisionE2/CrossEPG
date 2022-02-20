@@ -15,8 +15,8 @@ from Components.config import config
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
 
-from crossepglib import *
-from crossepg_locale import _
+from .crossepglib import *
+from .crossepg_locale import _
 
 import _enigma
 import os

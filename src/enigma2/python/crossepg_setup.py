@@ -17,8 +17,8 @@ from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 
 from Plugins.Plugin import PluginDescriptor
 
-from crossepglib import *
-from crossepg_locale import _
+from .crossepglib import *
+from .crossepg_locale import _
 
 from time import *
 
