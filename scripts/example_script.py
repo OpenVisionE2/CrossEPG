@@ -92,12 +92,12 @@ def main():
 		title = channel.title_first
 		while title != None:
 			dump_title(title)
-			title = title.next
+			title = title.__next__
 			title_count += 1
 			if title_count == 2:		# it's only a test so we halt the loop after 2 titles
 				break
 
-		channel = channel.next
+		channel = channel.__next__
 		channel_count += 1
 		if channel_count == 3:		# it's only a test so we halt the loop after 3 channels
 			break

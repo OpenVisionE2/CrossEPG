@@ -15,9 +15,9 @@ import sys
 import time
 import codecs
 import socket
-import urllib
-import urllib2
-import ConfigParser
+import urllib.request, urllib.parse, urllib.error
+import urllib.request, urllib.error, urllib.parse
+import configparser
 #from xml.dom import minidom
 
 # import CrossEPG functions
@@ -254,10 +254,10 @@ class main(sgmllib.SGMLParser):
 			event_starttime = self.SGML_GIORNOMP + '_' + self.SGML_EVENT_STARTHOUR
 			event_startime_unix_gmt = str(int(time.mktime(time.strptime(event_starttime, "%Y/%m/%d_%H:%M"))) - self.DELTA_UTC + nextdayevent)
 
-			event_title = unicode(self.SGML_EVENT_TITLE)
+			event_title = str(self.SGML_EVENT_TITLE)
 			event_title = event_title.replace('\r', '')
 			event_title = event_title.replace('\n', '')
-			event_title = event_title.strip(u' ')
+			event_title = event_title.strip(' ')
 			#self.log.log("  event_title=" + event_title)
 
 			event_description = ''
@@ -267,10 +267,10 @@ class main(sgmllib.SGMLParser):
 				if self.SGML_ACTIVITY_INDEX > self.SGML_ACTIVITY_MAX_INDEX:
 					self.SGML_ACTIVITY_INDEX = 0
 
-				event_description = unicode(self.get_description(self.SGML_EVENT_SUMMARIE_LINK.strip(' \n\r'), self.CONF_DLDESCMAXCHAR))
+				event_description = str(self.get_description(self.SGML_EVENT_SUMMARIE_LINK.strip(' \n\r'), self.CONF_DLDESCMAXCHAR))
 				event_description = event_description.replace('\r', '')
-				event_description = event_description.replace('\n', u' ')
-				event_description = event_description.strip(u' ')
+				event_description = event_description.replace('\n', ' ')
+				event_description = event_description.strip(' ')
 
 			self.SGML_FD.write(event_starttime + self.FIELD_SEPARATOR + event_startime_unix_gmt + self.FIELD_SEPARATOR + event_title + self.FIELD_SEPARATOR + event_description + '\n')
 			self.SGML_TOTAL_EVENTS += 1
@@ -334,9 +334,9 @@ class main(sgmllib.SGMLParser):
 			return(self.DESCRIPTIONS_WEBCACHE[url_hash])
 
 		self.log.log("   downloading description and cache: " + url)
-		url_enc = str(urllib.quote(url, safe=":/"))
+		url_enc = str(urllib.parse.quote(url, safe=":/"))
 		try:
-			sock = urllib2.urlopen(url_enc)
+			sock = urllib.request.urlopen(url_enc)
 			data = sock.read()
 		except IOError as e:
 			serr = "unknown"
@@ -378,7 +378,7 @@ class main(sgmllib.SGMLParser):
 			self.log.log2video_status("ERROR: %s not present" % CONF_FILE)
 			sys.exit(1)
 
-		config = ConfigParser.ConfigParser()
+		config = configparser.ConfigParser()
 		#config.optionxform = str  # needed to return case sensitive index
 		config.read(CONF_FILE)
 
@@ -416,7 +416,7 @@ class main(sgmllib.SGMLParser):
 
 		# create a dictionary (Python array) with index = channel ID
 		for i in temp:
-			self.CHANNELLIST[i[0].strip(' \n\r').lower()] = unicode(i[1].strip(' \n\r').lower(), 'utf-8')
+			self.CHANNELLIST[i[0].strip(' \n\r').lower()] = str(i[1].strip(' \n\r').lower(), 'utf-8')
 
 		if len(self.CHANNELLIST) == 0:
 			self.log.log("ERROR: [channels] section empty ?")
@@ -448,7 +448,7 @@ class main(sgmllib.SGMLParser):
 		i = self.HTTP_ERROR_RETRY
 		while i > 0:
 			try:
-				sock = urllib2.urlopen(self.CONF_URL)
+				sock = urllib.request.urlopen(self.CONF_URL)
 				data = sock.read()
 			except IOError as e:
 				serr = "unknown"

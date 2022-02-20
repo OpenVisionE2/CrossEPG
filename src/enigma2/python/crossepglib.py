@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+
 from enigma import *
 from .crossepg_locale import _
 from Tools.Directories import crawlDirectory, pathExists, createDir
@@ -229,7 +229,7 @@ class CrossEPG_Config:
 				if key in transponder_keys:
 					transponder[key] = value
 
-		if len(transponder.keys()) != len(transponder_keys):
+		if len(list(transponder.keys())) != len(transponder_keys):
 			return
 
 		f.close()

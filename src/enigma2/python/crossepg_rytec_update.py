@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+
 from enigma import getDesktop, eTimer
 
 from Components.Label import Label
@@ -14,7 +14,7 @@ from Screens.MessageBox import MessageBox
 from .crossepglib import *
 from .crossepg_locale import _
 
-import httplib
+import http.client
 import xml.etree.cElementTree
 import re
 import os
@@ -97,12 +97,12 @@ class CrossEPG_Rytec_Update(Screen):
 
 	def loadSourceList(self):
 		try:
-			import urllib2
+			import urllib.request, urllib.error, urllib.parse
 			import gzip
-			from StringIO import StringIO
+			from io import StringIO
 			url = "http://rytecepg.dyndns.tv/epg_data/crossepgsources.gz"
 			print("[crossepg_rytec_update:loadSourceList] downloading source list from %s" % url)
-			response = urllib2.urlopen(url)
+			response = urllib.request.urlopen(url)
 			content_raw = response.read()
 			if 'gzip' in response.info().getheader('Content-Type'):
 				self.mirrors = [x.strip() for x in gzip.GzipFile(fileobj=StringIO(content_raw)).read().strip().split("\n")]
@@ -122,7 +122,7 @@ class CrossEPG_Rytec_Update(Screen):
 				smirror = mirror.lstrip("http://")
 				host = smirror.split("/")[0]
 				path = smirror.lstrip(host)
-				conn = httplib.HTTPConnection(host)
+				conn = http.client.HTTPConnection(host)
 				conn.request("GET", path)
 				httpres = conn.getresponse()
 				if httpres.status == 200:

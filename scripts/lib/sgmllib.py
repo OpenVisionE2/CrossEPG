@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+
 """A parser for SGML, using the derived class as a static DTD."""
 
 # XXX This only supports those SGML features used by HTML.

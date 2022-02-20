@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+
 # scriptlib.py  by Ambrosa http://www.ambrosa.net
 # derived from E2_LOADEPG
 # 22-Dec-2011
@@ -159,7 +159,7 @@ class lamedb_class:
 
 		for charset in charset_list:
 			try:
-				u = unicode(s, charset, "strict")
+				u = str(s, charset, "strict")
 			except:
 				pass
 			else:
@@ -189,11 +189,11 @@ class lamedb_class:
 				sys.exit(1)
 
 			temp = temp.strip(' \n\r')
-			if temp == u"end":
+			if temp == "end":
 				# next line should be "services"
 				temp = self.decode_charset(fd.readline())
 				temp = temp.strip(' \n\r')
-				if temp == u'services':
+				if temp == 'services':
 					# reached end of transponder section, end loop and continue with parsing channel section
 					break
 				else:
@@ -210,7 +210,7 @@ class lamedb_class:
 
 			sid = sid.strip(' \n\r')
 
-			if sid == u'end':
+			if sid == 'end':
 				# reached end of channel section, end loop
 				break
 
@@ -230,7 +230,7 @@ class lamedb_class:
 				temp = temp.split(',')[0]
 				temp = temp.strip(' \n\r')
 				if temp == '':
-					provider_name = u'noprovider'
+					provider_name = 'noprovider'
 				else:
 					provider_name = temp.lower()
 

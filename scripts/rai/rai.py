@@ -16,8 +16,8 @@ import codecs
 import socket
 import string
 import random
-import urllib2
-import ConfigParser
+import urllib.request, urllib.error, urllib.parse
+import configparser
 
 # import CrossEPG functions
 import crossepg
@@ -156,7 +156,7 @@ class main:
 			self.log.log("ERROR: %s not present" % CONF_FILE)
 			sys.exit(1)
 
-		config = ConfigParser.ConfigParser()
+		config = configparser.ConfigParser()
 		config.optionxform = str  # needed to return case sensitive index
 		config.read(CONF_FILE)
 
@@ -191,7 +191,7 @@ class main:
 
 		# create a dictionary (Python array) with index = channel ID
 		for i in temp:
-			self.CHANNELLIST[i[0]] = unicode(i[1], 'utf-8')
+			self.CHANNELLIST[i[0]] = str(i[1], 'utf-8')
 
 		if len(self.CHANNELLIST) == 0:
 			self.log.log("ERROR: [channels] section empty ?")
@@ -229,7 +229,7 @@ class main:
 		#   chid format: channel id , 0|1|2(,new name)
 		#   i.e. ("101" , "1,SkyCinema1")
 		pbar_max = 0
-		for c in chlist.keys():
+		for c in list(chlist.keys()):
 			cacheopt = int(string.split(chlist[c], ",")[0])
 			if cacheopt == 1:
 				pbar_max += 1
@@ -308,7 +308,7 @@ class main:
 					time.sleep(random.uniform(self.CONF_RANDOM_MIN, self.CONF_RANDOM_MAX))
 
 					try:
-						sock = urllib2.urlopen(self.CONF_URL + '?' + xmlfile)
+						sock = urllib.request.urlopen(self.CONF_URL + '?' + xmlfile)
 						data = sock.read()
 
 					except IOError as e:
@@ -356,13 +356,13 @@ class main:
 							#self.log(event_starttime + " , " + str(self.DELTA_UTC) + " , " + str(int(time.mktime(time.strptime(event_starttime,"%Y-%m-%d %H:%M")))) + " , " + event_startime_unix_gmt )
 
 							# convert remote data (RAI website use UTF-8) in Python Unicode (UCS2)
-							event_title = unicode(titolo, self.REMOTE_EPG_CHARSET)
+							event_title = str(titolo, self.REMOTE_EPG_CHARSET)
 
 							event_title = event_title.replace('\r', '')
-							event_title = event_title.replace('\n', u' ')
-							event_title = event_title.strip(u' ')
+							event_title = event_title.replace('\n', ' ')
+							event_title = event_title.strip(' ')
 
-							event_description = u''
+							event_description = ''
 
 							fd.write(event_starttime + self.FIELD_SEPARATOR + event_startime_unix_gmt + self.FIELD_SEPARATOR + event_title + self.FIELD_SEPARATOR + event_description + '\n')
 
@@ -444,7 +444,7 @@ class main:
 							e_title = e.split(self.FIELD_SEPARATOR)[2].encode('utf-8')
 
 							# RAI website HAVE NOT long description. (bleah !).
-							e_summarie = u' '
+							e_summarie = ' '
 							# encode Python Unicode in UTF-8
 							e_summarie = e_summarie.encode('utf-8')
 

@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+
 # above is Python interpreter location
 
 # ambrosa 08-Jan-2011 http://www.ambrosa.net

@@ -10,7 +10,7 @@ __license__ = "CreativeCommons by-nc-sa http://creativecommons.org/licenses/by-n
 
 import os
 import sys
-import ConfigParser
+import configparser
 import time
 
 # import CrossEPG functions
@@ -51,7 +51,7 @@ class main:
 			self.log.log("ERROR: %s not present" % CONF_FILE)
 			sys.exit(1)
 
-		config = ConfigParser.ConfigParser()
+		config = configparser.ConfigParser()
 		#config.optionxform = str  # needed to return case sensitive index
 		config.read(CONF_FILE)
 
@@ -61,7 +61,7 @@ class main:
 		self.CHANNELLIST = {}
 		# create a dictionary (Python array) with index = channel ID
 		for i in temp:
-			self.CHANNELLIST[i[0]] = unicode(i[1], 'utf-8')
+			self.CHANNELLIST[i[0]] = str(i[1], 'utf-8')
 
 		if len(self.CHANNELLIST) == 0:
 			self.log.log("ERROR: [aliases] section empty ?")
@@ -189,7 +189,7 @@ class main:
 						# add_event(start_time , duration , title , summarie , ISO639_language_code , strings_encoded_with_UTF-8)
 						crossdb.add_event(e_starttime, e_length, e_title, e_summarie, e_countrycode, True)
 						num_events += 1
-						title = title.next
+						title = title.__next__
 
 						if (num_events % 25) == 0:
 							self.log.log2video_status("copy %s -> %s (%d/%d)" % (src_channel, dst, num_events, total_events))

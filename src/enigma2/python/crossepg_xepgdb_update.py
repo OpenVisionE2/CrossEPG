@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+
 from enigma import getDesktop, eTimer
 
 from Components.Label import Label
@@ -14,7 +14,7 @@ from Screens.MessageBox import MessageBox
 from .crossepglib import *
 from .crossepg_locale import _
 
-import httplib
+import http.client
 import xml.etree.cElementTree
 import re
 import os
@@ -95,7 +95,7 @@ class CrossEPG_Xepgdb_Update(Screen):
 
 	def load(self):
 		try:
-			conn = httplib.HTTPConnection(SIFTEAM_HOST)
+			conn = http.client.HTTPConnection(SIFTEAM_HOST)
 			conn.request("GET", "/sources.xml")
 			httpres = conn.getresponse()
 			if httpres.status == 200:
