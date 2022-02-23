@@ -1,4 +1,4 @@
-name: backupsuite
+name: crossepg
 
 on:
   push:
