@@ -1,4 +1,3 @@
-#!/usr/bin/python
 # -*- coding: utf-8 -*-
 """Shared support for scanning document type declarations in HTML and XHTML.
 

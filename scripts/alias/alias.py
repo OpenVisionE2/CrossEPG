@@ -1,4 +1,3 @@
-#!/usr/bin/python
 # -*- coding: utf-8 -*-
 # alias.py  by Ambrosa http://www.ambrosa.net
 # this module is used for copy epg from a channel to another

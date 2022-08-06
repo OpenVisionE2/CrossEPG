@@ -1,4 +1,3 @@
-#!/usr/bin/python
 # -*- coding: utf-8 -*-
 # mediaprem.py  by Ambrosa http://www.ambrosa.net
 # this module is used for download EPG data from Mediaset website
