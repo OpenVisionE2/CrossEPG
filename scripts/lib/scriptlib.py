@@ -28,7 +28,7 @@ def fn_escape(s):
 	s = s.replace('|', '_')
 	s = s.replace('!', '_')
 
-	return(s.encode('utf-8'))
+	return (s.encode('utf-8'))
 
 # logging class
 
@@ -95,7 +95,7 @@ class zlib_class:
 		data_ungz = fd.read()
 		fd.close()
 		os.unlink(self.GZTMP_FILE)
-		return(data_ungz)
+		return (data_ungz)
 
 
 # removing old cached epg files **
@@ -167,7 +167,7 @@ class lamedb_class:
 			print("CHARSET ERROR while decoding lamedb")
 			sys.exit(1)
 		else:
-			return(u)
+			return (u)
 
 	def read_lamedb(self):
 		if not os.path.exists(self.LAMEDB):
@@ -264,7 +264,7 @@ class lamedb_class:
 				# (sid,provider_name)
 				sid_list.append(v[0])
 
-		return(sid_list)
+		return (sid_list)
 
 	def get_provid_byname(self, channel_name):
 		provid_list = []
@@ -274,7 +274,7 @@ class lamedb_class:
 				# (sid,provider_name)
 				provid_list.append(v[1])
 
-		return(provid_list)
+		return (provid_list)
 
 	def get_sidprovid_byname(self, channel_name):
 		sidprov_list = []
@@ -282,7 +282,7 @@ class lamedb_class:
 			# (sid,provider_name)
 			sidprov_list = self.lamedb_dict[channel_name]
 
-		return(sidprov_list)
+		return (sidprov_list)
 
 	def get_chnames_byprov(self, provider_name):
 		if self.INDEXBYPROVID == True:
@@ -305,7 +305,7 @@ class lamedb_class:
 		except:
 			pass
 
-		return(s)
+		return (s)
 
 
 class crossepg_db_class:

@@ -214,7 +214,7 @@ class CrossEPG_Downloader(Screen):
 		print("[CrossEPG_Downloader] Search NIM for orbital position %d" % transponder["orbital_position"])
 		current_slotid = -1
 		if self.rawchannel:
-			del(self.rawchannel)
+			del (self.rawchannel)
 
 		self.frontend = None
 		self.rawchannel = None
@@ -356,7 +356,7 @@ class CrossEPG_Downloader(Screen):
 
 		elif event == CrossEPG_Wrapper.EVENT_END:
 			if self.rawchannel:
-				del(self.rawchannel)
+				del (self.rawchannel)
 
 			self.frontend = None
 			self.rawchannel = None
@@ -418,7 +418,7 @@ class CrossEPG_Downloader(Screen):
 
 	def quit(self):
 		if self.rawchannel:
-			del(self.rawchannel)
+			del (self.rawchannel)
 
 		self.frontend = None
 		self.rawchannel = None

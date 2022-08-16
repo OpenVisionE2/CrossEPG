@@ -110,7 +110,7 @@ class CrossEPG_Menu(Screen):
 		if png == None or not os.path.exists(png):
 			png = "%s/images/%s" % (os.path.dirname(sys.modules[__name__].__file__), image)
 		pixmap = LoadPixmap(cached=True, path=png)
-		return((pixmap, description))
+		return ((pixmap, description))
 
 	def openSetup(self):
 		self.session.open(CrossEPG_Setup)

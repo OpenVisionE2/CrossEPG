@@ -90,7 +90,7 @@ class CrossEPG_Ordering(Screen):
 		self["list"].setList(self.list)
 
 	def buildListEntry(self, name, description):
-		return((description, None, name))
+		return ((description, None, name))
 
 	def firstRun(self):
 		if len(self.list) <= 1:

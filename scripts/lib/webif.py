@@ -33,7 +33,7 @@ class webif_class:
         self.WEBIF_IP = ip
 
     def get_use_webif(self):
-        return(self.USE_WEBIF)
+        return (self.USE_WEBIF)
 
     # WebInterface routines
     # see http://dream.reichholf.net/wiki/Enigma2:WebInterface
@@ -56,7 +56,7 @@ class webif_class:
             pass
         else:
             sock.close()
-            return(data)
+            return (data)
 
     def standby(self):
         current_sid = self.currentchannelsid()
@@ -80,7 +80,7 @@ class webif_class:
             time.sleep(5)
             current_sid = self.currentchannelsid()
 
-        return(current_sid)
+        return (current_sid)
 
     def zap(self, channelsid):
         self.WI('zap?sRef=' + channelsid)
@@ -94,25 +94,25 @@ class webif_class:
         data = self.WI('subservices')
 
         if data == None:
-            return(None)
+            return (None)
 
         try:
             xmldoc = minidom.parseString(data)
         except:
-            return(None)
+            return (None)
 
         r = xmldoc.getElementsByTagName('e2servicereference')[0].firstChild.data
         if r == 'N/A':
-            return(None)
+            return (None)
 
-        return(r)
+        return (r)
 
     def is_recording(self):
         data = self.WI("timerlist")
         if data.find("<e2state>2</e2state>") == -1:
-            return(False) # not recording
+            return (False) # not recording
         else:
-            return(True) # recording
+            return (True) # recording
 
     def message(self, txt, timeout=10, type=1):
         is_on = self.currentchannelsid()

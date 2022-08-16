@@ -131,9 +131,9 @@ class CrossEPG_Providers(Screen):
 			if png == None or not os.path.exists(png):
 				png = "%s/images/enabled.png" % os.path.dirname(sys.modules[__name__].__file__)
 			pixmap = LoadPixmap(cached=True, path=png)
-			return((description, pixmap, name))
+			return ((description, pixmap, name))
 		else:
-			return((description, None, name))
+			return ((description, None, name))
 
 	def selectionChanged(self):
 		if len(self.list) == 0:

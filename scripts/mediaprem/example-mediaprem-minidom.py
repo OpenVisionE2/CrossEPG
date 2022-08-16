@@ -114,10 +114,10 @@ class main:
 	def get_description(self, url):
 
 		if url[:7] != 'http://':
-			return('')
+			return ('')
 
 		if (url[-5:] != '.html') and (url[-4:] != '.htm'):
-			return('')
+			return ('')
 
 		self.log("   downloading description \'" + url + "\'")
 		url = str(urllib.quote(url, safe=":/"))
@@ -135,15 +135,15 @@ class main:
 					serr += " , " + str(e.msg)
 
 			self.log(url + "      error, reason: " + serr + ". Skip it.")
-			return('')
+			return ('')
 
 		else:
 			sock.close()
 			dsparser = Description_parser()
 			dsparser.parse(data)
-			return(dsparser.get_descr())
+			return (dsparser.get_descr())
 
-		return('')
+		return ('')
 
 	def __init__(self, confdir, dbroot):
 

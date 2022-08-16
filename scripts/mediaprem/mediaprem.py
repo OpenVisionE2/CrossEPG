@@ -321,16 +321,16 @@ class main(sgmllib.SGMLParser):
 	def get_description(self, url, maxchar=128):
 
 		if url[:7] != 'http://':
-			return('')
+			return ('')
 
 		if (url[-5:] != '.html') and (url[-4:] != '.htm'):
-			return('')
+			return ('')
 
 		url_hash = hash(url)
 
 		if url_hash in self.DESCRIPTIONS_WEBCACHE:
 			self.log.log("   description (from cache): " + url)
-			return(self.DESCRIPTIONS_WEBCACHE[url_hash])
+			return (self.DESCRIPTIONS_WEBCACHE[url_hash])
 
 		self.log.log("   downloading description and cache: " + url)
 		url_enc = str(urllib.quote(url, safe=":/"))
@@ -347,16 +347,16 @@ class main(sgmllib.SGMLParser):
 					serr += " , " + str(e.msg)
 
 			self.log.log("      error, reason: %s. Skip it." % serr)
-			return('')
+			return ('')
 
 		else:
 			sock.close()
 			dsparser = Description_parser()
 			dsparser.parse(data)
 			self.DESCRIPTIONS_WEBCACHE[url_hash] = dsparser.get_descr()[:maxchar]
-			return(self.DESCRIPTIONS_WEBCACHE[url_hash])
+			return (self.DESCRIPTIONS_WEBCACHE[url_hash])
 
-		return('')
+		return ('')
 
 	def __init__(self, confdir, dbroot):
 
