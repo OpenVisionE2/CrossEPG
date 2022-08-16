@@ -97,7 +97,10 @@ class CrossEPG_Rytec_Update(Screen):
 		try:
 			import urllib2
 			import gzip
-			from StringIO import StringIO
+			try:
+				from cStringIO import StringIO
+			except:
+				from io import StringIO
 			url = "http://rytecepg.dyndns.tv/epg_data/crossepgsources.gz"
 			print("[crossepg_rytec_update:loadSourceList] downloading source list from %s" % url)
 			response = urllib2.urlopen(url)
