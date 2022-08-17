@@ -13,9 +13,13 @@ import sys
 import time
 import codecs
 import socket
-import urllib
-import urllib2
-import ConfigParser
+from six.moves.urllib.parse import quote
+from six.moves.urllib.request import urlopen
+from six import PY2
+try:
+	import ConfigParser
+except:
+	import configparser as ConfigParser
 from xml.dom import minidom
 
 # import CrossEPG functions
@@ -32,6 +36,11 @@ sys.path.append(libdir)
 # import local modules
 import sgmllib
 import scriptlib
+
+if PY2:
+	pyunicode = unicode
+else:
+	pyunicode = str
 
 # =================================================================
 # HTML PARSER
@@ -120,10 +129,10 @@ class main:
 			return ('')
 
 		self.log("   downloading description \'" + url + "\'")
-		url = str(urllib.quote(url, safe=":/"))
+		url = str(quote(url, safe=":/"))
 
 		try:
-			sock = urllib2.urlopen(url)
+			sock = urlopen(url)
 			data = sock.read()
 		except IOError as e:
 			serr = "unknown"
@@ -215,7 +224,7 @@ class main:
 
 		# create a dictionary (Python array) with index = channel ID
 		for i in temp:
-			self.CHANNELLIST[i[0].strip(' \n\r').lower()] = unicode(i[1].strip(' \n\r').lower(), 'utf-8')
+			self.CHANNELLIST[i[0].strip(' \n\r').lower()] = pyunicode(i[1].strip(' \n\r').lower(), 'utf-8')
 
 		if len(self.CHANNELLIST) == 0:
 			self.log("ERROR: [channels] section empty ?", 1)
@@ -249,7 +258,7 @@ class main:
 		i = self.HTTP_ERROR_RETRY
 		while i > 0:
 			try:
-				sock = urllib2.urlopen(self.CONF_URL)
+				sock = urlopen(self.CONF_URL)
 				data = sock.read()
 			except IOError as e:
 				serr = "unknown"
@@ -382,7 +391,7 @@ class main:
 							# normal channel, not "+1"
 							event_startime_unix_gmt = str(int(time.mktime(time.strptime(event_starttime, "%Y/%m/%d %H:%M"))) - self.DELTA_UTC + nextdayevent)
 
-						event_title = unicode(xml_ee.getElementsByTagName('titolo')[0].firstChild.data)
+						event_title = pyunicode(xml_ee.getElementsByTagName('titolo')[0].firstChild.data)
 						event_title = event_title.replace('\r', '')
 						event_title = event_title.replace('\n', '')
 						event_title = event_title.strip(u' ')
@@ -390,7 +399,7 @@ class main:
 						event_description = ''
 						if self.CONF_DL_DESC == 1:
 							url_desc = xml_ee.getElementsByTagName('linkScheda')[0].firstChild.data
-							event_description = unicode(self.get_description(url_desc.strip(' \n\r'))[:self.CONF_DLDESCMAXCHAR])
+							event_description = pyunicode(self.get_description(url_desc.strip(' \n\r'))[:self.CONF_DLDESCMAXCHAR])
 							event_description = event_description.replace('\r', '')
 							event_description = event_description.replace('\n', u' ')
 							event_description = event_description.strip(u' ')
