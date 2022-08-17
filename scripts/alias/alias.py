@@ -31,6 +31,11 @@ sys.path.append(libdir)
 import sgmllib
 import scriptlib
 
+if PY2:
+	pyunicode = unicode
+else:
+	pyunicode = str
+
 
 class main:
 
@@ -64,10 +69,7 @@ class main:
 		self.CHANNELLIST = {}
 		# create a dictionary (Python array) with index = channel ID
 		for i in temp:
-			if PY2:
-				self.CHANNELLIST[i[0]] = unicode(i[1], 'utf-8')
-			else:
-				self.CHANNELLIST[i[0]] = str(i[1], 'utf-8')
+			self.CHANNELLIST[i[0]] = pyunicode(i[1], 'utf-8')
 
 		if len(self.CHANNELLIST) == 0:
 			self.log.log("ERROR: [aliases] section empty ?")
