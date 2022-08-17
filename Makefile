@@ -58,6 +58,8 @@ FTP_USER = root
 FTP_PASSWORD = openvision
 
 TARGET_ARCH ?= mips
+PYTHON_BASEVERSION ?= 2.7
+PYTHONEXTENSION ?= pyo
 
 all:
 	$(MAKE) clean
@@ -150,9 +152,9 @@ clean:
 	$(SWIGS_OBJS) $(SWIGS_LIBS) $(SHARED_LIBS)
 
 install-python:
-	install -d $(D)$(libdir)/python2.7/lib-dynload
-	install -m 644 src/common/crossepg.pyo $(D)$(libdir)/python2.7
-	install -m 644 bin/_crossepg.so $(D)$(libdir)/python2.7/lib-dynload
+	install -d $(D)$(libdir)/python$(PYTHON_BASEVERSION)/lib-dynload
+	install -m 644 src/common/crossepg.$(PYTHONEXTENSION) $(D)$(libdir)/python$(PYTHON_BASEVERSION)
+	install -m 644 bin/_crossepg.so $(D)$(libdir)/python$(PYTHON_BASEVERSION)/lib-dynload
 
 install-standalone:
 	install -d $(D)/usr/crossepg/aliases
@@ -177,7 +179,7 @@ install-standalone:
 	install -m 755 contrib/crossepg_epgmove.sh $(D)/usr/crossepg/
 	install -m 755 contrib/crossepg_prepare_pre_start.sh $(D)/usr/crossepg/
 	install -m 644 providers/* $(D)/usr/crossepg/providers/
-	install -m 755 scripts/*.pyo $(D)/usr/crossepg/scripts/
+	install -m 755 scripts/*.$(PYTHONEXTENSION) $(D)/usr/crossepg/scripts/
 	install -m 755 scripts/lib/* $(D)/usr/crossepg/scripts/lib/
 	install -m 755 scripts/rai/* $(D)/usr/crossepg/scripts/rai/
 	install -m 755 scripts/alias/* $(D)/usr/crossepg/scripts/alias/
@@ -211,7 +213,7 @@ install-standalone-var:
 	install -m 755 contrib/crossepg_epgmove.sh $(D)/var/crossepg/
 	install -m 755 contrib/crossepg_prepare_pre_start.sh $(D)/var/crossepg/
 	install -m 644 providers/* $(D)/var/crossepg/providers/
-	install -m 755 scripts/*.pyo $(D)/var/crossepg/scripts/
+	install -m 755 scripts/*.$(PYTHONEXTENSION) $(D)/var/crossepg/scripts/
 	install -m 755 scripts/lib/* $(D)/var/crossepg/scripts/lib/
 	install -m 755 scripts/rai/* $(D)/var/crossepg/scripts/rai/
 	install -m 755 scripts/alias/* $(D)/var/crossepg/scripts/alias/
@@ -225,7 +227,7 @@ install-standalone-var:
 install-plugin:
 	install -d $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/skins
 	install -d $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/images
-	install -m 644 src/enigma2/python/*.pyo $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/
+	install -m 644 src/enigma2/python/*.$(PYTHONEXTENSION) $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/
 	install -m 644 src/enigma2/python/skins/*.xml $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/skins/
 	install -m 644 src/enigma2/python/images/*.png $(D)${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/images/
 
@@ -234,8 +236,8 @@ install-var: install-python install-standalone-var install-plugin
 install-var-flash: install-standalone-var install-plugin
 
 remote-install:
-	ncftpput -m -u $(FTP_USER) -p $(FTP_PASSWORD) $(FTP_HOST) ${libdir}/python2.7 src/common/crossepg.pyo
-	ncftpput -m -u $(FTP_USER) -p $(FTP_PASSWORD) $(FTP_HOST) ${libdir}/python2.7/lib-dynload bin/_crossepg.so
+	ncftpput -m -u $(FTP_USER) -p $(FTP_PASSWORD) $(FTP_HOST) ${libdir}/python$(PYTHON_BASEVERSION) src/common/crossepg.$(PYTHONEXTENSION)
+	ncftpput -m -u $(FTP_USER) -p $(FTP_PASSWORD) $(FTP_HOST) ${libdir}/python$(PYTHON_BASEVERSION)/lib-dynload bin/_crossepg.so
 
 	ncftpput -m -u $(FTP_USER) -p $(FTP_PASSWORD) $(FTP_HOST) /usr/crossepg bin/crossepg_dbconverter
 	ncftpput -m -u $(FTP_USER) -p $(FTP_PASSWORD) $(FTP_HOST) /usr/crossepg bin/crossepg_dbinfo
@@ -249,7 +251,7 @@ remote-install:
 
 	#ncftpput -m -u $(FTP_USER) -p $(FTP_PASSWORD) $(FTP_HOST) /usr/crossepg/providers providers/*
 	#ncftpput -m -u $(FTP_USER) -p $(FTP_PASSWORD) $(FTP_HOST) /usr/crossepg/scripts scripts/*
-	#ncftpput -m -u $(FTP_USER) -p $(FTP_PASSWORD) $(FTP_HOST) ${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG src/enigma2/python/*.pyo
+	#ncftpput -m -u $(FTP_USER) -p $(FTP_PASSWORD) $(FTP_HOST) ${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG src/enigma2/python/*.$(PYTHONEXTENSION)
 	#ncftpput -m -u $(FTP_USER) -p $(FTP_PASSWORD) $(FTP_HOST) ${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/skins src/enigma2/python/skins/*.xml
 	#ncftpput -m -u $(FTP_USER) -p $(FTP_PASSWORD) $(FTP_HOST) ${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/images src/enigma2/python/images/*.png
 	

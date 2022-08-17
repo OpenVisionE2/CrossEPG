@@ -89,14 +89,20 @@ def main():
 		log_add("SID: 0x%x" % channel.sid)
 		title_count = 0
 		title = channel.title_first
+		from six import PY2
 		while title != None:
 			dump_title(title)
-			title = title.next
+			if PY2:
+				title = title.next
+			else:
+				title = title.__next__
 			title_count += 1
 			if title_count == 2:		# it's only a test so we halt the loop after 2 titles
 				break
-
-		channel = channel.next
+		if PY2:
+			channel = channel.next
+		else:
+			channel = channel.__next__
 		channel_count += 1
 		if channel_count == 3:		# it's only a test so we halt the loop after 3 channels
 			break
