@@ -12,7 +12,10 @@ from Screens.MessageBox import MessageBox
 from .crossepglib import *
 from .crossepg_locale import _
 
-import httplib
+try:
+	import httplib
+except:
+	import http.client as httplib
 import xml.etree.cElementTree
 import re
 import os

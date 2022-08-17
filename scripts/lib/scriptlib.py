@@ -159,7 +159,7 @@ class lamedb_class:
 			try:
 				u = unicode(s, charset, "strict")
 			except:
-				pass
+				u = str(s, charset, "strict")
 			else:
 				break
 

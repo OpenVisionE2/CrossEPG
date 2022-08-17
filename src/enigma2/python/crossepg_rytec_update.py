@@ -12,7 +12,10 @@ from Screens.MessageBox import MessageBox
 from .crossepglib import *
 from .crossepg_locale import _
 
-import httplib
+try:
+	import httplib
+except:
+	import http.client as httplib
 import xml.etree.cElementTree
 import re
 import os
@@ -95,7 +98,7 @@ class CrossEPG_Rytec_Update(Screen):
 
 	def loadSourceList(self):
 		try:
-			import urllib2
+			from six.moves.urllib.request import urlopen
 			import gzip
 			try:
 				from cStringIO import StringIO
@@ -103,7 +106,7 @@ class CrossEPG_Rytec_Update(Screen):
 				from io import StringIO
 			url = "http://rytecepg.dyndns.tv/epg_data/crossepgsources.gz"
 			print("[crossepg_rytec_update:loadSourceList] downloading source list from %s" % url)
-			response = urllib2.urlopen(url)
+			response = urlopen(url)
 			content_raw = response.read()
 			if 'gzip' in response.info().getheader('Content-Type'):
 				self.mirrors = [x.strip() for x in gzip.GzipFile(fileobj=StringIO(content_raw)).read().strip().split("\n")]

@@ -15,8 +15,12 @@ import codecs
 import socket
 import string
 import random
-import urllib2
-import ConfigParser
+from six import PY2
+from six.moves.urllib.request import urlopen
+try:
+	import ConfigParser
+except:
+	import configparser as ConfigParser
 
 # import CrossEPG functions
 import crossepg
@@ -32,6 +36,11 @@ sys.path.append(libdir)
 # import local modules
 import sgmllib
 import scriptlib
+
+if PY2:
+	pyunicode = unicode
+else:
+	pyunicode = str
 
 # =================================================================
 # HTML PARSER
@@ -190,7 +199,7 @@ class main:
 
 		# create a dictionary (Python array) with index = channel ID
 		for i in temp:
-			self.CHANNELLIST[i[0]] = unicode(i[1], 'utf-8')
+			self.CHANNELLIST[i[0]] = pyunicode(i[1], 'utf-8')
 
 		if len(self.CHANNELLIST) == 0:
 			self.log.log("ERROR: [channels] section empty ?")
@@ -228,7 +237,7 @@ class main:
 		#   chid format: channel id , 0|1|2(,new name)
 		#   i.e. ("101" , "1,SkyCinema1")
 		pbar_max = 0
-		for c in chlist.keys():
+		for c in list(chlist.keys()):
 			cacheopt = int(string.split(chlist[c], ",")[0])
 			if cacheopt == 1:
 				pbar_max += 1
@@ -307,7 +316,7 @@ class main:
 					time.sleep(random.uniform(self.CONF_RANDOM_MIN, self.CONF_RANDOM_MAX))
 
 					try:
-						sock = urllib2.urlopen(self.CONF_URL + '?' + xmlfile)
+						sock = urlopen(self.CONF_URL + '?' + xmlfile)
 						data = sock.read()
 
 					except IOError as e:
@@ -355,7 +364,7 @@ class main:
 							#self.log(event_starttime + " , " + str(self.DELTA_UTC) + " , " + str(int(time.mktime(time.strptime(event_starttime,"%Y-%m-%d %H:%M")))) + " , " + event_startime_unix_gmt )
 
 							# convert remote data (RAI website use UTF-8) in Python Unicode (UCS2)
-							event_title = unicode(titolo, self.REMOTE_EPG_CHARSET)
+							event_title = pyunicode(titolo, self.REMOTE_EPG_CHARSET)
 
 							event_title = event_title.replace('\r', '')
 							event_title = event_title.replace('\n', u' ')

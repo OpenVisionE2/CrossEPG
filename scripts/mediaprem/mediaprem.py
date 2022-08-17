@@ -14,9 +14,13 @@ import sys
 import time
 import codecs
 import socket
-import urllib
-import urllib2
-import ConfigParser
+from six.moves.urllib.parse import quote
+from six.moves.urllib.request import urlopen
+from six import PY2
+try:
+	import ConfigParser
+except:
+	import configparser as ConfigParser
 #from xml.dom import minidom
 
 # import CrossEPG functions
@@ -33,6 +37,11 @@ sys.path.append(libdir)
 # import local modules
 import sgmllib
 import scriptlib
+
+if PY2:
+	pyunicode = unicode
+else:
+	pyunicode = str
 
 # =================================================================
 # HTML PARSER used for parsing description
@@ -253,7 +262,7 @@ class main(sgmllib.SGMLParser):
 			event_starttime = self.SGML_GIORNOMP + '_' + self.SGML_EVENT_STARTHOUR
 			event_startime_unix_gmt = str(int(time.mktime(time.strptime(event_starttime, "%Y/%m/%d_%H:%M"))) - self.DELTA_UTC + nextdayevent)
 
-			event_title = unicode(self.SGML_EVENT_TITLE)
+			event_title = pyunicode(self.SGML_EVENT_TITLE)
 			event_title = event_title.replace('\r', '')
 			event_title = event_title.replace('\n', '')
 			event_title = event_title.strip(u' ')
@@ -266,7 +275,7 @@ class main(sgmllib.SGMLParser):
 				if self.SGML_ACTIVITY_INDEX > self.SGML_ACTIVITY_MAX_INDEX:
 					self.SGML_ACTIVITY_INDEX = 0
 
-				event_description = unicode(self.get_description(self.SGML_EVENT_SUMMARIE_LINK.strip(' \n\r'), self.CONF_DLDESCMAXCHAR))
+				event_description = pyunicode(self.get_description(self.SGML_EVENT_SUMMARIE_LINK.strip(' \n\r'), self.CONF_DLDESCMAXCHAR))
 				event_description = event_description.replace('\r', '')
 				event_description = event_description.replace('\n', u' ')
 				event_description = event_description.strip(u' ')
@@ -333,9 +342,9 @@ class main(sgmllib.SGMLParser):
 			return (self.DESCRIPTIONS_WEBCACHE[url_hash])
 
 		self.log.log("   downloading description and cache: " + url)
-		url_enc = str(urllib.quote(url, safe=":/"))
+		url_enc = str(quote(url, safe=":/"))
 		try:
-			sock = urllib2.urlopen(url_enc)
+			sock = urlopen(url_enc)
 			data = sock.read()
 		except IOError as e:
 			serr = "unknown"
@@ -415,7 +424,7 @@ class main(sgmllib.SGMLParser):
 
 		# create a dictionary (Python array) with index = channel ID
 		for i in temp:
-			self.CHANNELLIST[i[0].strip(' \n\r').lower()] = unicode(i[1].strip(' \n\r').lower(), 'utf-8')
+			self.CHANNELLIST[i[0].strip(' \n\r').lower()] = pyunicode(i[1].strip(' \n\r').lower(), 'utf-8')
 
 		if len(self.CHANNELLIST) == 0:
 			self.log.log("ERROR: [channels] section empty ?")
@@ -447,7 +456,7 @@ class main(sgmllib.SGMLParser):
 		i = self.HTTP_ERROR_RETRY
 		while i > 0:
 			try:
-				sock = urllib2.urlopen(self.CONF_URL)
+				sock = urlopen(self.CONF_URL)
 				data = sock.read()
 			except IOError as e:
 				serr = "unknown"

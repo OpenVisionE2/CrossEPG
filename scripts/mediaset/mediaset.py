@@ -15,8 +15,12 @@ import time
 import codecs
 import socket
 import urllib
-import urllib2
-import ConfigParser
+from six import PY2
+from six.moves.urllib.request import urlopen
+try:
+	import ConfigParser
+except:
+	import configparser as ConfigParser
 #from xml.dom import minidom
 
 # import CrossEPG functions
@@ -33,6 +37,11 @@ sys.path.append(libdir)
 # import local modules
 import sgmllib
 import scriptlib
+
+if PY2:
+	pyunicode = unicode
+else:
+	pyunicode = str
 
 # =================================================================
 
@@ -157,7 +166,7 @@ class main(sgmllib.SGMLParser):
 
 	def end_guidatv(self):
 		self.SGML_GIORNOMP = None
-		for c in self.SGML_FD.keys():
+		for c in list(self.SGML_FD.keys()):
 			self.SGML_FD[c].close()
 
 	def start_programmi(self, attr):
@@ -188,7 +197,7 @@ class main(sgmllib.SGMLParser):
 			event_starttime = self.SGML_EVENT_TIMESTAMP
 			event_startime_unix_gmt = str(int(time.mktime(time.strptime(event_starttime, "%Y%m%d%H%M"))) - self.DELTA_UTC)
 
-			event_title = unicode(self.SGML_EVENT_TITLE)
+			event_title = pyunicode(self.SGML_EVENT_TITLE)
 			event_title = event_title.replace('\r', '')
 			event_title = event_title.replace('\n', '')
 			event_title = event_title.strip(u' ')
@@ -285,7 +294,7 @@ class main(sgmllib.SGMLParser):
 
 		# create a dictionary (Python array) with index = channel ID
 		for i in temp:
-			self.CHANNELLIST[i[0].strip(' \n\r').lower()] = unicode(i[1].strip(' \n\r').lower(), 'utf-8')
+			self.CHANNELLIST[i[0].strip(' \n\r').lower()] = pyunicode(i[1].strip(' \n\r').lower(), 'utf-8')
 
 		if len(self.CHANNELLIST) == 0:
 			self.log.log("ERROR: [channels] section empty ?")
@@ -317,7 +326,7 @@ class main(sgmllib.SGMLParser):
 		i = self.HTTP_ERROR_RETRY
 		while i > 0:
 			try:
-				sock = urllib2.urlopen(self.CONF_URL)
+				sock = urlopen(self.CONF_URL)
 				data = sock.read()
 			except IOError as e:
 				serr = "unknown"
