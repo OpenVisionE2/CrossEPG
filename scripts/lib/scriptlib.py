@@ -156,10 +156,11 @@ class lamedb_class:
 		charset_list = ('utf-8', 'iso-8859-1', 'iso-8859-2', 'iso-8859-15')
 
 		for charset in charset_list:
+			from six import text_type
 			try:
-				u = unicode(s, charset, "strict")
+				u = text_type(s, charset, "strict")
 			except:
-				u = str(s, charset, "strict")
+				pass
 			else:
 				break
 

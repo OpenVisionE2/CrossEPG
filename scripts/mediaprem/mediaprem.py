@@ -16,7 +16,7 @@ import codecs
 import socket
 from six.moves.urllib.parse import quote
 from six.moves.urllib.request import urlopen
-from six import PY2
+from six import text_type
 try:
 	import ConfigParser
 except:
@@ -37,12 +37,6 @@ sys.path.append(libdir)
 # import local modules
 import sgmllib
 import scriptlib
-
-if PY2:
-	pyunicode = unicode
-else:
-	pyunicode = str
-
 # =================================================================
 # HTML PARSER used for parsing description
 
@@ -262,7 +256,7 @@ class main(sgmllib.SGMLParser):
 			event_starttime = self.SGML_GIORNOMP + '_' + self.SGML_EVENT_STARTHOUR
 			event_startime_unix_gmt = str(int(time.mktime(time.strptime(event_starttime, "%Y/%m/%d_%H:%M"))) - self.DELTA_UTC + nextdayevent)
 
-			event_title = pyunicode(self.SGML_EVENT_TITLE)
+			event_title = text_type(self.SGML_EVENT_TITLE)
 			event_title = event_title.replace('\r', '')
 			event_title = event_title.replace('\n', '')
 			event_title = event_title.strip(u' ')
@@ -275,7 +269,7 @@ class main(sgmllib.SGMLParser):
 				if self.SGML_ACTIVITY_INDEX > self.SGML_ACTIVITY_MAX_INDEX:
 					self.SGML_ACTIVITY_INDEX = 0
 
-				event_description = pyunicode(self.get_description(self.SGML_EVENT_SUMMARIE_LINK.strip(' \n\r'), self.CONF_DLDESCMAXCHAR))
+				event_description = text_type(self.get_description(self.SGML_EVENT_SUMMARIE_LINK.strip(' \n\r'), self.CONF_DLDESCMAXCHAR))
 				event_description = event_description.replace('\r', '')
 				event_description = event_description.replace('\n', u' ')
 				event_description = event_description.strip(u' ')
@@ -424,7 +418,7 @@ class main(sgmllib.SGMLParser):
 
 		# create a dictionary (Python array) with index = channel ID
 		for i in temp:
-			self.CHANNELLIST[i[0].strip(' \n\r').lower()] = pyunicode(i[1].strip(' \n\r').lower(), 'utf-8')
+			self.CHANNELLIST[i[0].strip(' \n\r').lower()] = text_type(i[1].strip(' \n\r').lower(), 'utf-8')
 
 		if len(self.CHANNELLIST) == 0:
 			self.log.log("ERROR: [channels] section empty ?")

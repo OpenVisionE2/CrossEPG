@@ -15,7 +15,7 @@ import codecs
 import socket
 from six.moves.urllib.parse import quote
 from six.moves.urllib.request import urlopen
-from six import PY2
+from six import text_type
 try:
 	import ConfigParser
 except:
@@ -36,12 +36,6 @@ sys.path.append(libdir)
 # import local modules
 import sgmllib
 import scriptlib
-
-if PY2:
-	pyunicode = unicode
-else:
-	pyunicode = str
-
 # =================================================================
 # HTML PARSER
 
@@ -224,7 +218,7 @@ class main:
 
 		# create a dictionary (Python array) with index = channel ID
 		for i in temp:
-			self.CHANNELLIST[i[0].strip(' \n\r').lower()] = pyunicode(i[1].strip(' \n\r').lower(), 'utf-8')
+			self.CHANNELLIST[i[0].strip(' \n\r').lower()] = text_type(i[1].strip(' \n\r').lower(), 'utf-8')
 
 		if len(self.CHANNELLIST) == 0:
 			self.log("ERROR: [channels] section empty ?", 1)
@@ -391,7 +385,7 @@ class main:
 							# normal channel, not "+1"
 							event_startime_unix_gmt = str(int(time.mktime(time.strptime(event_starttime, "%Y/%m/%d %H:%M"))) - self.DELTA_UTC + nextdayevent)
 
-						event_title = pyunicode(xml_ee.getElementsByTagName('titolo')[0].firstChild.data)
+						event_title = text_type(xml_ee.getElementsByTagName('titolo')[0].firstChild.data)
 						event_title = event_title.replace('\r', '')
 						event_title = event_title.replace('\n', '')
 						event_title = event_title.strip(u' ')
@@ -399,7 +393,7 @@ class main:
 						event_description = ''
 						if self.CONF_DL_DESC == 1:
 							url_desc = xml_ee.getElementsByTagName('linkScheda')[0].firstChild.data
-							event_description = pyunicode(self.get_description(url_desc.strip(' \n\r'))[:self.CONF_DLDESCMAXCHAR])
+							event_description = text_type(self.get_description(url_desc.strip(' \n\r'))[:self.CONF_DLDESCMAXCHAR])
 							event_description = event_description.replace('\r', '')
 							event_description = event_description.replace('\n', u' ')
 							event_description = event_description.strip(u' ')
